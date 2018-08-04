@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DaVG_AusfJ:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DaVG_AusfJ_jar</output-path>
+    <root id="archive" name="DaVG_AusfJ.jar">
+      <element id="module-output" name="DaVG Ausf. J" />
+    </root>
+  </artifact>
+</component>
