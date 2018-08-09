@@ -16,10 +16,13 @@ public class Main {
     public static Scanner input = new Scanner(System.in);
     public static boolean debugMode;
     public static String VersionNo;
+    public static String userName;
     public static int LongDelay;
     public static int MedDelay;
     public static int ShortDelay;
     public static int NoDelay;
+    public static String[] daVGDir;
+    public static File[] daVGDrive;
 
     public static void main( String[] args ) throws InterruptedException, IOException {
         VersionNo = "V0.1";
@@ -64,14 +67,19 @@ public class Main {
          * 4 - Inventory slot for medicine.
          * 5 - Inventory slot for misc. items.
          */
-        String [] daVGDir = new String[6];
-        File [] daVGDrive = new File[6];
-        daVGDir[0] = userProfile + "\\Documents\\DaVG_AusfJ_" + VersionNo + "_Data\\";
-        daVGDir[1] = userProfile + "\\Documents\\DaVG_AusfJ_" + VersionNo + "_Data\\inv\\weap";
-        daVGDir[2] = userProfile + "\\Documents\\DaVG_AusfJ_" + VersionNo + "_Data\\inv\\ammo";
-        daVGDir[3] = userProfile + "\\Documents\\DaVG_AusfJ_" + VersionNo + "_Data\\inv\\equp";
-        daVGDir[4] = userProfile + "\\Documents\\DaVG_AusfJ_" + VersionNo + "_Data\\inv\\meds";
-        daVGDir[5] = userProfile + "\\Documents\\DaVG_AusfJ_" + VersionNo + "_Data\\inv\\misc";
+        System.out.println("*Please enter the username of the profile you wish to load. ");
+        System.out.println("*WARNING: Profile names are case sensitive.");
+
+        userName = input.next();
+        daVGDir = new String[6];
+        daVGDrive = new File[6];
+
+        daVGDir[0] = userProfile + "\\Documents\\DaVG_AusfJ_" + VersionNo + "_Data\\" + userName + "\\";
+        daVGDir[1] = userProfile + "\\Documents\\DaVG_AusfJ_" + VersionNo + "_Data\\" + userName + "\\inv\\weap";
+        daVGDir[2] = userProfile + "\\Documents\\DaVG_AusfJ_" + VersionNo + "_Data\\" + userName + "\\inv\\ammo";
+        daVGDir[3] = userProfile + "\\Documents\\DaVG_AusfJ_" + VersionNo + "_Data\\" + userName + "\\inv\\equp";
+        daVGDir[4] = userProfile + "\\Documents\\DaVG_AusfJ_" + VersionNo + "_Data\\" + userName + "\\inv\\meds";
+        daVGDir[5] = userProfile + "\\Documents\\DaVG_AusfJ_" + VersionNo + "_Data\\" + userName + "\\inv\\misc";
         daVGDrive[0] = new File( daVGDir[0] );
         daVGDrive[1] = new File( daVGDir[1] );
         daVGDrive[2] = new File( daVGDir[2] );
@@ -97,6 +105,7 @@ public class Main {
             boolean retUser = dataExists && !playerData.isEmpty();
             if (retUser) {
                 ClearScreen();
+                System.out.println(System.getProperty( "os.name" ));
                 System.out.println("*Please choose a boot sequence.");
                 TimeUnit.SECONDS.sleep( ShortDelay );
                 System.out.println(">FULL (  Full boot sequence  )");
@@ -145,9 +154,13 @@ public class Main {
          * statement, as shown below. Depending on the OS it's running on, the program will use ProcessBuilder to
          * construct the appropriate command.
          */
-        switch ( System.getProperty( "os.name" ).toLowerCase() ){
-            case "windows 10": case "windows 8.1": case "windows 8": case "windows 7":
+        String os = System.getProperty( "os.name" );
+        switch ( os ){
+            case "Windows 10": case "Windows 8.1": case "Windows 8": case "Windows 7":
                 new ProcessBuilder( "cmd", "/c", "cls" ).inheritIO().start().waitFor();
+                break;
+            case "MacOS Sierra":
+                new ProcessBuilder( "clear" ).inheritIO().start().waitFor();
                 break;
             default:
                 System.out.println( "*If you're seeing this, it means that something has gone wrong - most likely that your OS is not supported yet." );
@@ -204,7 +217,7 @@ public class Main {
         TimeUnit.SECONDS.sleep( LongDelay );
         System.out.println( "OK" );
         TimeUnit.MILLISECONDS.sleep( NoDelay );
-        intro2( userProfile, retUser, daVGDrive, daVGDir, playerSheet);
+        intro2( userProfile, retUser, daVGDrive, daVGDir, playerSheet );
 
     }
 
@@ -298,7 +311,7 @@ public class Main {
         playerSheet.createNewFile();
         reader = new BufferedReader(new FileReader(playerSheet));
         writer = new BufferedWriter(new FileWriter(playerSheet));
-        writer.write(playerData[0]+"~100~100~NORMAL~MODERATE~NORMAL");
+        writer.write(playerData[0]+"~100~100~NORMAL~MODERATE~NORMAL~001");
         writer.flush();
         writer.close();
         TimeUnit.SECONDS.sleep( LongDelay );
@@ -308,8 +321,8 @@ public class Main {
         TimeUnit.MILLISECONDS.sleep( NoDelay );
         System.out.println( "//GREETINGS, "+playerData[0] );
         TimeUnit.MILLISECONDS.sleep( NoDelay );
-        System.out.println( "//INPUT ANY CHARACTER TO CONTINUE");
-        input.next();
+        System.out.println( "//PRESS ENTER TO CONTINUE");
+        input.nextLine();
         mmain(userProfile, daVGDrive, daVGDir, playerSheet);
     }
 
@@ -517,7 +530,7 @@ public class Main {
 
     public static void weapons(String userProfile, File[] daVGDrive, String[] daVGDir, File playerSheet) throws IOException, InterruptedException {
     ClearScreen();
-        String[] playerData = new String[6];
+        String[] playerData = new String[7];
         reader = new BufferedReader(new FileReader(playerSheet));
         try {
             playerData = reader.readLine().split("~");
@@ -545,22 +558,52 @@ public class Main {
             System.out.println("COMPLETE");
             TimeUnit.SECONDS.sleep( ShortDelay );
             if (TESTWEAP.isDirectory()){
-                System.out.println( ">TESTWEAP" );
+                if (playerData[6].equals("000")){
+                    System.out.println( ">TESTWEAP [CW]" );
+                }
+                else{
+                    System.out.println( ">TESTWEAP" );
+                }
             }
             if (AB_45.isDirectory()){
-                System.out.println( ">AB_45" );
+                if (playerData[6].equals("000")){
+                    System.out.println( ">AB_45 [CW]" );
+                }
+                else{
+                    System.out.println( ">AB_45" );
+                }
             }
             if (LP61.isDirectory()){
-                System.out.println( ">LP61" );
+                if (playerData[6].equals("000")){
+                    System.out.println( ">LP61 [CW]" );
+                }
+                else{
+                    System.out.println( ">LP61" );
+                }
             }
             if (MP60.isDirectory()){
-                System.out.println( ">MP60" );
+                if (playerData[6].equals("000")){
+                    System.out.println( ">MP60 [CW]" );
+                }
+                else{
+                    System.out.println( ">MP60" );
+                }
             }
             if (P1885.isDirectory()){
-                System.out.println( ">P.1885" );
+                if (playerData[6].equals("000")){
+                    System.out.println( ">P.1885 [CW]" );
+                }
+                else{
+                    System.out.println( ">P.1885" );
+                }
             }
             if (P60.isDirectory()){
-                System.out.println( ">P60" );
+                if (playerData[6].equals("000")){
+                    System.out.println( ">P60 [CW]" );
+                }
+                else{
+                    System.out.println( ">P60" );
+                }
             }
         }
         else{
@@ -751,6 +794,24 @@ public class Main {
                 case "REFRESH": case "refresh": case "R": case "r":
                     weaponLoad( userProfile, daVGDrive, daVGDir, playerSheet, weaponName );
                     break;
+                case "EQUIP": case "equip": case "1":
+                    System.out.println("//ARE YOU SURE YOU WANT TO EQUIP THIS WEAPON?");
+                    boolean equipOptionNotChosen = true;
+                    while ( equipOptionNotChosen ) {
+                        switch ( input.next() ) {
+                            case "Y": case "y": case "1":
+
+                                weapons(userProfile, daVGDrive, daVGDir, playerSheet);
+                                break;
+                            case "N": case "n": case "0":
+                                System.out.println("//RETURNING TO WEAPONS MENU.");
+                                TimeUnit.SECONDS.sleep(LongDelay);
+
+                            default:
+                                System.out.println( "//ERROR: INVALID INPUT." );
+                                break;
+                        }
+                    }
                 case "BACK": case "back": case "0":
                     weapons( userProfile, daVGDrive, daVGDir, playerSheet );
                     break;
