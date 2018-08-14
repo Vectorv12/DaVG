@@ -23,6 +23,8 @@ public class Main {
     public static int NoDelay;
     public static String[] daVGDir;
     public static File[] daVGDrive;
+    public static String DirPath;
+    public static String userProfile;
 
     public static void main( String[] args ) throws InterruptedException, IOException {
         VersionNo = "V0.1";
@@ -31,23 +33,123 @@ public class Main {
         MedDelay = 2;
         ShortDelay = 1;
         NoDelay = 100;
+        userProfile = System.getenv( "USERPROFILE" );
+        DirPath = userProfile + "\\Documents\\DaVG_AusfJ_";
+        input = new Scanner( System.in );
         /** Welcome to DaVG Ausf. J V0.1!
          *
          * This program is meant to emulate the functions of the Anser-Lindhurst DatenVerarbeitungsGer&auml;t, or DaVG.
-         * In House of Mirrors, the player is issued the DaVG Ausf. A, a durable (  if bulky  ) wrist-mounted information
+         * In House of Mirrors, the player is issued the DaVG Ausf. J, a durable (  if bulky  ) wrist-mounted information
          * processor developed by the Volkshavenish firm Anser-Lindhurst Instrumentenfirma and issued to Volkshavenish
          * troops during the 1960s.
          *
-         * This emulation of the DaVG has been given the designation of Ausf&uuml;hrung J (  "Execution J"  ) to distinguish
-         * it from its sibling, Ausf&uuml;hrung B, which takes the form of a batch file.
+         * This emulation of the DaVG has been given the designation of Ausf&uuml;hrung J (  "Execution J"  ) to
+         * distinguish it from its sibling, Ausf&uuml;hrung B, which takes the form of a batch file.
          *
-         * When run, DaVG Ausf. J begins by attempting to locate a .txt file labeled "playerData.txt".
-         * This file will only have been created if the program has been run (  or if existing data has been transferred
-         * from a compatible previous version  ).
          */
-        Scanner input = new Scanner( System.in );
-        String userProfile = System.getenv( "USERPROFILE" );
 
+        /**The program begins by initializing the DaVG's operating system, known as KRIEGSGEIST, or "War Mind". In the
+         * context of the Multiverse, KRIEGSGEIST is a reliable ( if perhaps a bit spartan ) operating system built
+         * specifically for the DaVG platform.
+         *
+         * DaVG Ausf. J begins by stating that KRIEGSGEIST V2 is being initialized.
+         */
+        ClearScreen();
+        System.out.println( "//Initializing KRIEGSGEIST V2..." );
+        TimeUnit.SECONDS.sleep( MedDelay );
+        System.out.print( "//CHECKING RAM... " );
+        TimeUnit.SECONDS.sleep( MedDelay );
+        System.out.println( "128K RAM AVAILABLE." );
+        TimeUnit.MILLISECONDS.sleep( NoDelay );
+        System.out.print( "//CHECKING MEMORY..." );
+        TimeUnit.SECONDS.sleep( MedDelay );
+        System.out.println( "77822 BYTES AVAILABLE." );
+        TimeUnit.SECONDS.sleep( ShortDelay );
+        System.out.println( "//READING HARD DRIVE..." );
+
+        /** At this point, the program will attempt to locate a folder labeled "DaVG_AusfJ_(Version No.)_Data
+         * in the user's Documents folder. This folder will only exist if the user has run the program previously.
+         * If it does not exist, then the program will then move directly into a small cinematic sequence in which it
+         * completes a series of "diagnostic" tests.
+         *
+         * However, if the folder does exist, the program will list all the profiles contained within them.
+         */
+        File DataDirectory = new File(DirPath + VersionNo + "_Data\\");
+        String[] profileList = DataDirectory.list();
+        System.out.println (profileList);
+        if (profileList.length == 0){
+            System.out.println( "//ERROR: NO PROFILES FOUND IN HARD DRIVE" );
+            TimeUnit.SECONDS.sleep(ShortDelay);
+            System.out.println( "//CREATE NEW PROFILE? Y/N" );
+            TimeUnit.SECONDS.sleep(ShortDelay);
+            System.out.println( "//WARNING: CHOOSING \"N\" WILL DEACTIVATE UNIT TO PREVENT TAMPERING");
+            boolean optionNotChosen = true;
+            while ( optionNotChosen ) {
+                switch ( input.next() ) {
+                    case "Y": case "y":
+                        optionNotChosen = false;
+                        System.out.println( "//PLEASE INPUT PROFILE NAME." );
+                        TimeUnit.SECONDS.sleep(ShortDelay);
+                        System.out.println( "//WARNING: PROFILE NAMES ARE CASE SENSITIVE" );
+                        userName = input.next();
+                        break;
+                    case "N": case "n":
+                        optionNotChosen = false;
+                        shutdown();
+                        break;
+                    default:
+                        System.out.println( "//ERROR: INVALID INPUT." );
+                        break;
+                }
+            }
+        } else {
+            for (String profileName : profileList){
+                System.out.println( ">" + profileName );
+            }
+            System.out.println( "//PLEASE SELECT A PROFILE" );
+            TimeUnit.SECONDS.sleep( ShortDelay );
+            System.out.println( "//WARNING: PROFILE NAMES ARE CASE SENSITIVE" );
+            userName = input.next();
+            File requestedProfile = new File( DirPath + VersionNo + "_Data\\" + userName + "\\" );
+            if (!requestedProfile.isDirectory()){
+                System.out.println( "//ERROR: SPECIFIED PROFILE NOT FOUND" );
+                TimeUnit.SECONDS.sleep( ShortDelay );
+                System.out.println( "//CREATE NEW PROFILE WITH THIS NAME? Y/N" );
+                TimeUnit.SECONDS.sleep( ShortDelay );
+                System.out.println( "//WARNING: CHOOSING \"NO\" WILL DEACTIVATE UNIT TO PREVENT TAMPERING");
+                boolean optionNotChosen = true;
+                while ( optionNotChosen ) {
+                    switch ( input.next() ) {
+                        case "Y": case "y":
+                            optionNotChosen = false;
+                            break;
+                        case "N": case "n":
+                            optionNotChosen = false;
+                            shutdown();
+                            break;
+                        default:
+                            System.out.println( "//ERROR: INVALID INPUT." );
+                            break;
+                    }
+                }
+            }
+        }
+
+        daVGDir = new String[6];
+        daVGDrive = new File[6];
+
+        daVGDir[0] = DirPath + VersionNo + "_Data\\" + userName + "\\";
+        daVGDir[1] = DirPath + VersionNo + "_Data\\" + userName + "\\inv\\weap";
+        daVGDir[2] = DirPath + VersionNo + "_Data\\" + userName + "\\inv\\ammo";
+        daVGDir[3] = DirPath + VersionNo + "_Data\\" + userName + "\\inv\\equp";
+        daVGDir[4] = DirPath + VersionNo + "_Data\\" + userName + "\\inv\\meds";
+        daVGDir[5] = DirPath + VersionNo + "_Data\\" + userName + "\\inv\\misc";
+        daVGDrive[0] = new File( daVGDir[0] );
+        daVGDrive[1] = new File( daVGDir[1] );
+        daVGDrive[2] = new File( daVGDir[2] );
+        daVGDrive[3] = new File( daVGDir[3] );
+        daVGDrive[4] = new File( daVGDir[4] );
+        daVGDrive[5] = new File( daVGDir[5] );
 
         /**Here, the program creates a pair of arrays, daVGDir and daVGDrive, both of which house several parameters.
          *
@@ -67,25 +169,7 @@ public class Main {
          * 4 - Inventory slot for medicine.
          * 5 - Inventory slot for misc. items.
          */
-        System.out.println("*Please enter the username of the profile you wish to load. ");
-        System.out.println("*WARNING: Profile names are case sensitive.");
-
-        userName = input.next();
-        daVGDir = new String[6];
-        daVGDrive = new File[6];
-
-        daVGDir[0] = userProfile + "\\Documents\\DaVG_AusfJ_" + VersionNo + "_Data\\" + userName + "\\";
-        daVGDir[1] = userProfile + "\\Documents\\DaVG_AusfJ_" + VersionNo + "_Data\\" + userName + "\\inv\\weap";
-        daVGDir[2] = userProfile + "\\Documents\\DaVG_AusfJ_" + VersionNo + "_Data\\" + userName + "\\inv\\ammo";
-        daVGDir[3] = userProfile + "\\Documents\\DaVG_AusfJ_" + VersionNo + "_Data\\" + userName + "\\inv\\equp";
-        daVGDir[4] = userProfile + "\\Documents\\DaVG_AusfJ_" + VersionNo + "_Data\\" + userName + "\\inv\\meds";
-        daVGDir[5] = userProfile + "\\Documents\\DaVG_AusfJ_" + VersionNo + "_Data\\" + userName + "\\inv\\misc";
-        daVGDrive[0] = new File( daVGDir[0] );
-        daVGDrive[1] = new File( daVGDir[1] );
-        daVGDrive[2] = new File( daVGDir[2] );
-        daVGDrive[3] = new File( daVGDir[3] );
-        daVGDrive[4] = new File( daVGDir[4] );
-        daVGDrive[5] = new File( daVGDir[5] );
+        
         File playerSheet = new File ( daVGDir[0] + "playerData.txt" );
         boolean dataExists = playerSheet.exists() && playerSheet.isFile();
         /**If the program successfully locates playerData.txt and all of the inventory directories, the user will be prompted with the option of skipping the
@@ -135,6 +219,7 @@ public class Main {
                 }
 
             } else {
+                System.out.println( "//ERROR: NO DATA IN SPECIFIED DRIVE SECTOR" );
                 intro(userProfile, retUser, daVGDrive, daVGDir, playerSheet);
             }
         } else {
@@ -172,17 +257,6 @@ public class Main {
     }
 
     public static void intro(String userProfile, boolean retUser, File[] daVGDrive, String[] daVGDir, File playerSheet) throws IOException, InterruptedException {
-        ClearScreen();
-        System.out.println( "//Initializing KRIEGSGEIST V2..." );
-        TimeUnit.SECONDS.sleep( MedDelay );
-        System.out.print( "//CHECKING RAM... " );
-        TimeUnit.SECONDS.sleep( MedDelay );
-        System.out.println( "128K RAM AVAILABLE." );
-        TimeUnit.MILLISECONDS.sleep( NoDelay );
-        System.out.print( "//CHECKING MEMORY..." );
-        TimeUnit.SECONDS.sleep( MedDelay );
-        System.out.println( "77822 BYTES AVAILABLE." );
-        TimeUnit.SECONDS.sleep( ShortDelay );
         System.out.println( "//PERFORMING DIAGNOSTIC TEST BATTERY." );
         TimeUnit.SECONDS.sleep( ShortDelay );
         System.out.print( "//CORE 1..." );
@@ -251,6 +325,8 @@ public class Main {
             System.out.println( "//WARNING: NO CNMI DETECTED WITHIN USER." );
             TimeUnit.MILLISECONDS.sleep( NoDelay );
             System.out.println( "//OVERRIDE? Y/N" );
+            TimeUnit.SECONDS.sleep(ShortDelay);
+            System.out.println( "//WARNING: CHOOSING \"N\" WILL DEACTIVATE UNIT TO PREVENT TAMPERING");
             boolean optionNotChosen = true;
             while ( optionNotChosen ) {
                 switch ( input.next() ) {
@@ -281,6 +357,8 @@ public class Main {
         System.out.println( "//NO SECURITY MEASURES DEFINED BY PRIOR USERS." );
         TimeUnit.SECONDS.sleep( ShortDelay );
         System.out.println( "//CREATE NEW USER? Y/N" );
+        TimeUnit.SECONDS.sleep(ShortDelay);
+        System.out.println( "//WARNING: CHOOSING \"N\" WILL DEACTIVATE UNIT TO PREVENT TAMPERING");
         boolean optionNotChosen = true;
         while ( optionNotChosen ) {
             switch ( input.next() ) {
@@ -316,11 +394,11 @@ public class Main {
         writer.close();
         TimeUnit.SECONDS.sleep( LongDelay );
         System.out.println( "//DATA WRITING COMPLETE." );
-        TimeUnit.MILLISECONDS.sleep( NoDelay );
+        TimeUnit.MILLISECONDS.sleep( ShortDelay );
         System.out.println( "//NEW ENTRY CREATED IN USER REGISTRY." );
-        TimeUnit.MILLISECONDS.sleep( NoDelay );
+        TimeUnit.MILLISECONDS.sleep( ShortDelay );
         System.out.println( "//GREETINGS, "+playerData[0] );
-        TimeUnit.MILLISECONDS.sleep( NoDelay );
+        TimeUnit.MILLISECONDS.sleep( ShortDelay);
         System.out.println( "//PRESS ENTER TO CONTINUE");
         input.nextLine();
         mmain(userProfile, daVGDrive, daVGDir, playerSheet);
