@@ -1,0 +1,5 @@
+Don't forget to install the Java Runtime Environment (JRE) from Oracle before running!
+
+The JRE can be found here:
+
+http://www.oracle.com/technetwork/java/javase/downloads/jre10-downloads-4417026.html

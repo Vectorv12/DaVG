@@ -8,6 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="402cbc04-7430-4dd3-ba34-cc8977d4d00f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/DaVG_AusfJ_jar/DaVG_AusfJ.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DaVG_AusfJ_jar/DaVG_AusfJ.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DaVG Ausf. J/com/VectorFoundry/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DaVG Ausf. J/com/VectorFoundry/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/VectorFoundry/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/VectorFoundry/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,25 +23,32 @@
     <session id="1131289119">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="12" />
+          <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.30" value="1" />
+          <entry key="project.open.time.32" value="1" />
+          <entry key="project.open.time.33" value="1" />
+          <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.37" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.41" value="1" />
+          <entry key="project.open.time.41" value="2" />
           <entry key="project.open.time.43" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.open.time.59" value="1" />
+          <entry key="project.open.time.70" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="6397" />
+          <entry key="java" value="19324" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="6397" />
+          <entry key="JAVA" value="19324" />
         </counts>
       </usages-collector>
     </session>
@@ -49,8 +58,26 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/VectorFoundry/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="218" column="17" lean-forward="true" selection-start-line="218" selection-start-column="17" selection-end-line="218" selection-end-column="17" />
+            <state relative-caret-position="2611">
+              <caret line="1497" column="40" selection-start-line="1497" selection-start-column="40" selection-end-line="1497" selection-end-column="40" />
+              <folding>
+                <element signature="e#1779#17578#0" />
+                <element signature="e#17584#19133#0" />
+                <element signature="e#19139#19293#0" />
+                <element signature="e#19298#19449#0" />
+                <element signature="e#19454#19610#0" />
+                <element signature="e#19615#19771#0" />
+                <element signature="e#19776#19935#0" />
+                <element signature="e#19940#20098#0" />
+                <element signature="e#20104#21410#0" />
+                <element signature="e#21416#24660#0" />
+                <element signature="e#24666#28000#0" />
+                <element signature="e#28006#31353#0" />
+                <element signature="e#31359#37807#0" />
+                <element signature="e#37813#41421#0" />
+                <element signature="e#41427#53115#0" />
+                <element signature="e#53121#53702#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -59,12 +86,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>)</find>
-      <find>(  )</find>
-      <find>userData</find>
-      <find>DaVGDrivePath</find>
-      <find>createNewFile</find>
-      <find>drivePath</find>
       <find>isFile()</find>
       <find>new File(playerSheet)</find>
       <find>UserProfile</find>
@@ -72,12 +93,29 @@
       <find>DaVGDir</find>
       <find>shutdown</find>
       <find>private</find>
-      <find>TESTWEAP</find>
       <find>TimeUnit.SECONDS.sleep( 2 )</find>
       <find>TimeUnit.SECONDS.sleep(LongDelay)</find>
-      <find>AB_45</find>
       <find>userProfile + &quot;\\Documents\\DaVG_AusfJ_&quot;</find>
       <find>DataDirectory</find>
+      <find>public static File</find>
+      <find>TESTWEAP</find>
+      <find>TimeUnit.SECONDS.sleep( LongDelay );</find>
+      <find>TimeUnit.MILLISECONDS.sleep( NoDelay );</find>
+      <find>TimeUnit</find>
+      <find>public</find>
+      <find>StringBuilder</find>
+      <find>//USER</find>
+      <find>?</find>
+      <find>*Debug mode has been disabled. I hope you found things to your liking.</find>
+      <find>KRIEGSGEIST</find>
+      <find>cinematics</find>
+      <find>option</find>
+      <find>optionNotChosen</find>
+      <find>//ACCELERATED READ/WRITE DEACTIVATED</find>
+      <find>TimeUnit.SECONDS.sleep</find>
+      <find>String[] playerData = new String[6];</find>
+      <find>currentWeapon</find>
+      <find>AB_45</find>
     </findStrings>
     <replaceStrings>
       <replace>()</replace>
@@ -92,9 +130,17 @@
       <replace>MEDICAL</replace>
       <replace>public</replace>
       <replace>TimeUnit.SECONDS.sleep( LongDelay )</replace>
-      <replace>P60</replace>
       <replace>DataDirectory</replace>
       <replace>DirPath</replace>
+      <replace>P60</replace>
+      <replace>private</replace>
+      <replace>//MAINTENANCE MODE DISABLED</replace>
+      <replace>KRIEGSVERSTAND</replace>
+      <replace>cutscenes</replace>
+      <replace>//ACCELERATED READ/WRITE DISABLED</replace>
+      <replace>String[] playerData = new String[7];</replace>
+      <replace>cW</replace>
+      <replace>FtA_45</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -108,9 +154,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="953" />
-    <option name="y" value="40" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="32" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -120,7 +166,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -157,6 +202,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -165,7 +211,7 @@
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="davg_ausf._j" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534205071522" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534484161274" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
@@ -234,9 +280,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="953" y="40" width="974" height="1047" extended-state="0" />
+    <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21663019" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.114072494" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -307,8 +353,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/VectorFoundry/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="218" column="17" lean-forward="true" selection-start-line="218" selection-start-column="17" selection-end-line="218" selection-end-column="17" />
+        <state relative-caret-position="2611">
+          <caret line="1497" column="40" selection-start-line="1497" selection-start-column="40" selection-end-line="1497" selection-end-column="40" />
+          <folding>
+            <element signature="e#1779#17578#0" />
+            <element signature="e#17584#19133#0" />
+            <element signature="e#19139#19293#0" />
+            <element signature="e#19298#19449#0" />
+            <element signature="e#19454#19610#0" />
+            <element signature="e#19615#19771#0" />
+            <element signature="e#19776#19935#0" />
+            <element signature="e#19940#20098#0" />
+            <element signature="e#20104#21410#0" />
+            <element signature="e#21416#24660#0" />
+            <element signature="e#24666#28000#0" />
+            <element signature="e#28006#31353#0" />
+            <element signature="e#31359#37807#0" />
+            <element signature="e#37813#41421#0" />
+            <element signature="e#41427#53115#0" />
+            <element signature="e#53121#53702#0" />
+          </folding>
         </state>
       </provider>
     </entry>
