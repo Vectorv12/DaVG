@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import java.io.*;
 
-public class Main {
+public class DaVG {
 
     private static BufferedReader reader;
     private static BufferedWriter writer;
@@ -44,7 +44,7 @@ public class Main {
     private static int cWAUPS;
     private static String cWFRMD;
     private static int cWID;
-    
+
     // \/SIDEARMS\/
     private static File TESTWEAP;
     private static File TESTWEAPTAG;
@@ -98,6 +98,9 @@ public class Main {
          */
 
         ClearScreen();
+        System.out.println(">PRESS ENTER TO BEGIN BOOT PROCESS<");
+        petc.nextLine();
+        ClearScreen();
         System.out.println("//Initializing KRIEGSVERSTAND V2...");
         MedDelay();
         System.out.print("//CHECKING RAM... ");
@@ -128,7 +131,7 @@ public class Main {
         if (!DataDirectory.isDirectory()) {
             DataDirectory.mkdir();
         }
-        if (profileList.length == 0 || profileList.equals(null)) {
+        if (profileList.length == 0) {
             LongDelay();
             System.out.println("FAILED");
             ShortDelay();
@@ -182,10 +185,11 @@ public class Main {
         } else {
             ShortDelay();
             System.out.println("SUCCESSFUL");
+            ShortDelay();
             for (String profileName : profileList) {
                 System.out.println(">" + profileName);
             }
-            System.out.println("//PLEASE SELECT A PROFILE");
+            System.out.println("//PLEASE SELECT A USER PROFILE");
             ShortDelay();
             System.out.println("//WARNING: PROFILE NAMES ARE CASE SENSITIVE");
             boolean profileNotChosen = true;
@@ -220,9 +224,9 @@ public class Main {
         }
         File requestedProfile = new File( DirPath + VersionNo + "_Data\\" + userName + "\\" );
         if (!requestedProfile.isDirectory()){
-            System.out.println( "//ERROR: SPECIFIED PROFILE NOT FOUND" );
+            System.out.println( "//ERROR: SPECIFIED USER PROFILE NOT FOUND" );
             ShortDelay();
-            System.out.println( "//CREATE NEW PROFILE WITH THIS NAME? Y/N" );
+            System.out.println( "//CREATE NEW USER PROFILE WITH THIS NAME? Y/N" );
             ShortDelay();
             System.out.println( "//WARNING: CHOOSING \"N\" WILL DEACTIVATE UNIT TO PREVENT TAMPERING");
             boolean optionNotChosen = true;
@@ -314,7 +318,9 @@ public class Main {
          * the intro cinematic and walk the user through the process of creating a new user profile.
          */
         if ( dataExists ) {
-            System.out.println(playerSheet);
+            if (debugMode){
+              System.out.println(playerSheet);
+            }
             reader = new BufferedReader(new FileReader(playerSheet));
             builder = new StringBuilder();
             String playerData;
@@ -689,7 +695,7 @@ public class Main {
                 case "COMBAT": case "combat": case "CMBT": case "cmbt": case "5":
                     combat( userProfile, daVGDrive, daVGDir, playerSheet );
                     break;
-                case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P":
+                case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P": case "p":
                     shutdown();
                     break;
                 case "#KVSEDBM":
@@ -842,7 +848,7 @@ public class Main {
                                 break;
                         }
                     }
-                case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P":
+                case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P": case "p":
                     shutdown();
                     break;
                 case "BACK": case "back": case "0":
@@ -909,7 +915,7 @@ public class Main {
                 case "BACK": case "back": case "0":
                     mmain( userProfile, daVGDrive, daVGDir, playerSheet );
                     break;
-                case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P":
+                case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P": case "p":
                     shutdown();
                     break;
                 case "#KVSEDBM":
@@ -1166,7 +1172,7 @@ public class Main {
                 case "BACK": case "back": case "0":
                     inventory( userProfile, daVGDrive, daVGDir, playerSheet );
                     break;
-                case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P":
+                case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P": case "p":
                     shutdown();
                     break;
                 case "#KVSEDBM":
@@ -1541,7 +1547,7 @@ public class Main {
                         }
                     }
                     break;
-                case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P":
+                case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P": case "p":
                     shutdown();
                     break;
                 case "BACK": case "back": case "0":
@@ -1611,7 +1617,7 @@ public class Main {
                 case "2":
                     shutdown();
                     break;
-                case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P":
+                case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P": case "p":
                     shutdown();
                     break;
                 case "#KVSEDBM":
@@ -1677,7 +1683,7 @@ public class Main {
                 case "2":
                     shutdown();
                     break;
-                case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P":
+                case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P": case "p":
                     shutdown();
                     break;
                 case "#KVSEDBM":
@@ -2125,7 +2131,7 @@ public class Main {
                     break;
                 case "REFRESH": case "refresh": case "REFR": case "refr": case "R": case "r":
                     combat(userProfile, daVGDrive, daVGDir, playerSheet);
-                case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P":
+                case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P": case "p":
                     shutdown();
                     break;
                 case "BACK": case "back": case "0":
@@ -2159,7 +2165,7 @@ public class Main {
     }
 
     private static void shutdown() throws InterruptedException, IOException {
-        System.out.println( "INITIATING SHUTDOWN..." );
+        System.out.println( "//INITIATING SHUTDOWN..." );
         ShutoffDelay();
         System.exit( 0 );
         ClearScreen();
