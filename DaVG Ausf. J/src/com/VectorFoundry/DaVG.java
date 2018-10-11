@@ -128,11 +128,11 @@ public class DaVG {
          */
 
         File DataDirectory = new File(DirPath + VersionNo + "_Data\\");
-        String[] profileList = DataDirectory.list();
         if (!DataDirectory.isDirectory()) {
             DataDirectory.mkdir();
         }
-        if (profileList.length == 0 || profileList.equals("null")) {
+        String[] profileList = DataDirectory.list();
+        if (profileList.length == 0 || profileList.equals(null)) {
             veryFirstBoot=true;
             LongDelay();
             System.out.println("FAILED");
