@@ -27,6 +27,7 @@ public class DaVG {
     private static String DirPath;
     private static String userProfile;
     private static Scanner petc;
+    private static boolean veryFirstBoot;
 
     private static String cWNAME;
     private static String cWROLE;
@@ -131,7 +132,8 @@ public class DaVG {
         if (!DataDirectory.isDirectory()) {
             DataDirectory.mkdir();
         }
-        if (profileList.length == 0) {
+        if (profileList.length == 0 || profileList.equals("null")) {
+            veryFirstBoot=true;
             LongDelay();
             System.out.println("FAILED");
             ShortDelay();
@@ -224,8 +226,10 @@ public class DaVG {
         }
         File requestedProfile = new File( DirPath + VersionNo + "_Data\\" + userName + "\\" );
         if (!requestedProfile.isDirectory()){
-            System.out.println( "//ERROR: SPECIFIED USER PROFILE NOT FOUND" );
-            ShortDelay();
+            if (!veryFirstBoot){
+              System.out.println( "//ERROR: SPECIFIED USER PROFILE NOT FOUND" );
+              ShortDelay();
+            }
             System.out.println( "//CREATE NEW USER PROFILE WITH THIS NAME? Y/N" );
             ShortDelay();
             System.out.println( "//WARNING: CHOOSING \"N\" WILL DEACTIVATE UNIT TO PREVENT TAMPERING");
