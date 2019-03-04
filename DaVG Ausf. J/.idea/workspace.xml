@@ -7,12 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="402cbc04-7430-4dd3-ba34-cc8977d4d00f" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/playerCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/DaVG_AusfJ_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/desktop.ini" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DaVG Ausf. J/com/VectorFoundry/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/DaVG_AusfJ_jar/DaVG_AusfJ.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DaVG_AusfJ_jar/DaVG_AusfJ.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DaVG Ausf. J/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DaVG Ausf. J/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DaVG Ausf. J/com/VectorFoundry/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DaVG Ausf. J/com/desktop.ini" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/VectorFoundry/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/VectorFoundry/DaVG.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/DaVG.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/VectorFoundry/DaVG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DaVG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/VectorFoundry/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/desktop.ini" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,22 +33,38 @@
     <session id="1131289119">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="12" />
+          <entry key="project.closed" value="37" />
+          <entry key="project.open.time.0" value="2" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.25" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.30" value="1" />
+          <entry key="project.open.time.28" value="1" />
+          <entry key="project.open.time.29" value="1" />
+          <entry key="project.open.time.3" value="2" />
+          <entry key="project.open.time.30" value="2" />
+          <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.33" value="1" />
+          <entry key="project.open.time.34" value="2" />
           <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.37" value="1" />
-          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.38" value="1" />
+          <entry key="project.open.time.39" value="2" />
+          <entry key="project.open.time.4" value="2" />
           <entry key="project.open.time.41" value="2" />
           <entry key="project.open.time.43" value="1" />
-          <entry key="project.open.time.59" value="1" />
+          <entry key="project.open.time.46" value="1" />
+          <entry key="project.open.time.48" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.50" value="1" />
+          <entry key="project.open.time.51" value="1" />
+          <entry key="project.open.time.59" value="2" />
+          <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.70" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="15" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="40" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -50,7 +74,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="19324" />
+          <entry key="JAVA" value="58760" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="34" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -97,10 +127,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/VectorFoundry/DaVG.java">
+        <entry file="file://$PROJECT_DIR$/src/DaVG.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="27" column="38" lean-forward="true" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+            <state relative-caret-position="332">
+              <caret line="1430" column="50" lean-forward="true" selection-start-line="1430" selection-start-column="50" selection-end-line="1430" selection-end-column="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -116,61 +149,68 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>isFile()</find>
-      <find>new File(playerSheet)</find>
-      <find>UserProfile</find>
-      <find>public static</find>
-      <find>DaVGDir</find>
-      <find>shutdown</find>
-      <find>private</find>
-      <find>TimeUnit.SECONDS.sleep( 2 )</find>
-      <find>TimeUnit.SECONDS.sleep(LongDelay)</find>
-      <find>userProfile + &quot;\\Documents\\DaVG_AusfJ_&quot;</find>
-      <find>DataDirectory</find>
-      <find>public static File</find>
-      <find>TESTWEAP</find>
-      <find>TimeUnit.SECONDS.sleep( LongDelay );</find>
-      <find>TimeUnit.MILLISECONDS.sleep( NoDelay );</find>
-      <find>TimeUnit</find>
-      <find>public</find>
-      <find>StringBuilder</find>
-      <find>//USER</find>
-      <find>?</find>
-      <find>*Debug mode has been disabled. I hope you found things to your liking.</find>
-      <find>KRIEGSGEIST</find>
-      <find>cinematics</find>
-      <find>option</find>
+      <find>med</find>
+      <find>Strength</find>
+      <find>return</find>
+      <find>/**</find>
+      <find>userskill</find>
+      <find>15</find>
+      <find>weapon</find>
+      <find>Proficiency1</find>
+      <find>null</find>
+      <find>1</find>
+      <find>userBackground</find>
+      <find>Level</find>
+      <find>Background 1</find>
+      <find>29</find>
+      <find>Background</find>
+      <find>30</find>
+      <find>UserskillProficiency</find>
+      <find>ÜBERSCHR</find>
+      <find>#KVS</find>
       <find>optionNotChosen</find>
-      <find>//ACCELERATED READ/WRITE DEACTIVATED</find>
-      <find>TimeUnit.SECONDS.sleep</find>
-      <find>String[] playerData = new String[6];</find>
-      <find>currentWeapon</find>
-      <find>AB_45</find>
+      <find>equipOptionNotChosen</find>
+      <find>))</find>
+      <find>&quot;)&quot;</find>
+      <find>//IRRTUM</find>
+      <find>//IRRTUM: UNGÜLTIGE EINGABE.</find>
+      <find>REFRESH</find>
+      <find>case &quot;REFRESH&quot;</find>
+      <find>BACKGROUND</find>
+      <find>IRRTUM</find>
+      <find>FEHLER</find>
     </findStrings>
     <replaceStrings>
-      <replace>()</replace>
-      <replace>DaVGDrive</replace>
-      <replace>DaVGDir</replace>
-      <replace>mkdir</replace>
-      <replace>isDirectory()</replace>
-      <replace>playerSheet</replace>
-      <replace>daVGDir</replace>
-      <replace>back</replace>
-      <replace>ammo</replace>
-      <replace>MEDICAL</replace>
-      <replace>public</replace>
-      <replace>TimeUnit.SECONDS.sleep( LongDelay )</replace>
-      <replace>DataDirectory</replace>
-      <replace>DirPath</replace>
-      <replace>P60</replace>
-      <replace>private</replace>
-      <replace>//MAINTENANCE MODE DISABLED</replace>
-      <replace>KRIEGSVERSTAND</replace>
-      <replace>cutscenes</replace>
-      <replace>//ACCELERATED READ/WRITE DISABLED</replace>
-      <replace>String[] playerData = new String[7];</replace>
-      <replace>cW</replace>
-      <replace>FtA_45</replace>
+      <replace>Constitution</replace>
+      <replace>Wisdom</replace>
+      <replace>No</replace>
+      <replace>edit</replace>
+      <replace>Intelligence</replace>
+      <replace>Charisma</replace>
+      <replace>modifier =</replace>
+      <replace>28</replace>
+      <replace>/*</replace>
+      <replace>userSkill</replace>
+      <replace>Weapon</replace>
+      <replace>Proficiency2</replace>
+      <replace>Proficiency3</replace>
+      <replace>Proficiency4</replace>
+      <replace>2</replace>
+      <replace>3</replace>
+      <replace>playerData[]</replace>
+      <replace>4</replace>
+      <replace>5</replace>
+      <replace>userLevel</replace>
+      <replace>30</replace>
+      <replace>Background</replace>
+      <replace>31</replace>
+      <replace>UserSkillProficiency</replace>
+      <replace>equipOptionNotChosen</replace>
+      <replace>optionNotChosen</replace>
+      <replace>&quot; )&quot;</replace>
+      <replace>FEHLER</replace>
+      <replace>SKILL</replace>
+      <replace>ACHTUNG</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -181,9 +221,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/com/VectorFoundry/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/VectorFoundry/DaVG.java" />
         <option value="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
         <option value="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+        <option value="$PROJECT_DIR$/src/com/VectorFoundry/DaVG.java" />
+        <option value="$PROJECT_DIR$/src/player.java" />
+        <option value="$PROJECT_DIR$/src/playerCharacter.java" />
+        <option value="$PROJECT_DIR$/src/DaVG.java" />
       </list>
     </option>
   </component>
@@ -199,8 +242,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -213,24 +255,11 @@
               <item name="DaVG Ausf. J" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="DaVG Ausf. J" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DaVG Ausf. J" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DaVG Ausf. J" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DaVG Ausf. J" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="VectorFoundry" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -238,12 +267,21 @@
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="davg_ausf._j" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538072736304" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/agbay/OneDrive/Documents/GitHub/DaVG/DaVG Ausf. J/.idea/misc.xml" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551577268750" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\agbay\OneDrive\Documents\GitHub\DaVG\DaVG Ausf. J\src" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -259,11 +297,11 @@
   </component>
   <component name="RunManager">
     <configuration name="DaVG" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.VectorFoundry.DaVG" />
+      <option name="MAIN_CLASS_NAME" value="DaVG" />
       <module name="DaVG Ausf. J" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.VectorFoundry.*" />
+          <option name="PATTERN" value="*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -306,9 +344,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="32" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.115733735" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.071428575" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -316,8 +354,8 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49926794" weight="0.33515882" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49926794" weight="0.335141" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -325,10 +363,10 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50073206" side_tool="true" weight="0.3290938" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3231106" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32212582" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24840085" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24835886" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
@@ -397,23 +435,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/VectorFoundry/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/VectorFoundry/Main.java" />
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/VectorFoundry/DaVG.java">
+    <entry file="file://$PROJECT_DIR$/src/playerCharacter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="27" column="38" lean-forward="true" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+        <state relative-caret-position="-527">
+          <caret line="514" column="14" lean-forward="true" selection-start-line="514" selection-start-column="14" selection-end-line="514" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DaVG.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="1430" column="50" lean-forward="true" selection-start-line="1430" selection-start-column="50" selection-end-line="1430" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -423,10 +465,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>DaVG_AusfJ:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -434,7 +478,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>No facets are configured</last-edited>
+          <last-edited>Detection</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -457,7 +501,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>JDK 10</last-edited>
+          <last-edited>10</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
