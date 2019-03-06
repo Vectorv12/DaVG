@@ -1171,11 +1171,7 @@ public class DaVG {
                                     System.out.println("//ERROR: PRIMARY CLASS MISSING!");
                                 } else {
                                     System.out.println("//PLEASE ENTER NEW VALUE FOR CLASS 3 (CLS3)");
-<<<<<<< HEAD
                                     player.setUserClass3(input.next());
-=======
-                                    player.setUserClass2(input.next());
->>>>>>> refs/remotes/origin/master
                                     System.out.println("//CLASS 3 (CLS3) VALUE UPDATED");
                                 }
                                 ShortDelay();
@@ -1189,11 +1185,7 @@ public class DaVG {
                                     System.out.println("//ERROR: PRIMARY CLASS MISSING!");
                                 } else {
                                     System.out.println("//PLEASE ENTER NEW VALUE FOR CLASS 4 (CLS4)");
-<<<<<<< HEAD
                                     player.setUserClass4(input.next());
-=======
-                                    player.setUserClass2(input.next());
->>>>>>> refs/remotes/origin/master
                                     System.out.println("//CLASS 4 (CLS4) VALUE UPDATED");
                                 }
                                 ShortDelay();
