@@ -7,20 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="402cbc04-7430-4dd3-ba34-cc8977d4d00f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/playerCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/DaVG_AusfJ_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/DaVG_AusfJ_jar/DaVG_AusfJ.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DaVG_AusfJ_jar/DaVG_AusfJ.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DaVG Ausf. J/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DaVG Ausf. J/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DaVG Ausf. J/com/VectorFoundry/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DaVG Ausf. J/com/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/VectorFoundry/DaVG.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/DaVG.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/VectorFoundry/DaVG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DaVG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/VectorFoundry/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DaVG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DaVG.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,7 +21,7 @@
     <session id="1131289119">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="37" />
+          <entry key="project.closed" value="39" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.2" value="1" />
@@ -61,10 +49,17 @@
           <entry key="project.open.time.51" value="1" />
           <entry key="project.open.time.59" value="2" />
           <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.70" value="1" />
+<<<<<<< HEAD
+          <entry key="project.open.time.8" value="3" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="43" />
+=======
           <entry key="project.open.time.8" value="2" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="40" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="42" />
+>>>>>>> refs/remotes/origin/master
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -74,12 +69,16 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="58760" />
+<<<<<<< HEAD
+          <entry key="JAVA" value="59339" />
+=======
+          <entry key="JAVA" value="59337" />
+>>>>>>> refs/remotes/origin/master
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="34" />
+          <entry key="JAVA" value="36" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -87,9 +86,10 @@
     <session id="1263120109">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.70" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -125,20 +125,53 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/DaVG.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="1430" column="50" lean-forward="true" selection-start-line="1430" selection-start-column="50" selection-end-line="1430" selection-end-column="50" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/DaVG.java">
+              <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+                <state relative-caret-position="476">
+                  <caret line="1194" column="45" lean-forward="true" selection-start-line="1194" selection-start-column="45" selection-end-line="1194" selection-end-column="45" />
+=======
+                <state relative-caret-position="425">
+                  <caret line="1206" column="64" selection-start-line="1206" selection-start-column="64" selection-end-line="1206" selection-end-column="64" />
+>>>>>>> refs/remotes/origin/master
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+<<<<<<< HEAD
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/DaVG.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="17">
+=======
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/DaVG.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-4352">
+>>>>>>> refs/remotes/origin/master
+                  <caret line="977" column="57" selection-start-line="977" selection-start-column="57" selection-end-line="977" selection-end-column="57" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -149,7 +182,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>med</find>
       <find>Strength</find>
       <find>return</find>
       <find>/**</find>
@@ -158,7 +190,6 @@
       <find>weapon</find>
       <find>Proficiency1</find>
       <find>null</find>
-      <find>1</find>
       <find>userBackground</find>
       <find>Level</find>
       <find>Background 1</find>
@@ -179,12 +210,13 @@
       <find>BACKGROUND</find>
       <find>IRRTUM</find>
       <find>FEHLER</find>
+      <find>stat</find>
+      <find>1</find>
     </findStrings>
     <replaceStrings>
       <replace>Constitution</replace>
       <replace>Wisdom</replace>
       <replace>No</replace>
-      <replace>edit</replace>
       <replace>Intelligence</replace>
       <replace>Charisma</replace>
       <replace>modifier =</replace>
@@ -198,7 +230,6 @@
       <replace>2</replace>
       <replace>3</replace>
       <replace>playerData[]</replace>
-      <replace>4</replace>
       <replace>5</replace>
       <replace>userLevel</replace>
       <replace>30</replace>
@@ -211,6 +242,8 @@
       <replace>FEHLER</replace>
       <replace>SKILL</replace>
       <replace>ACHTUNG</replace>
+      <replace>edit</replace>
+      <replace>4</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -230,7 +263,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="32" />
     <option name="width" value="974" />
@@ -259,7 +292,11 @@
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
+      <pane id="PackagesPane" />
+=======
       <pane id="Scope" />
+>>>>>>> refs/remotes/origin/master
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -268,7 +305,7 @@
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="davg_ausf._j" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/agbay/OneDrive/Documents/GitHub/DaVG/DaVG Ausf. J/.idea/misc.xml" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551577268750" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551883650210" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -345,8 +382,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
+<<<<<<< HEAD
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.071428575" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.07409382" />
+=======
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.07356077" />
+>>>>>>> refs/remotes/origin/master
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -451,8 +494,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DaVG.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="1430" column="50" lean-forward="true" selection-start-line="1430" selection-start-column="50" selection-end-line="1430" selection-end-column="50" />
+<<<<<<< HEAD
+        <state relative-caret-position="476">
+          <caret line="1194" column="45" lean-forward="true" selection-start-line="1194" selection-start-column="45" selection-end-line="1194" selection-end-column="45" />
+=======
+        <state relative-caret-position="425">
+          <caret line="1206" column="64" selection-start-line="1206" selection-start-column="64" selection-end-line="1206" selection-end-column="64" />
+>>>>>>> refs/remotes/origin/master
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
