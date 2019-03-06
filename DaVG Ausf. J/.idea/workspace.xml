@@ -7,20 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="402cbc04-7430-4dd3-ba34-cc8977d4d00f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/playerCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/DaVG_AusfJ_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/desktop.ini" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/DaVG_AusfJ_jar/DaVG_AusfJ.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DaVG_AusfJ_jar/DaVG_AusfJ.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DaVG Ausf. J/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DaVG Ausf. J/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DaVG Ausf. J/com/VectorFoundry/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DaVG Ausf. J/com/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/VectorFoundry/DaVG.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/DaVG.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/VectorFoundry/DaVG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DaVG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/VectorFoundry/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DaVG Ausf. J/DaVG.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DaVG Ausf. J/playerCharacter.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -87,9 +77,10 @@
     <session id="1263120109">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.70" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -129,8 +120,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DaVG.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="1430" column="50" lean-forward="true" selection-start-line="1430" selection-start-column="50" selection-end-line="1430" selection-end-column="50" />
+            <state relative-caret-position="230">
+              <caret line="1361" column="74" selection-start-line="1361" selection-start-column="74" selection-end-line="1361" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -242,7 +233,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -259,7 +250,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -344,9 +336,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="32" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.071428575" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.07261725" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -451,8 +443,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DaVG.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="1430" column="50" lean-forward="true" selection-start-line="1430" selection-start-column="50" selection-end-line="1430" selection-end-column="50" />
+        <state relative-caret-position="230">
+          <caret line="1361" column="74" selection-start-line="1361" selection-start-column="74" selection-end-line="1361" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
