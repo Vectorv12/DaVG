@@ -969,14 +969,36 @@ public class DaVG {
          * 27 - Software Slot 5
          */
 
-        System.out.println( "//CURRENT HEALTH: " + player.getUserCurrentHealth() + "/" + player.getUserMaxHealth() + " HP" );
+        System.out.println( "//CURRENT HEALTH (HP): " + player.getUserCurrentHealth() + "/" + player.getUserMaxHealth() + " HP" );
         NoDelay();
-        System.out.println( "//OVERALL VITAL STATUS: " + player.getUserStatus() );
+        System.out.println( "//OVERALL VITAL STATUS (STAT): " + player.getUserStatus() );
         NoDelay();
-        System.out.println( "//SYNCHRONIZATION LEVEL: " + player.getUserLevel() );
+        System.out.println( "//SYNCHRONIZATION LEVEL (LEVL): " + player.getUserLevel() );
         NoDelay();
-        System.out.println( "//LIFETIME USER DATA GATHERED: " + player.getUserXP() + " DB");
+        System.out.println( "//LIFETIME USER PERFORMANCE DATA GATHERED (DATA): " + player.getUserXP() + " DB");
         NoDelay();
+        if (player.getUserClass1().equals("C1M")){
+            System.out.println( "//CLASS 1 (CLS1): [DATA MISSING]" );
+        } else {
+            System.out.println( "//CLASS 1 (CLS1): " + player.getUserClass1() );
+        }
+        NoDelay();
+
+        if (!player.getUserClass2().equals("C2M")){
+            System.out.println( "//CLASS 2 (CLS2): " + player.getUserClass2() );
+            NoDelay();
+        }
+
+        if (!player.getUserClass3().equals("C3M")){
+            System.out.println( "//CLASS 3 (CLS3): " + player.getUserClass3() );
+            NoDelay();
+        }
+
+        if (!player.getUserClass4().equals("C4M")){
+            System.out.println( "//CLASS 4 (CLS4): " + player.getUserClass4() );
+            NoDelay();
+        }
+
         if (player.getUserStrength().equals("StM")){
             System.out.println( "//STRENGTH (STRN): [DATA MISSING]" );
         } else {
@@ -1095,16 +1117,89 @@ public class DaVG {
                      * 13 - Wisdom Score
                      * 14 - Charisma Score
                      */
+
                     System.out.println("// PLEASE SPECIFY VALUE TO EDIT");
-                    boolean statOptionNotChosen = true;
-                    while ( statOptionNotChosen ) {
+                    boolean editOptionNotChosen = true;
+                    while ( editOptionNotChosen ) {
                         switch ( input.next() ) {
+                            case "STATUS": case "status": case "STAT": case "stat":
+                                System.out.println("//PLEASE ENTER NEW VALUE FOR STATUS (STAT)");
+                                player.setUserStatus(input.next());
+                                System.out.println("//STATUS (STAT) VALUE UPDATED");
+                                ShortDelay();
+                                System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
+                                ShortDelay();
+                                System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
+                                ShortDelay();
+                                break;
+                            case "DATA": case "data": case "EXP": case "exp": case "XP": case "xp":
+                                System.out.println("//PLEASE ENTER NEW VALUE FOR PERFORMANCE DATA (DATA)");
+                                player.setUserXP(input.next());
+                                System.out.println("//PERFORMANCE DATA (DATA) VALUE UPDATED");
+                                ShortDelay();
+                                System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
+                                ShortDelay();
+                                System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
+                                ShortDelay();
+                                break;
+                            case "CLASS1": case "class1": case "CLS1": case "cls1":
+                                System.out.println("//PLEASE ENTER NEW VALUE FOR CLASS 1 (CLS1)");
+                                player.setUserClass1(input.next());
+                                System.out.println("//CLASS 1 (CLS1) VALUE UPDATED");
+                                ShortDelay();
+                                System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
+                                ShortDelay();
+                                System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
+                                ShortDelay();
+                                break;
+                            case "CLASS2": case "class2": case "CLS2": case "cls2":
+                                if (player.getUserClass1().equals("C1M")){
+                                    System.out.println("//ERROR: PRIMARY CLASS MISSING!");
+                                } else {
+                                    System.out.println("//PLEASE ENTER NEW VALUE FOR CLASS 2 (CLS2)");
+                                    player.setUserClass2(input.next());
+                                    System.out.println("//CLASS 2 (CLS2) VALUE UPDATED");
+                                }
+                                ShortDelay();
+                                System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
+                                ShortDelay();
+                                System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
+                                ShortDelay();
+                                break;
+                            case "CLASS3": case "class3": case "CLS3": case "cls3":
+                                if (player.getUserClass1().equals("C1M")){
+                                    System.out.println("//ERROR: PRIMARY CLASS MISSING!");
+                                } else {
+                                    System.out.println("//PLEASE ENTER NEW VALUE FOR CLASS 3 (CLS3)");
+                                    player.setUserClass2(input.next());
+                                    System.out.println("//CLASS 3 (CLS3) VALUE UPDATED");
+                                }
+                                ShortDelay();
+                                System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
+                                ShortDelay();
+                                System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
+                                ShortDelay();
+                                break;
+                            case "CLASS4": case "class4": case "CLS4": case "cls4":
+                                if (player.getUserClass1().equals("C1M")){
+                                    System.out.println("//ERROR: PRIMARY CLASS MISSING!");
+                                } else {
+                                    System.out.println("//PLEASE ENTER NEW VALUE FOR CLASS 4 (CLS4)");
+                                    player.setUserClass2(input.next());
+                                    System.out.println("//CLASS 4 (CLS4) VALUE UPDATED");
+                                }
+                                ShortDelay();
+                                System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
+                                ShortDelay();
+                                System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
+                                ShortDelay();
+                                break;
                             case "STRENGTH": case "strength": case "STRN": case "strn":
                                 System.out.println("//PLEASE ENTER NEW VALUE FOR STRENGTH (STRN)");
                                 player.setUserStrength(input.next());
                                 System.out.println("//STRENGTH (STRN) VALUE UPDATED");
                                 ShortDelay();
-                                System.out.println("//ENTER NEW ABILITY TO CONTINUE EDITING");
+                                System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
                                 ShortDelay();
                                 System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
                                 ShortDelay();
@@ -1114,7 +1209,7 @@ public class DaVG {
                                 player.setUserDexterity(input.next());
                                 System.out.println("//DEXTERITY (DEXT) VALUE UPDATED");
                                 ShortDelay();
-                                System.out.println("//ENTER NEW ABILITY TO CONTINUE EDITING");
+                                System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
                                 ShortDelay();
                                 System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
                                 ShortDelay();
@@ -1128,7 +1223,7 @@ public class DaVG {
                                 player.setUserMaxHealth(Integer.toString(newMaxHealth));
                                 System.out.println("//CONSTITUTION (CNST) VALUE UPDATED");
                                 ShortDelay();
-                                System.out.println("//ENTER NEW ABILITY TO CONTINUE EDITING");
+                                System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
                                 ShortDelay();
                                 System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
                                 ShortDelay();
@@ -1138,7 +1233,7 @@ public class DaVG {
                                 player.setUserIntelligence(input.next());
                                 System.out.println("//INTELLIGENCE (INTL) VALUE UPDATED");
                                 ShortDelay();
-                                System.out.println("//ENTER NEW ABILITY TO CONTINUE EDITING");
+                                System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
                                 ShortDelay();
                                 System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
                                 ShortDelay();
@@ -1148,7 +1243,7 @@ public class DaVG {
                                 player.setUserWisdom(input.next());
                                 System.out.println("//WISDOM (WSDM) VALUE UPDATED");
                                 ShortDelay();
-                                System.out.println("//ENTER NEW ABILITY TO CONTINUE EDITING");
+                                System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
                                 ShortDelay();
                                 System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
                                 ShortDelay();
@@ -1158,7 +1253,7 @@ public class DaVG {
                                 player.setUserCharisma(input.next());
                                 System.out.println("//CHARISMA (CHRM) VALUE UPDATED");
                                 ShortDelay();
-                                System.out.println("//ENTER NEW ABILITY TO CONTINUE EDITING");
+                                System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
                                 ShortDelay();
                                 System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
                                 ShortDelay();
@@ -1168,32 +1263,32 @@ public class DaVG {
                                 vitals( player );
                                 break;
                             case "#KVSEDBM": //enables debug mode
-                                statOptionNotChosen = true;
+                                editOptionNotChosen = true;
                                 debugMode = true;
                                 System.out.println("//MAINTENANCE MODE ENABLED");
                                 break;
                             case "#KVSDDBM": //disables debug mode
-                                statOptionNotChosen = true;
+                                editOptionNotChosen = true;
                                 debugMode = false;
                                 System.out.println("//MAINTENANCE MODE DISABLED");
                                 break;
                             case "#KVSECS": // disables cutscenes
-                                statOptionNotChosen = true;
+                                editOptionNotChosen = true;
                                 cutscenesEnabled = true;
                                 System.out.println("//ACCELERATED READ/WRITE DISABLED");
                                 break;
                             case "#KVSDCS": //enables cutscenes
-                                statOptionNotChosen = true;
+                                editOptionNotChosen = true;
                                 cutscenesEnabled = false;
                                 System.out.println("//ACCELERATED READ/WRITE ENABLED");
                                 break;
                             case "#KVSCLV": //changes language to Volkshavenish
-                                statOptionNotChosen = true;
+                                editOptionNotChosen = true;
                                 player.setUserLanguage("VOLKSHAVENISH");
                                 System.out.println("//SPRACHE-PRÄFERENZ AKTUALISIERTE");
                                 break;
                             case "#KVSCLE": //changes language to English
-                                statOptionNotChosen = true;
+                                editOptionNotChosen = true;
                                 player.setUserLanguage("ENGLISH");
                                 System.out.println("//LANGUAGE PREFERENCE UPDATED");
                                 break;
@@ -1472,8 +1567,6 @@ public class DaVG {
                                 ShortDelay();
                                 System.out.println( "//ENTER NEW PROFICIENCY TO CONTINUE EDITING" );
                                 ShortDelay();
-                                System.out.println( "//WARNING: PROFICIENCIES MUST BE ENTERED IN ALL CAPS" );
-                                ShortDelay();
                                 System.out.println( "//PRESS \"R\" TO REFRESH SKILLS MENU" );
                                 ShortDelay();
                                 break;
@@ -1485,8 +1578,6 @@ public class DaVG {
                                 System.out.println( "//SKILL PROFICIENCY 2 (SKL2) UPDATED");
                                 ShortDelay();
                                 System.out.println( "//ENTER NEW PROFICIENCY TO CONTINUE EDITING" );
-                                ShortDelay();
-                                System.out.println( "//WARNING: PROFICIENCIES MUST BE ENTERED IN ALL CAPS" );
                                 ShortDelay();
                                 System.out.println( "//PRESS \"R\" TO REFRESH SKILLS MENU" );
                                 ShortDelay();
@@ -1500,8 +1591,6 @@ public class DaVG {
                                 ShortDelay();
                                 System.out.println( "//ENTER NEW PROFICIENCY TO CONTINUE EDITING" );
                                 ShortDelay();
-                                System.out.println( "//WARNING: PROFICIENCIES MUST BE ENTERED IN ALL CAPS" );
-                                ShortDelay();
                                 System.out.println( "//PRESS \"R\" TO REFRESH SKILLS MENU" );
                                 ShortDelay();
                                 break;
@@ -1513,8 +1602,6 @@ public class DaVG {
                                 System.out.println( "//SKILL PROFICIENCY 4 (SKL4) UPDATED");
                                 ShortDelay();
                                 System.out.println( "//ENTER NEW PROFICIENCY TO CONTINUE EDITING" );
-                                ShortDelay();
-                                System.out.println( "//WARNING: PROFICIENCIES MUST BE ENTERED IN ALL CAPS" );
                                 ShortDelay();
                                 System.out.println( "//PRESS \"R\" TO REFRESH SKILLS MENU" );
                                 ShortDelay();
@@ -1529,8 +1616,6 @@ public class DaVG {
                                 System.out.println( "//WEAPON PROFICIENCY (WPNP) UPDATED");
                                 ShortDelay();
                                 System.out.println( "//ENTER NEW PROFICIENCY TO CONTINUE EDITING" );
-                                ShortDelay();
-                                System.out.println( "//WARNING: PROFICIENCIES MUST BE ENTERED IN ALL CAPS" );
                                 ShortDelay();
                                 System.out.println( "//PRESS \"R\" TO REFRESH SKILLS MENU" );
                                 ShortDelay();
