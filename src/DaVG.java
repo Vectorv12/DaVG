@@ -11,6 +11,7 @@ public class DaVG {
     private static BufferedWriter writer;
     private static StringBuilder builder;
     private static Scanner input;
+
     private static boolean debugMode;
     private static String VersionNo;
 
@@ -23,58 +24,38 @@ public class DaVG {
     private static Scanner petc;
     private static boolean veryFirstBoot;
 
-    private static String cWNAME;
-    private static String cWROLE;
-    private static String cWTYPE;
-    private static int cWFR;
-    private static String cWMFGR;
-    private static int cWDAMG;
-    private static int cWACCT;
-    private static String cWCRHC;
-    private static int cWCRHT;
-    private static double cWCRHM;
-    private static String cWEFFR;
-    private static String cWAMMO;
-    private static int cWMGZN;
-    private static int cWAUPS;
-    private static String cWFRMD;
-    private static String cW1ID;
 
-    private static String cW2NAME;
-    private static String cW2ROLE;
-    private static String cW2TYPE;
-    private static int cW2FR;
-    private static String cW2MFGR;
-    private static int cW2DAMG;
-    private static int cW2ACCT;
-    private static String cW2CRHC;
-    private static int cW2CRHT;
-    private static double cW2CRHM;
-    private static String cW2EFFR;
-    private static String cW2AMMO;
-    private static int cW2MGZN;
-    private static int cW2AUPS;
-    private static String cW2FRMD;
-    private static String cW2ID;
 
     // \/SIDEARMS\/
     private static File TESTWEAP;
+    private static File TESTWEAPAMMO;
     private static File TESTWEAPTAG;
+    private static File TESTWEAPAMMOTAG;
 
     private static File FtA_45;
+    private static File FtA_45AMMO;
     private static File FtA_45TAG;
+    private static File FtA_45AMMOTAG;
 
     private static File LP61;
+    private static File LP61AMMO;
     private static File LP61TAG;
+    private static File LP61AMMOTAG;
 
     private static File MP60;
+    private static File MP60AMMO;
     private static File MP60TAG;
+    private static File MP60AMMOTAG;
 
     private static File P1885;
+    private static File P1885AMMO;
     private static File P1885TAG;
+    private static File P1885AMMOTAG;
 
     private static File P60;
+    private static File P60AMMO;
     private static File P60TAG;
+    private static File P60AMMOTAG;
     // /\ SIDEARMS /\
 
 
@@ -86,9 +67,6 @@ public class DaVG {
         MedDelay = 2; //length of MedDelay in seconds
         ShortDelay = 1; //length of ShortDelay in seconds
         NoDelay = 100; //length of NoDelay in milliseconds
-
-
-
 
         input = new Scanner(System.in);
         petc = new Scanner(System.in);
@@ -164,63 +142,57 @@ public class DaVG {
             veryFirstBoot=true;
             LongDelay();
             System.out.println( "KOMPLETT"); // COMPLETE
-            ShortDelay();
-            System.out.println( "//ACHTUNG: KEINE PROFIL GEFUNDEN IM FESTPLATTE " ); //ERROR: NO PROFILES FOUND IN HARD DRIVE
+            LongDelay();
+            System.out.println( "//FEHLER: KEINE PROFIL GEFUNDEN IM FESTPLATTE " ); //ERROR: NO PROFILES FOUND IN HARD DRIVE
             ShortDelay();
             System.out.println( "//ERSTELLEN NEU PROFIL? J/N" ); //CREATE NEW PROFILE? J/N (Like German, "Ja" is "Yes" and "Nein" is "No")
             ShortDelay();
             System.out.println( "//WARNUNG: DRÜCKEN \"N\" WIRD DEAKTIVIERT EINHEIT ZU VERHINDERN MANIPULATION" ); //WARNING: PRESSING "N" WILL DEACTIVATE THE DEVICE TO PREVENT TAMPERING
-            boolean equipOptionNotChosen = true;
-            while (equipOptionNotChosen) {
+            boolean optionNotChosen = true;
+            while (optionNotChosen) {
                 if (debugMode) {
                     System.out.println(profileList);
                 }
-                switch (input.next()) {
+                switch (input.nextLine()) {
                     case "J": case "j":
-                        equipOptionNotChosen = false;
+                        optionNotChosen = false;
                         System.out.println("//BITTE EINGEBEN PROFIL-BENENNUNG"); //PLEASE ENTER PROFILE NAME
                         ShortDelay();
                         System.out.println("//WARNUNG: PROFIL-BENENNUNGEN SIND GROß-UND-KLEINSCHREIBUNG"); //WARNING: PROFILE NAMES ARE CASE-SENSITIVE
                         player.setIsEmpty( false );
-                        player.setUserName(input.next());
+                        player.setUserName(input.nextLine());
                         break;
                     case "N": case "n":
-                        equipOptionNotChosen = false;
+                        optionNotChosen = false;
                         shutdown( player );
                         break;
                     case "#KVSEDBM": //enables debug mode
-                        equipOptionNotChosen = true;
                         debugMode = true;
                         System.out.println("//MAINTENANCE MODE ENABLED");
                         break;
                     case "#KVSDDBM": //disables debug mode
-                        equipOptionNotChosen = true;
                         debugMode = false;
                         System.out.println("//MAINTENANCE MODE DISABLED");
                         break;
                     case "#KVSECS": // disables cutscenes
-                        equipOptionNotChosen = true;
                         cutscenesEnabled = true;
                         System.out.println("//ACCELERATED READ/WRITE DISABLED");
                         break;
                     case "#KVSDCS": //enables cutscenes
-                        equipOptionNotChosen = true;
                         cutscenesEnabled = false;
                         System.out.println("//ACCELERATED READ/WRITE ENABLED");
                         break;
                     case "#KVSCLV": //changes language to Volkshavenish
-                        equipOptionNotChosen = true;
                         player.setUserLanguage("VOLKSHAVENISH");
                         System.out.println("//SPRACHE-PRÄFERENZ AKTUALISIERTE");
                         break;
                     case "#KVSCLE": //changes language to English
-                        equipOptionNotChosen = true;
                         player.setUserLanguage("ENGLISH");
                         System.out.println("//LANGUAGE PREFERENCE UPDATED");
                         break;
                     default:
                         if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                            System.out.println("//ACHTUNG: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                            System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
                         } else if (player.getUserLanguage().equals("ENGLISH")){
                             System.out.println("//ERROR: INVALID INPUT.");
                         }
@@ -239,7 +211,7 @@ public class DaVG {
             System.out.println( "//WARNUNG: PROFIL-BENENNUNG SIND GROß-UND-KLEINSCHREIBUNG" ); //WARNING: PROFILE NAMES ARE CASE-SENSITIVE
             boolean profileNotChosen = true;
             while (profileNotChosen) {
-                String profileInput = input.next();
+                String profileInput = input.nextLine();
                 switch (profileInput) {
                     case "#KVSEDBM":
                         profileNotChosen = true;
@@ -261,24 +233,33 @@ public class DaVG {
                         cutscenesEnabled = false;
                         System.out.println("//ACCELERATED READ/WRITE ENABLED");
                         break;
+                    case "":
+                        if (player.getUserLanguage().equals("VOLKSHAVENISH")){
+                            System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                        } else if (player.getUserLanguage().equals("ENGLISH")){
+                            System.out.println("//ERROR: INVALID INPUT.");
+                        }
+                        break;
                     default:
                         profileNotChosen = false;
                         player.setUserName(profileInput);
+                        break;
                 }
             }
         }
         File requestedProfile = new File( player.getDocPath() + VersionNo + "_Data\\" + player.getUserName() + "\\" );
         if (!requestedProfile.isDirectory()){
             if (!veryFirstBoot){
-              System.out.println( "//ACHTUNG: SPEZIFIZIERTEN BENUTZER-PROFIL NICHT GEFUNDEN" ); //WARNING: SPECIFIED USER PROFILE NOT FOUND
-              ShortDelay();
+                LongDelay();
+                System.out.println( "//FEHLER: SPEZIFIZIERTEN BENUTZER-PROFIL NICHT GEFUNDEN" ); //WARNING: SPECIFIED USER PROFILE NOT FOUND
+                ShortDelay();
             }
             System.out.println( "//SCHAFFEN NEU BENUTZER-PROFIL MIT DIESER NAME? J/N" ); //CREATE NEW PROFILE WITH THIS NAME? J/N
             ShortDelay();
             System.out.println( "//WARNUNG: DRÜCKEN \"N\" WIRD DEAKTIVIERT EINHEIT ZU VERHINDERN MANIPULATION" ); //WARNING: PRESSING "N" WILL DEACTIVATE THE DEVICE TO PREVENT TAMPERING
             boolean equipOptionNotChosen = true;
             while ( equipOptionNotChosen ) {
-                switch ( input.next() ) {
+                switch ( input.nextLine() ) {
                     case "J": case "j":
                         equipOptionNotChosen = false;
                         player.setIsEmpty( false );
@@ -319,7 +300,7 @@ public class DaVG {
                         break;
                     default:
                         if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                            System.out.println("//ACHTUNG: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                            System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
                         } else if (player.getUserLanguage().equals("ENGLISH")){
                             System.out.println("//ERROR: INVALID INPUT.");
                         }
@@ -410,7 +391,7 @@ public class DaVG {
                 System.out.println(">AUSLASSEN ( DIAGNOSTICH-PRÜFUNG-BATTERIE NICHT HINGERICHTET )"); //SKIP (DIAGNOSTIC TEST BATTERY NOT RUN)
                 boolean equipOptionNotChosen = true;
                 while (equipOptionNotChosen) {
-                    switch (input.next()) {
+                    switch (input.nextLine()) {
                         case "STANDARD": case "standard": case "1":
                             equipOptionNotChosen = false;
                             intro(player, retUser);
@@ -451,7 +432,7 @@ public class DaVG {
 
             } else {
                 LongDelay();
-                System.out.println( "//ACHTUNG: KEINE DATEN IM SPEZIFIZIERTEN FESTPLATTE-SEKTOR" ); //ERROR: NO DATA IN SPECIFIED HARD DRIVE SECTOR
+                System.out.println( "//FEHLER: KEINE DATEN IM SPEZIFIZIERTEN FESTPLATTE-SEKTOR" ); //ERROR: NO DATA IN SPECIFIED HARD DRIVE SECTOR
                 ShortDelay();
                 System.out.println( "//DEFEKT IM FESTPLATTE VERMUTLICH" ); //FAULT IN HARD DRIVE SUSPECTED
                 ShortDelay();
@@ -591,15 +572,15 @@ public class DaVG {
 
         } else {
             System.out.println( "GESCHEITERT" ); //FAILED
-            ShortDelay();
-            System.out.println( "//ACHTUNG: EINHEIT NICHT VERBUNDEN MIT BESATZUNG-DATENBANK" ); //ERROR: UNIT NOT LINKED WITH PERSONNEL DATABASE
+            LongDelay();
+            System.out.println( "//FEHLER: EINHEIT NICHT VERBUNDEN MIT BESATZUNG-DATENBANK" ); //ERROR: UNIT NOT LINKED WITH PERSONNEL DATABASE
             NoDelay();
             System.out.println( "//ÜBERSCHREIBE? J/N" ); //OVERRIDE? Y/N
             ShortDelay();
             System.out.println( "//WARNUNG: DRÜCKEN \"N\" WIRD DEAKTIVIERT EINHEIT ZU VERHINDERN MANIPULATION" ); //WARNING: PRESSING "N" WILL DEACTIVATE UNIT TO PREVENT TAMPERING
             boolean optionNotChosen = true;
             while ( optionNotChosen ) {
-                switch ( input.next() ) {
+                switch ( input.nextLine() ) {
                     case "J": case "j":
                         System.out.println( "//ÜBERSCHREIBEN..." ); //OVERRIDING...
                         LongDelay();
@@ -631,7 +612,7 @@ public class DaVG {
                         break;
                     default:
                         if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                            System.out.println("//ACHTUNG: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                            System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
                         } else if (player.getUserLanguage().equals("ENGLISH")){
                             System.out.println("//ERROR: INVALID INPUT.");
                         }
@@ -644,7 +625,7 @@ public class DaVG {
     private static void newuser( playerCharacter player ) throws InterruptedException, IOException {
         System.out.println( "//DIAGNOSTISCH-PRÜFUNG-BATTERIE KOMPLETT." );//DIAGNOSTIC TESTS COMPLETED.
         LongDelay();
-        System.out.println( "//ACHTUNG: KEINE DATEN ZUM GEGENWÄRTIG-BENUTZER GEFUNDEN." );//ERROR: NO DATA ON CURRENT USER FOUND.
+        System.out.println( "//FEHLER: KEINE DATEN ZUM GEGENWÄRTIG-BENUTZER GEFUNDEN." );//ERROR: NO DATA ON CURRENT USER FOUND.
         LongDelay();
         System.out.println( "//KEINE ADMINISTRATOREN IM BENUTZER-EINTRAGUNG." );//NO ADMINISTRATORS IN USER REGISTRY.
         LongDelay();
@@ -655,7 +636,7 @@ public class DaVG {
         System.out.println( "//WARNUNG: DRÜCKEN \"N\" WIRD DEAKTIVIERT EINHEIT ZU VERHINDERN MANIPULATION" ); //WARNING: PRESSING "N" WILL DEACTIVATE UNIT TO PREVENT TAMPERING
         boolean optionNotChosen = true;
         while ( optionNotChosen ) {
-            switch ( input.next() ) {
+            switch ( input.nextLine() ) {
                 case "J": case "j":
                     optionNotChosen = false;
                     break;
@@ -684,17 +665,15 @@ public class DaVG {
                     break;
                 default:
                     if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                        System.out.println("//ACHTUNG: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                        System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
                     } else if (player.getUserLanguage().equals("ENGLISH")){
                         System.out.println("//ERROR: INVALID INPUT.");
                     }
                     break;
             }
         }
-        System.out.println( "//BITTE EINGANG NEU BENUTZERNAME" );//PLEASE INPUT NEW USER NAME.
-        ShortDelay();
-        System.out.println( "//WARNUNG: LÜCKEN MUSS SEIN ANGEBEN MIT UNTERSTREICHEN." );//WARNING: GAPS MUST BE INDICATED WITH UNDERSCORES.
-        String userName = input.next();
+        System.out.println( "//BITTE EINGEBEN NEU BENUTZERNAME" );//PLEASE INPUT NEW USER NAME.
+        String userName = input.nextLine();
         System.out.print( "//SCHREIBEN ZU FESTPLATTE..." );//WRITING TO HARD DRIVE...
         File[] inventory = player.getPlayerInventory();
         inventory[0].mkdir();
@@ -786,7 +765,7 @@ public class DaVG {
         ShortDelay();
         System.out.println( "//WILKOMMEN, " + player.getUserName() ); //GREETINGS, <PLAYER NAME>.
         ShortDelay();
-        System.out.println( "//DRÜCKEN EINGEBEN/RÜCKKEHR ZU FORTSETZEN" ); //PRESS ENTER/RETURN TO CONTINUE
+        System.out.println( "//DRÜCKEN EINGABE/RÜCKKEHR ZU FORTSETZEN" ); //PRESS ENTER/RETURN TO CONTINUE
         petc.nextLine();
         mmain( player );
     }
@@ -835,14 +814,14 @@ public class DaVG {
             NoDelay();
             System.out.println( ">COMBAT (5/CMBT) " );
             NoDelay();
-            System.out.println( ">REFRESH (R/REFR) ");
+            System.out.println( ">REFRESH (N/NULD) ");
             NoDelay();
-            System.out.println( ">SHUTDOWN (P/POWR) " );
+            System.out.println( ">SHUTDOWN (A/ASCH) " );
             NoDelay();
         }
         boolean optionNotChosen = true;
         while ( optionNotChosen ) {
-            switch ( input.next() ) {
+            switch ( input.nextLine() ) {
                 case "VITALS": case "vitals": case "VITL": case "vitl": case "1":
                     vitals( player );
                     break;
@@ -858,8 +837,11 @@ public class DaVG {
                 case "KAMPF": case "kampf": case "KMPF": case "kmpf": case "COMBAT": case "combat": case "CMBT": case "cmbt": case "5":
                     combat( player );
                     break;
-                case "NEU-LADEN": case "neu-laden": case "NEULADEN": case "neuladen": case "NULD": case "nuld": case "N": case "n": case "REFRESH": case "refresh": case "REFR": case "refr": case "R": case "r":
+                case "NEU-LADEN": case "neu-laden": case "NEULADEN": case "neuladen": case "NULD": case "nuld": case "N": case "n": case "REFRESH": case "refresh": case "REFR": case "refr":
                     mmain(player);
+                    break;
+                case "ROLLEN": case "rollen": case "ROLL": case "roll": case "R": case "r":
+                    roll( player );
                     break;
                 case "AUSSCHALTEN": case "ausschalten": case "ASCH": case "asch": case "A": case "a": case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P": case "p":
                     shutdown( player );
@@ -899,7 +881,7 @@ public class DaVG {
                     break;
                 default:
                     if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                        System.out.println("//ACHTUNG: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                        System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
                     } else if (player.getUserLanguage().equals("ENGLISH")){
                         System.out.println("//ERROR: INVALID INPUT.");
                     }
@@ -907,6 +889,306 @@ public class DaVG {
             }
         }
 
+    }
+
+    private static void roll ( playerCharacter player ) throws InterruptedException {
+
+        boolean strMissing = player.getUserStrength().equals("StM");
+        boolean dexMissing = player.getUserDexterity().equals("DeM");
+        boolean conMissing = player.getUserConstitution().equals("CoM");
+        boolean intMissing = player.getUserIntelligence().equals("InM");
+        boolean wisMissing = player.getUserWisdom().equals("WiM");
+        boolean chaMissing = player.getUserCharisma().equals("CaM");
+
+        System.out.println("//PLEASE ENTER VALUE OF DIE ROLL");
+        int roll = 0;
+        try {
+            roll = input.nextInt();
+        } catch ( Exception e){
+            if (player.getUserLanguage().equals("VOLKSHAVENISH")){
+                System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+            } else if (player.getUserLanguage().equals("ENGLISH")){
+                System.out.println("//ERROR: INVALID INPUT.");
+            }
+            input = new Scanner(System.in);
+            while (!input.hasNextInt()){
+                if (player.getUserLanguage().equals("VOLKSHAVENISH")){
+                    System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                } else if (player.getUserLanguage().equals("ENGLISH")){
+                    System.out.println("//ERROR: INVALID INPUT.");
+                }
+                input = new Scanner(System.in);
+            }
+            roll = input.nextInt();
+        }
+        System.out.println("//PLEASE ENTER SKILL TO BE CHECKED (IF APPLICABLE)");
+        ShortDelay();
+        System.out.println("//IF NO SKILL IS BEING CHECKED ENTER \"N/A\"");
+        input = new Scanner (System.in);
+        String mode = input.nextLine();
+        switch (mode) {
+            // \/ CORE STATS \/
+            case "STRENGTH": case "strength": case "STRN": case "strn":
+                if (strMissing){
+                    System.out.println("//ERROR: USER STRENGTH DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc( Integer.parseInt(player.getUserStrength())) + sftwrCalc(player, "STRENGTH");
+                }
+                break;
+            case "DEXTERITY": case "dexterity": case "DEXT": case "dext": case "INITIATIVE": case "initiative": case "INIT": case "init":
+                if (dexMissing){
+                    System.out.println("//ERROR: USER DEXTERITY DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc(Integer.parseInt(player.getUserDexterity())) + sftwrCalc(player, "DEXTERITY") ;
+                }
+                break;
+            case "CONSTITUTION": case "constitution": case "CNST": case "cnst":
+                if (conMissing){
+                    System.out.println("//ERROR: USER CONSTITUTION DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc( Integer.parseInt(player.getUserConstitution())) + sftwrCalc(player, "CONSTITUTION") ;
+                }
+                break;
+            case "INTELLIGENCE": case "intelligence": case "INTL": case "intl":
+                if (intMissing){
+                    System.out.println("//ERROR: USER INTELLIGENCE DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc( Integer.parseInt(player.getUserIntelligence())) + sftwrCalc(player, "INTELLIGENCE") ;
+                }
+                break;
+            case "WISDOM": case "wisdom": case "WSDM": case "wsdm":
+                if (wisMissing){
+                    System.out.println("//ERROR: USER WISDOM DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc( Integer.parseInt(player.getUserWisdom())) + sftwrCalc(player, "WISDOM") ;
+                }
+                break;
+            case "CHARISMA": case "charisma": case "CHRM": case "chrm":
+                if (chaMissing){
+                    System.out.println("//ERROR: USER CHARISMA DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc( Integer.parseInt(player.getUserCharisma())) + sftwrCalc(player, "CHARISMA");
+                }
+                break;
+            // /\ CORE STATS /\
+
+            // \/ STRENGTH SKILLS \/
+            case "ATHLETICS": case "athletics": case "STR0": case "str0":
+                if (strMissing){
+                    System.out.println("//ERROR: USER STRENGTH DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc( Integer.parseInt(player.getUserStrength())) + sftwrCalc(player, "ATHLETICS") + profiCalc(player, "ATHLETICS");
+                }
+                break;
+            // /\ STRENGTH SKILLS /\
+
+            // \/ DEXTERITY SKILLS \/
+            case "ACROBATICS": case "acrobatics": case "DEX0": case "dex0":
+                if (dexMissing){
+                    System.out.println("//ERROR: USER DEXTERITY DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc(Integer.parseInt(player.getUserDexterity())) + sftwrCalc(player, "ACROBATICS") + profiCalc(player, "ACROBATICS");
+                }
+                break;
+            case "SLEIGHT-OF-HAND": case "sleight-of-hand": case "DEX1": case "dex1":
+                if (dexMissing){
+                    System.out.println("//ERROR: USER DEXTERITY DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc(Integer.parseInt(player.getUserDexterity())) + sftwrCalc(player, "SLEIGHT-OF-HAND") + profiCalc(player, "SLEIGHT-OF-HAND");
+                }
+                break;
+            case "STEALTH": case "stealth": case "DEX2": case "dex2":
+                if (dexMissing){
+                    System.out.println("//ERROR: USER DEXTERITY DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc(Integer.parseInt(player.getUserDexterity())) + sftwrCalc(player, "STEALTH") + profiCalc(player, "STEALTH");
+                }
+                break;
+            // /\ DEXTERITY SKILLS /\
+
+            // \/ INTELLIGENCE SKILLS \/
+            case "ARCANA": case "arcana": case "INT0": case "int0":
+                if (intMissing){
+                    System.out.println("//ERROR: USER INTELLIGENCE DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc( Integer.parseInt(player.getUserIntelligence())) + sftwrCalc(player, "ARCANA") + profiCalc(player, "ARCANA");
+                }
+                break;
+            case "HISTORY": case "history": case "INT1": case "int1":
+                if (intMissing){
+                    System.out.println("//ERROR: USER INTELLIGENCE DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc( Integer.parseInt(player.getUserIntelligence())) + sftwrCalc(player, "HISTORY") + profiCalc(player, "HISTORY");
+                }
+                break;
+            case "INVESTIGATION": case "investigation": case "INT2": case "int2":
+                if (intMissing){
+                    System.out.println("//ERROR: USER INTELLIGENCE DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc( Integer.parseInt(player.getUserIntelligence())) + sftwrCalc(player, "INVESTIGATION") + profiCalc(player, "INVESTIGATION");
+                }
+                break;
+            case "NATURE": case "nature": case "INT3": case "int3":
+                if (intMissing){
+                    System.out.println("//ERROR: USER INTELLIGENCE DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc( Integer.parseInt(player.getUserIntelligence())) + sftwrCalc(player, "NATURE") + profiCalc(player, "NATURE");
+                }
+                break;
+            case "RELIGION": case "religion": case "INT4": case "int4":
+                if (intMissing){
+                    System.out.println("//ERROR: USER INTELLIGENCE DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc( Integer.parseInt(player.getUserIntelligence())) + sftwrCalc(player, "RELIGION") + profiCalc(player, "RELIGION");
+                }
+                break;
+            // /\ INTELLIGENCE SKILLS /\
+
+            // \/ WISDOM SKILLS \/
+            case "ANIMAL_HANDLING": case "animal_handling": case "ANIMALHANDLING": case "animalhandling": case "WSD0": case "wsd0":
+                if (wisMissing){
+                    System.out.println("//ERROR: USER WISDOM DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc( Integer.parseInt(player.getUserWisdom())) + sftwrCalc(player, "ANIMAL HANDLING") + profiCalc(player, "ANIMAL HANDLING");
+                }
+                break;
+            case "INSIGHT": case "insight": case "WSD1": case "wsd1":
+                if (wisMissing){
+                    System.out.println("//ERROR: USER WISDOM DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc( Integer.parseInt(player.getUserWisdom())) + sftwrCalc(player, "INSIGHT") + profiCalc(player, "INSIGHT");
+                }
+                break;
+            case "MEDICINE": case "medicine": case "WSD2": case "wsd2":
+                if (wisMissing){
+                    System.out.println("//ERROR: USER WISDOM DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc( Integer.parseInt(player.getUserWisdom())) + sftwrCalc(player, "MEDICINE") + profiCalc(player, "MEDICINE");
+                }
+                break;
+            case "PERCEPTION": case "perception": case "WSD3": case "wsd3":
+                if (wisMissing){
+                    System.out.println("//ERROR: USER WISDOM DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc( Integer.parseInt(player.getUserWisdom())) + sftwrCalc(player, "PERCEPTION") + profiCalc(player, "PERCEPTION");
+                }
+                break;
+            case "SURVIVAL": case "survival": case "WSD4": case "wsd4":
+                if (wisMissing){
+                    System.out.println("//ERROR: USER WISDOM DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc( Integer.parseInt(player.getUserWisdom())) + sftwrCalc(player, "SURVIVAL") + profiCalc(player, "SURVIVAL");
+                }
+                break;
+            // /\ WISDOM SKILLS /\
+
+            // \/ CHARISMA SKILLS \/
+            case "DECEPTION": case "deception": case "CHR0": case "chr0":
+                if (chaMissing){
+                    System.out.println("//ERROR: USER CHARISMA DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc( Integer.parseInt(player.getUserCharisma())) + sftwrCalc(player, "DECEPTION") + profiCalc(player, "DECEPTION");
+                }
+                break;
+            case "INTIMIDATION": case "intimidation": case "CHR1": case "chr1":
+                if (chaMissing){
+                    System.out.println("//ERROR: USER CHARISMA DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc( Integer.parseInt(player.getUserCharisma())) + sftwrCalc(player, "INTIMIDATION") + profiCalc(player, "INTIMIDATION");
+                }
+                break;
+            case "PERFORMANCE": case "performance": case "CHR2": case "chr2":
+                if (chaMissing){
+                    System.out.println("//ERROR: USER CHARISMA DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc( Integer.parseInt(player.getUserCharisma())) + sftwrCalc(player, "PERFORMANCE") + profiCalc(player, "PERFORMANCE");
+                }
+                break;
+            case "PERSUASION": case "persuasion": case "CHR3": case "chr3":
+                if (chaMissing){
+                    System.out.println("//ERROR: USER CHARISMA DATA MISSING");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO CALCULATE MODIFIER");
+                    roll += 0;
+                } else {
+                    roll += modCalc( Integer.parseInt(player.getUserCharisma())) + sftwrCalc(player, "PERSUASION") + profiCalc(player, "PERSUASION");
+                }
+                break;
+            // /\ CHARISMA SKILLS /\
+            default:
+                roll += 0;
+                break;
+        }
+        System.out.println( "//RESULT: " + roll );
     }
 
     private static void vitals( playerCharacter player) throws IOException, InterruptedException {
@@ -933,6 +1215,7 @@ public class DaVG {
         System.out.print( "//VITALS ANALYSIS..." );
         LongDelay();
         System.out.println( "COMPLETE" );
+        System.out.println();
         ShortDelay();
 
         /* Here, the program will then list the player's vital signs.
@@ -976,6 +1259,7 @@ public class DaVG {
         System.out.println( "//SYNCHRONIZATION LEVEL (LEVL): " + player.getUserLevel() );
         NoDelay();
         System.out.println( "//LIFETIME USER PERFORMANCE DATA GATHERED (DATA): " + player.getUserXP() + " DB");
+        System.out.println();
         NoDelay();
         if (player.getUserClass1().equals("C1M")){
             System.out.println( "//CLASS 1 (CLS1): [DATA MISSING]" );
@@ -1034,14 +1318,23 @@ public class DaVG {
         } else {
             System.out.println( "//CHARISMA (CHRM): " + player.getUserCharisma() );
         }
+        System.out.println();
         NoDelay();
 
-        if (player.getUserStrength().equals("StM") || player.getUserDexterity().equals("DeM") || player.getUserConstitution().equals("CoM") || player.getUserIntelligence().equals("InM") || player.getUserWisdom().equals("WiM") || player.getUserCharisma().equals("CaM")){
+        boolean claMissing = player.getUserClass1().equals("C1M");
+        boolean strMissing = player.getUserStrength().equals("StM");
+        boolean dexMissing = player.getUserDexterity().equals("DeM");
+        boolean conMissing = player.getUserConstitution().equals("CoM");
+        boolean intMissing = player.getUserIntelligence().equals("InM");
+        boolean wisMissing = player.getUserWisdom().equals("WiM");
+        boolean chaMissing = player.getUserCharisma().equals("CaM");
+
+        if ( claMissing || strMissing || dexMissing || conMissing || intMissing || wisMissing || chaMissing ){
             MedDelay();
             System.out.println( "//WARNING: DATA MISSING ON ONE OR MORE USER ATTRIBUTES" );
             ShortDelay();
             System.out.println( "//PLEASE USE \"EDIT\" FUNCTION TO COMPLETE MISSING ENTRIES");
-            NoDelay();
+            MedDelay();
         }
 
         System.out.println( ">MEDICAL (1/MEDS)" );
@@ -1050,12 +1343,12 @@ public class DaVG {
         NoDelay();
         System.out.println( ">EDIT (3/EDIT)" );
         NoDelay();
-        System.out.println( ">REFRESH (R/REFR)" );
+        System.out.println( ">REFRESH (N/NULD)" );
         NoDelay();
         System.out.println( ">BACK (0/BACK)" );
         boolean optionNotChosen = true;
         while ( optionNotChosen ) {
-            switch ( input.next() ) {
+            switch ( input.nextLine() ) {
                 case "MEDICAL": case "MEDS": case "medical": case "meds": case "1":
                     ShortDelay();
                     System.out.println("//ERROR: DRIVE SECTOR CORRUPTED.");
@@ -1065,7 +1358,7 @@ public class DaVG {
                     System.out.println( "//INPUT 2 TO INITIATE SHUTDOWN");
                     boolean medOptionNotChosen = true;
                     while ( medOptionNotChosen ) {
-                        switch ( input.next() ) {
+                        switch ( input.nextLine() ) {
                             case "1":
                                 mmain( player );
                                 break;
@@ -1094,7 +1387,7 @@ public class DaVG {
                                 break;
                             default:
                                 if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                                    System.out.println("//ACHTUNG: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                                    System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
                                 } else if (player.getUserLanguage().equals("ENGLISH")){
                                     System.out.println("//ERROR: INVALID INPUT.");
                                 }
@@ -1121,35 +1414,35 @@ public class DaVG {
                     System.out.println("// PLEASE SPECIFY VALUE TO EDIT");
                     boolean editOptionNotChosen = true;
                     while ( editOptionNotChosen ) {
-                        switch ( input.next() ) {
+                        switch ( input.nextLine() ) {
                             case "STATUS": case "status": case "STAT": case "stat":
                                 System.out.println("//PLEASE ENTER NEW VALUE FOR STATUS (STAT)");
-                                player.setUserStatus(input.next());
+                                player.setUserStatus(input.nextLine());
                                 System.out.println("//STATUS (STAT) VALUE UPDATED");
                                 ShortDelay();
                                 System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
                                 ShortDelay();
-                                System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
+                                System.out.println("//PRESS \"N\" TO REFRESH VITALS MENU");
                                 ShortDelay();
                                 break;
                             case "DATA": case "data": case "EXP": case "exp": case "XP": case "xp":
                                 System.out.println("//PLEASE ENTER NEW VALUE FOR PERFORMANCE DATA (DATA)");
-                                player.setUserXP(input.next());
+                                player.setUserXP(input.nextLine());
                                 System.out.println("//PERFORMANCE DATA (DATA) VALUE UPDATED");
                                 ShortDelay();
                                 System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
                                 ShortDelay();
-                                System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
+                                System.out.println("//PRESS \"N\" TO REFRESH VITALS MENU");
                                 ShortDelay();
                                 break;
                             case "CLASS1": case "class1": case "CLS1": case "cls1":
                                 System.out.println("//PLEASE ENTER NEW VALUE FOR CLASS 1 (CLS1)");
-                                player.setUserClass1(input.next());
+                                player.setUserClass1(input.nextLine());
                                 System.out.println("//CLASS 1 (CLS1) VALUE UPDATED");
                                 ShortDelay();
                                 System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
                                 ShortDelay();
-                                System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
+                                System.out.println("//PRESS \"N\" TO REFRESH VITALS MENU");
                                 ShortDelay();
                                 break;
                             case "CLASS2": case "class2": case "CLS2": case "cls2":
@@ -1157,13 +1450,13 @@ public class DaVG {
                                     System.out.println("//ERROR: PRIMARY CLASS MISSING!");
                                 } else {
                                     System.out.println("//PLEASE ENTER NEW VALUE FOR CLASS 2 (CLS2)");
-                                    player.setUserClass2(input.next());
+                                    player.setUserClass2(input.nextLine());
                                     System.out.println("//CLASS 2 (CLS2) VALUE UPDATED");
                                 }
                                 ShortDelay();
                                 System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
                                 ShortDelay();
-                                System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
+                                System.out.println("//PRESS \"N\" TO REFRESH VITALS MENU");
                                 ShortDelay();
                                 break;
                             case "CLASS3": case "class3": case "CLS3": case "cls3":
@@ -1171,13 +1464,13 @@ public class DaVG {
                                     System.out.println("//ERROR: PRIMARY CLASS MISSING!");
                                 } else {
                                     System.out.println("//PLEASE ENTER NEW VALUE FOR CLASS 3 (CLS3)");
-                                    player.setUserClass3(input.next());
+                                    player.setUserClass3(input.nextLine());
                                     System.out.println("//CLASS 3 (CLS3) VALUE UPDATED");
                                 }
                                 ShortDelay();
                                 System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
                                 ShortDelay();
-                                System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
+                                System.out.println("//PRESS \"N\" TO REFRESH VITALS MENU");
                                 ShortDelay();
                                 break;
                             case "CLASS4": case "class4": case "CLS4": case "cls4":
@@ -1185,38 +1478,38 @@ public class DaVG {
                                     System.out.println("//ERROR: PRIMARY CLASS MISSING!");
                                 } else {
                                     System.out.println("//PLEASE ENTER NEW VALUE FOR CLASS 4 (CLS4)");
-                                    player.setUserClass4(input.next());
+                                    player.setUserClass4(input.nextLine());
                                     System.out.println("//CLASS 4 (CLS4) VALUE UPDATED");
                                 }
                                 ShortDelay();
                                 System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
                                 ShortDelay();
-                                System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
+                                System.out.println("//PRESS \"N\" TO REFRESH VITALS MENU");
                                 ShortDelay();
                                 break;
                             case "STRENGTH": case "strength": case "STRN": case "strn":
                                 System.out.println("//PLEASE ENTER NEW VALUE FOR STRENGTH (STRN)");
-                                player.setUserStrength(input.next());
+                                player.setUserStrength(input.nextLine());
                                 System.out.println("//STRENGTH (STRN) VALUE UPDATED");
                                 ShortDelay();
                                 System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
                                 ShortDelay();
-                                System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
+                                System.out.println("//PRESS \"N\" TO REFRESH VITALS MENU");
                                 ShortDelay();
                                 break;
                             case "DEXTERITY": case "dexterity": case "DEXT": case "dext":
                                 System.out.println("//PLEASE ENTER NEW VALUE FOR DEXTERITY (DEXT)");
-                                player.setUserDexterity(input.next());
+                                player.setUserDexterity(input.nextLine());
                                 System.out.println("//DEXTERITY (DEXT) VALUE UPDATED");
                                 ShortDelay();
                                 System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
                                 ShortDelay();
-                                System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
+                                System.out.println("//PRESS \"N\" TO REFRESH VITALS MENU");
                                 ShortDelay();
                                 break;
                             case "CONSTITUTION": case "constitution": case "CNST": case "cnst":
                                 System.out.println("//PLEASE ENTER NEW VALUE FOR CONSTITUTION (CNST)");
-                                player.setUserConstitution(input.next());
+                                player.setUserConstitution(input.nextLine());
                                 int newCurrentHealth = Integer.parseInt(player.getUserCurrentHealth()) + (modCalc(Integer.parseInt(player.getUserConstitution()))*10);
                                 int newMaxHealth = Integer.parseInt(player.getUserMaxHealth()) + (modCalc(Integer.parseInt(player.getUserConstitution()))*10);
                                 player.setUserCurrentHealth(Integer.toString(newCurrentHealth));
@@ -1225,42 +1518,45 @@ public class DaVG {
                                 ShortDelay();
                                 System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
                                 ShortDelay();
-                                System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
+                                System.out.println("//PRESS \"N\" TO REFRESH VITALS MENU");
                                 ShortDelay();
                                 break;
                             case "INTELLIGENCE": case "intelligence": case "INTL": case "intl":
                                 System.out.println("//PLEASE ENTER NEW VALUE FOR INTELLIGENCE (INTL)");
-                                player.setUserIntelligence(input.next());
+                                player.setUserIntelligence(input.nextLine());
                                 System.out.println("//INTELLIGENCE (INTL) VALUE UPDATED");
                                 ShortDelay();
                                 System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
                                 ShortDelay();
-                                System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
+                                System.out.println("//PRESS \"N\" TO REFRESH VITALS MENU");
                                 ShortDelay();
                                 break;
                             case "WISDOM": case "wisdom": case "WSDM": case "wsdm":
                                 System.out.println("//PLEASE ENTER NEW VALUE FOR WISDOM (WSDM)");
-                                player.setUserWisdom(input.next());
+                                player.setUserWisdom(input.nextLine());
                                 System.out.println("//WISDOM (WSDM) VALUE UPDATED");
                                 ShortDelay();
                                 System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
                                 ShortDelay();
-                                System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
+                                System.out.println("//PRESS \"N\" TO REFRESH VITALS MENU");
                                 ShortDelay();
                                 break;
                             case "CHARISMA": case "charisma": case "CHRM": case "chrm":
                                 System.out.println("//PLEASE ENTER NEW VALUE FOR CHARISMA (CHRM)");
-                                player.setUserCharisma(input.next());
+                                player.setUserCharisma(input.nextLine());
                                 System.out.println("//CHARISMA (CHRM) VALUE UPDATED");
                                 ShortDelay();
                                 System.out.println("//ENTER NEW FIELD TO CONTINUE EDITING");
                                 ShortDelay();
-                                System.out.println("//PRESS \"R\" TO REFRESH VITALS MENU");
+                                System.out.println("//PRESS \"N\" TO REFRESH VITALS MENU");
                                 ShortDelay();
                                 break;
-                            case "NEU-LADEN": case "neu-laden": case "NEULADEN": case "neuladen": case "NULD": case "nuld": case "N": case "n": case "REFRESH": case "refresh": case "REFR": case "refr": case "R": case "r":
+                            case "NEU-LADEN": case "neu-laden": case "NEULADEN": case "neuladen": case "NULD": case "nuld": case "N": case "n": case "REFRESH": case "refresh": case "REFR": case "refr":
                                 player.writePlayerData();
                                 vitals( player );
+                                break;
+                            case "ROLLEN": case "rollen": case "ROLL": case "roll": case "R": case "r":
+                                roll( player );
                                 break;
                             case "#KVSEDBM": //enables debug mode
                                 editOptionNotChosen = true;
@@ -1294,16 +1590,19 @@ public class DaVG {
                                 break;
                             default:
                                 if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                                    System.out.println("//ACHTUNG: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                                    System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
                                 } else if (player.getUserLanguage().equals("ENGLISH")){
                                     System.out.println("//ERROR: INVALID INPUT.");
                                 }
                                 break;
                         }
                     }
-                case "NEU-LADEN": case "neu-laden": case "NEULADEN": case "neuladen": case "NULD": case "nuld": case "N": case "n": case "REFRESH": case "refresh": case "REFR": case "refr": case "R": case "r":
+                case "NEU-LADEN": case "neu-laden": case "NEULADEN": case "neuladen": case "NULD": case "nuld": case "N": case "n": case "REFRESH": case "refresh": case "REFR": case "refr":
                     player.writePlayerData();
                     vitals( player );
+                    break;
+                case "ROLLEN": case "rollen": case "ROLL": case "roll": case "R": case "r":
+                    roll( player );
                     break;
                 case "AUSSCHALTEN": case "ausschalten": case "ASCH": case "asch": case "A": case "a": case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P": case "p":
                     shutdown( player );
@@ -1313,7 +1612,7 @@ public class DaVG {
                     break;
                 default:
                     if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                        System.out.println("//ACHTUNG: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                        System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
                     } else if (player.getUserLanguage().equals("ENGLISH")){
                         System.out.println("//ERROR: INVALID INPUT.");
                     }
@@ -1402,59 +1701,59 @@ public class DaVG {
             LongDelay();
             System.out.println("COMPLETE");
             ShortDelay();
-            System.out.println( "//STRENGTH SKILLS" );
+            System.out.println( "//STRENGTH (STRN) SKILLS" );
             ShortDelay();
-            System.out.println( ">ATHLETICS MODIFIER: R + ( " + Math.addExact( modCalc(Integer.parseInt(player.getUserStrength())), profiCalc( player,"ATHLETICS" ) ) + " )");
-            ShortDelay();
-            System.out.println();
-
-            System.out.println( "//DEXTERITY SKILLS" );
-            ShortDelay();
-            System.out.println( ">ACROBATICS MODIFIER: R + ( " + Math.addExact( modCalc(Integer.parseInt(player.getUserDexterity())), profiCalc( player,"ACROBATICS" ) ) + " )");
-            NoDelay();
-            System.out.println( ">SLEIGHT-OF-HAND MODIFIER: R + ( " + Math.addExact( modCalc(Integer.parseInt(player.getUserDexterity())), profiCalc( player,"SLEIGHT-OF-HAND" ) ) + " )");
-            NoDelay();
-            System.out.println( ">STEALTH MODIFIER: R + ( " + Math.addExact( modCalc(Integer.parseInt(player.getUserDexterity())), profiCalc( player,"STEALTH" ) ) +" )");
+            System.out.println( ">ATHLETICS (STR0) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserStrength())) + profiCalc( player,"ATHLETICS" ) + sftwrCalc( player, "ATHLETICS" ) ) + " )");
             ShortDelay();
             System.out.println();
 
-            System.out.println( "//INTELLIGENCE SKILLS" );
+            System.out.println( "//DEXTERITY (DEXT) SKILLS" );
             ShortDelay();
-            System.out.println( ">ARCANA MODIFIER: R + ( " + Math.addExact( modCalc(Integer.parseInt(player.getUserIntelligence())), profiCalc( player,"ARCANA" ) ) +" )");
+            System.out.println( ">ACROBATICS (DEX0) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserDexterity())) + profiCalc( player,"ACROBATICS" ) + sftwrCalc( player, "ACROBATICS" ) ) + " )");
             NoDelay();
-            System.out.println( ">HISTORY MODIFIER: R + ( " + Math.addExact( modCalc(Integer.parseInt(player.getUserIntelligence())), profiCalc( player,"HISTORY" ) ) +" )");
+            System.out.println( ">SLEIGHT-OF-HAND (DEX1) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserDexterity())) + profiCalc( player,"SLEIGHT-OF-HAND" ) + sftwrCalc( player, "SLEIGHT-OF-HAND" ) ) + " )");
             NoDelay();
-            System.out.println( ">INVESTIGATION MODIFIER: R + ( " + Math.addExact( modCalc(Integer.parseInt(player.getUserIntelligence())), profiCalc( player,"INVESTIGATION" ) ) +" )");
-            NoDelay();
-            System.out.println( ">NATURE MODIFIER: R + ( " + Math.addExact( modCalc(Integer.parseInt(player.getUserIntelligence())), profiCalc( player,"NATURE" ) ) +" )");
-            NoDelay();
-            System.out.println( ">RELIGION MODIFIER: R + ( " + Math.addExact( modCalc(Integer.parseInt(player.getUserIntelligence())), profiCalc( player,"RELIGION" ) ) +" )");
+            System.out.println( ">STEALTH (DEX2) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserDexterity())) + profiCalc( player,"STEALTH" ) ) + sftwrCalc( player, "STEALTH" ) + " )");
             ShortDelay();
             System.out.println();
 
-            System.out.println( "//WISDOM SKILLS" );
+            System.out.println( "//INTELLIGENCE (INTL) SKILLS" );
             ShortDelay();
-            System.out.println( ">ANIMAL HANDLING MODIFIER: R + ( " + Math.addExact( modCalc(Integer.parseInt(player.getUserWisdom())), profiCalc( player,"ANIMAL HANDLING" ) ) +" )");
+            System.out.println( ">ARCANA (INT0) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserIntelligence())) + profiCalc( player,"ARCANA" ) ) + sftwrCalc( player, "ARCANA" )  +" )");
             NoDelay();
-            System.out.println( ">INSIGHT MODIFIER: R + ( " + Math.addExact( modCalc(Integer.parseInt(player.getUserWisdom())), profiCalc( player,"INSIGHT" ) ) +" )");
+            System.out.println( ">HISTORY (INT1) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserIntelligence())) + profiCalc( player,"HISTORY" ) )  + sftwrCalc( player, "HISTORY" ) +" )");
             NoDelay();
-            System.out.println( ">MEDICINE MODIFIER: R + ( " + Math.addExact( modCalc(Integer.parseInt(player.getUserWisdom())), profiCalc( player,"MEDICINE" ) ) +" )");
+            System.out.println( ">INVESTIGATION (INT2) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserIntelligence())) + profiCalc( player,"INVESTIGATION" ) ) + sftwrCalc( player, "INVESTIGATION" )  +" )");
             NoDelay();
-            System.out.println( ">PERCEPTION MODIFIER: R + ( " + Math.addExact( modCalc(Integer.parseInt(player.getUserWisdom())), profiCalc( player,"PERCEPTION" ) ) +" )");
+            System.out.println( ">NATURE (INT3) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserIntelligence())) + profiCalc( player,"NATURE" ) ) + sftwrCalc( player, "NATURE" )  +" )");
             NoDelay();
-            System.out.println( ">SURVIVAL MODIFIER: R + ( " + Math.addExact( modCalc(Integer.parseInt(player.getUserWisdom())), profiCalc( player,"SURVIVAL" ) ) +" )");
+            System.out.println( ">RELIGION (INT4) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserIntelligence())) + profiCalc( player,"RELIGION" ) ) + sftwrCalc( player, "RELIGION" )  +" )");
             ShortDelay();
             System.out.println();
 
-            System.out.println( "//CHARISMA SKILLS" );
+            System.out.println( "//WISDOM (WSDM) SKILLS" );
             ShortDelay();
-            System.out.println( ">DECEPTION MODIFIER: R + ( " + Math.addExact( modCalc(Integer.parseInt(player.getUserCharisma())), profiCalc( player,"DECEPTION" ) ) +" )");
+            System.out.println( ">ANIMAL HANDLING (WSD0) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserWisdom())) + profiCalc( player,"ANIMAL HANDLING" ) ) + sftwrCalc( player, "ANIMAL HANDLING" )  +" )");
             NoDelay();
-            System.out.println( ">INTIMIDATION MODIFIER: R + ( " + Math.addExact( modCalc(Integer.parseInt(player.getUserCharisma())), profiCalc( player,"INTIMIDATION" ) ) +" )");
+            System.out.println( ">INSIGHT (WSD1) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserWisdom())) + profiCalc( player,"INSIGHT" ) ) + sftwrCalc( player, "INSIGHT" )  +" )");
             NoDelay();
-            System.out.println( ">PERFORMANCE MODIFIER: R + ( " + Math.addExact( modCalc(Integer.parseInt(player.getUserCharisma())), profiCalc( player,"PERFORMANCE" ) ) +" )");
+            System.out.println( ">MEDICINE (WSD2) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserWisdom())) + profiCalc( player,"MEDICINE" ) ) + sftwrCalc( player, "MEDICINE" )  +" )");
             NoDelay();
-            System.out.println( ">PERSUASION MODIFIER: R + ( " + Math.addExact( modCalc(Integer.parseInt(player.getUserCharisma())), profiCalc( player,"PERSUASION" ) ) +" )");
+            System.out.println( ">PERCEPTION (WSD3) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserWisdom())) + profiCalc( player,"PERCEPTION" ) ) + sftwrCalc( player, "PERCEPTION" )  +" )");
+            NoDelay();
+            System.out.println( ">SURVIVAL (WSD4) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserWisdom())) + profiCalc( player,"SURVIVAL" ) ) + sftwrCalc( player, "SURVIVAL" )  +" )");
+            ShortDelay();
+            System.out.println();
+
+            System.out.println( "//CHARISMA (CHRM) SKILLS" );
+            ShortDelay();
+            System.out.println( ">DECEPTION (CHR0) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserCharisma())) + profiCalc( player,"DECEPTION" ) ) + sftwrCalc( player, "DECEPTION" )  +" )");
+            NoDelay();
+            System.out.println( ">INTIMIDATION (CHR1) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserCharisma())) + profiCalc( player,"INTIMIDATION" ) ) + sftwrCalc( player, "INTIMIDATION" )  +" )");
+            NoDelay();
+            System.out.println( ">PERFORMANCE (CHR2) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserCharisma())) + profiCalc( player,"PERFORMANCE" ) ) + sftwrCalc( player, "PERFORMANCE" )  +" )");
+            NoDelay();
+            System.out.println( ">PERSUASION (CHR3) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserCharisma())) + profiCalc( player,"PERSUASION" ) ) + sftwrCalc( player, "PERSUASION" )  +" )");
             ShortDelay();
             System.out.println();
 
@@ -1523,111 +1822,116 @@ public class DaVG {
 
         System.out.println( ">EDIT (1/EDIT)");
         NoDelay();
-        System.out.println( ">REFRESH (R/REFR)" );
+        System.out.println( ">REFRESH (N/NULD)" );
         NoDelay();
         System.out.println( ">BACK (0/BACK)");
         boolean skillOptionNotChosen = true;
         while ( skillOptionNotChosen ) {
-            switch ( input.next() ) {
+            switch ( input.nextLine() ) {
                 case "EDIT": case "edit": case "1":
                     System.out.println("// PLEASE SPECIFY VALUE TO EDIT");
                     boolean profiOptionNotChosen = true;
                     while ( profiOptionNotChosen ){
-                        switch ( input.next() ){
+                        switch ( input.nextLine() ){
                             case "BACKGROUND1": case "background1": case "BGN1": case "bgn1":
                                 System.out.println( "//PLEASE ENTER NEW VALUE FOR BACKGROUND PROFICIENCY 1 (BGN1)" );
                                 ShortDelay();
                                 System.out.println( "//WARNING: PROFICIENCIES MUST BE ENTERED IN ALL CAPS" );
-                                player.setUserBackgroundProficiency1( input.next() );
+                                player.setUserBackgroundProficiency1( input.nextLine() );
                                 System.out.println( "//BACKGROUND PROFICIENCY 1 (BGN1) UPDATED");
                                 ShortDelay();
                                 System.out.println( "//ENTER NEW PROFICIENCY TO CONTINUE EDITING" );
                                 ShortDelay();
-                                System.out.println( "//PRESS \"R\" TO REFRESH SKILLS MENU" );
+                                System.out.println( "//PRESS \"N\" TO REFRESH SKILLS MENU" );
                                 ShortDelay();
                                 break;
                             case "BACKGROUND2": case "background2": case "BGN2": case "bgn2":
                                 System.out.println( "//PLEASE ENTER NEW VALUE FOR BACKGROUND PROFICIENCY 2 (BGN2)" );
                                 ShortDelay();
                                 System.out.println( "//WARNING: PROFICIENCIES MUST BE ENTERED IN ALL CAPS" );
-                                player.setUserBackgroundProficiency2( input.next() );
+                                player.setUserBackgroundProficiency2( input.nextLine() );
                                 System.out.println( "//BACKGROUND PROFICIENCY 2 (BGN2) UPDATED");
                                 ShortDelay();
                                 System.out.println( "//ENTER NEW PROFICIENCY TO CONTINUE EDITING" );
                                 ShortDelay();
-                                System.out.println( "//PRESS \"R\" TO REFRESH SKILLS MENU" );
+                                System.out.println( "//PRESS \"N\" TO REFRESH SKILLS MENU" );
                                 ShortDelay();
                                 break;
                             case "SKILL1": case "skill1": case "SKL1": case "skl1":
                                 System.out.println( "//PLEASE ENTER NEW VALUE FOR SKILL PROFICIENCY 1 (SKL1)" );
                                 ShortDelay();
                                 System.out.println( "//WARNING: PROFICIENCIES MUST BE ENTERED IN ALL CAPS" );
-                                player.setUserSkillProficiency1( input.next() );
+                                player.setUserSkillProficiency1( input.nextLine() );
                                 System.out.println( "//SKILL PROFICIENCY 1 (SKL1) UPDATED");
                                 ShortDelay();
                                 System.out.println( "//ENTER NEW PROFICIENCY TO CONTINUE EDITING" );
                                 ShortDelay();
-                                System.out.println( "//PRESS \"R\" TO REFRESH SKILLS MENU" );
+                                System.out.println( "//PRESS \"N\" TO REFRESH SKILLS MENU" );
                                 ShortDelay();
                                 break;
                             case "SKILL2": case "skill2": case "SKL2": case "skl2":
                                 System.out.println( "//PLEASE ENTER NEW VALUE FOR SKILL PROFICIENCY 2 (SKL2)" );
                                 ShortDelay();
                                 System.out.println( "//WARNING: PROFICIENCIES MUST BE ENTERED IN ALL CAPS" );
-                                player.setUserSkillProficiency2( input.next() );
+                                player.setUserSkillProficiency2( input.nextLine() );
                                 System.out.println( "//SKILL PROFICIENCY 2 (SKL2) UPDATED");
                                 ShortDelay();
                                 System.out.println( "//ENTER NEW PROFICIENCY TO CONTINUE EDITING" );
                                 ShortDelay();
-                                System.out.println( "//PRESS \"R\" TO REFRESH SKILLS MENU" );
+                                System.out.println( "//PRESS \"N\" TO REFRESH SKILLS MENU" );
                                 ShortDelay();
                                 break;
                             case "SKILL3": case "skill3": case "SKL3": case "skl3":
                                 System.out.println( "//PLEASE ENTER NEW VALUE FOR SKILL PROFICIENCY 3 (SKL3)" );
                                 ShortDelay();
                                 System.out.println( "//WARNING: PROFICIENCIES MUST BE ENTERED IN ALL CAPS" );
-                                player.setUserSkillProficiency3( input.next() );
+                                player.setUserSkillProficiency3( input.nextLine() );
                                 System.out.println( "//SKILL PROFICIENCY 3 (SKL3) UPDATED");
                                 ShortDelay();
                                 System.out.println( "//ENTER NEW PROFICIENCY TO CONTINUE EDITING" );
                                 ShortDelay();
-                                System.out.println( "//PRESS \"R\" TO REFRESH SKILLS MENU" );
+                                System.out.println( "//PRESS \"N\" TO REFRESH SKILLS MENU" );
                                 ShortDelay();
                                 break;
                             case "SKILL4": case "skill4": case "SKL4": case "skl4":
                                 System.out.println( "//PLEASE ENTER NEW VALUE FOR SKILL PROFICIENCY 4 (SKL4)" );
                                 ShortDelay();
                                 System.out.println( "//WARNING: PROFICIENCIES MUST BE ENTERED IN ALL CAPS" );
-                                player.setUserSkillProficiency4( input.next() );
+                                player.setUserSkillProficiency4( input.nextLine() );
                                 System.out.println( "//SKILL PROFICIENCY 4 (SKL4) UPDATED");
                                 ShortDelay();
                                 System.out.println( "//ENTER NEW PROFICIENCY TO CONTINUE EDITING" );
                                 ShortDelay();
-                                System.out.println( "//PRESS \"R\" TO REFRESH SKILLS MENU" );
+                                System.out.println( "//PRESS \"N\" TO REFRESH SKILLS MENU" );
                                 ShortDelay();
                                 break;
                             case "WEAPON": case "weapon": case "WPNP": case "wpnp":
                                 System.out.println( "//PLEASE ENTER NEW VALUE FOR WEAPON PROFICIENCY (WPNP)" );
                                 ShortDelay();
                                 System.out.println( "//WARNING: PROFICIENCIES MUST BE ENTERED IN ALL CAPS" );
-                                ShortDelay();
-                                System.out.println( "//WARNING: GAPS IN NAME MUST BE INDICATED WITH UNDERSCORES" );
-                                player.setUserWeaponProficiency( input.next() );
+                                player.setUserWeaponProficiency( input.nextLine() );
                                 System.out.println( "//WEAPON PROFICIENCY (WPNP) UPDATED");
                                 ShortDelay();
                                 System.out.println( "//ENTER NEW PROFICIENCY TO CONTINUE EDITING" );
                                 ShortDelay();
-                                System.out.println( "//PRESS \"R\" TO REFRESH SKILLS MENU" );
+                                System.out.println( "//PRESS \"N\" TO REFRESH SKILLS MENU" );
                                 ShortDelay();
                                 break;
-                            case "NEU-LADEN": case "neu-laden": case "NEULADEN": case "neuladen": case "NULD": case "nuld": case "N": case "n": case "REFRESH": case "refresh": case "REFR": case "refr": case "R": case "r":
+
+                            case "NEU-LADEN": case "neu-laden": case "NEULADEN": case "neuladen": case "NULD": case "nuld": case "N": case "n": case "REFRESH": case "refresh": case "REFR": case "refr":
                                 skills( player );
+                                break;
+                            case "ROLLEN": case "rollen": case "ROLL": case "roll": case "R": case "r":
+                                roll( player );
                                 break;
                         }
                     }
                     break;
-                case "NEU-LADEN": case "neu-laden": case "NEULADEN": case "neuladen": case "NULD": case "nuld": case "N": case "n": case "REFRESH": case "refresh": case "REFR": case "refr": case "R": case "r":
+                case "NEU-LADEN": case "neu-laden": case "NEULADEN": case "neuladen": case "NULD": case "nuld": case "N": case "n": case "REFRESH": case "refresh": case "REFR": case "refr":
                     skills( player );
+                    break;
+                case "ROLLEN": case "rollen": case "ROLL": case "roll": case "R": case "r":
+                    roll( player );
                     break;
                 case "BACK": case "back": case "0":
                     vitals( player );
@@ -1667,7 +1971,7 @@ public class DaVG {
                     break;
                 default:
                     if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                        System.out.println("//ACHTUNG: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                        System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
                     } else if (player.getUserLanguage().equals("ENGLISH")){
                         System.out.println("//ERROR: INVALID INPUT.");
                     }
@@ -1745,18 +2049,12 @@ public class DaVG {
             } else if ( player.getUserSkillProficiency1().equals(skill) || player.getUserSkillProficiency2().equals(skill) || player.getUserSkillProficiency3().equals(skill) || player.getUserSkillProficiency4().equals(skill) ){
                 profiBonus = 2;
                 return profiBonus;
-            } else if ( player.getSoftware1().equals(skill + "+") || player.getSoftware2().equals(skill + "+") || player.getSoftware3().equals(skill + "+") || player.getSoftware4().equals(skill + "+") || player.getSoftware5().equals(skill + "+") ){
-                profiBonus = 2;
-                return profiBonus;
             }
         } else if ( 4 < Integer.parseInt(player.getUserLevel()) && Integer.parseInt(player.getUserLevel()) <= 8){
             if ( player.getUserBackgroundProficiency1().equals(skill) || player.getUserBackgroundProficiency2().equals(skill) ){
                 profiBonus = 3;
                 return profiBonus;
             } else if ( player.getUserSkillProficiency1().equals(skill) || player.getUserSkillProficiency2().equals(skill) || player.getUserSkillProficiency3().equals(skill) || player.getUserSkillProficiency4().equals(skill) ){
-                profiBonus = 3;
-                return profiBonus;
-            } else if ( player.getSoftware1().equals(skill + "+") || player.getSoftware2().equals(skill + "+") || player.getSoftware3().equals(skill + "+") || player.getSoftware4().equals(skill + "+") || player.getSoftware5().equals(skill + "+") ){
                 profiBonus = 3;
                 return profiBonus;
             }
@@ -1767,18 +2065,12 @@ public class DaVG {
             } else if ( player.getUserSkillProficiency1().equals(skill) || player.getUserSkillProficiency2().equals(skill) || player.getUserSkillProficiency3().equals(skill) || player.getUserSkillProficiency4().equals(skill) ){
                 profiBonus = 4;
                 return profiBonus;
-            } else if ( player.getSoftware1().equals(skill + "+") || player.getSoftware2().equals(skill + "+") || player.getSoftware3().equals(skill + "+") || player.getSoftware4().equals(skill + "+") || player.getSoftware5().equals(skill + "+") ){
-                profiBonus = 4;
-                return profiBonus;
             }
         } else if ( 12 < Integer.parseInt(player.getUserLevel()) && Integer.parseInt(player.getUserLevel()) <= 16){
             if ( player.getUserBackgroundProficiency1().equals(skill) || player.getUserBackgroundProficiency2().equals(skill) ){
                 profiBonus = 5;
                 return profiBonus;
             } else if ( player.getUserSkillProficiency1().equals(skill) || player.getUserSkillProficiency2().equals(skill) || player.getUserSkillProficiency3().equals(skill) || player.getUserSkillProficiency4().equals(skill) ){
-                profiBonus = 5;
-                return profiBonus;
-            } else if ( player.getSoftware1().equals(skill + "+") || player.getSoftware2().equals(skill + "+") || player.getSoftware3().equals(skill + "+") || player.getSoftware4().equals(skill + "+") || player.getSoftware5().equals(skill + "+") ){
                 profiBonus = 5;
                 return profiBonus;
             }
@@ -1789,9 +2081,6 @@ public class DaVG {
             } else if ( player.getUserSkillProficiency1().equals(skill) || player.getUserSkillProficiency2().equals(skill) || player.getUserSkillProficiency3().equals(skill) || player.getUserSkillProficiency4().equals(skill) ){
                 profiBonus = 6;
                 return profiBonus;
-            } else if ( player.getSoftware1().equals(skill + "+") || player.getSoftware2().equals(skill + "+") || player.getSoftware3().equals(skill + "+") || player.getSoftware4().equals(skill + "+") || player.getSoftware5().equals(skill + "+") ){
-                profiBonus = 6;
-                return profiBonus;
             }
         } else if ( Integer.parseInt(player.getUserLevel()) < 20){
             if ( player.getUserBackgroundProficiency1().equals(skill) || player.getUserBackgroundProficiency2().equals(skill) ){
@@ -1800,13 +2089,48 @@ public class DaVG {
             } else if ( player.getUserSkillProficiency1().equals(skill) || player.getUserSkillProficiency2().equals(skill) || player.getUserSkillProficiency3().equals(skill) || player.getUserSkillProficiency4().equals(skill) ){
                 profiBonus = 6 + ( ( Integer.parseInt(player.getUserLevel()) - 20 ) / 4 );
                 return profiBonus;
-            } else if ( player.getSoftware1().equals(skill + "+") || player.getSoftware2().equals(skill + "+") || player.getSoftware3().equals(skill + "+") || player.getSoftware4().equals(skill + "+") || player.getSoftware5().equals(skill + "+") ){
-                profiBonus = 6 + ( ( Integer.parseInt(player.getUserLevel()) - 20 ) / 4 );
-                return profiBonus;
             }
         }
 
         return profiBonus;
+    }
+
+    private static int sftwrCalc ( playerCharacter player, String skill ){
+        int softwareBonus = 0;
+
+        if ( Integer.parseInt(player.getUserLevel()) <= 4 ){
+            if ( player.getSoftware1().equals(skill + "+") || player.getSoftware2().equals(skill + "+") || player.getSoftware3().equals(skill + "+") || player.getSoftware4().equals(skill + "+") || player.getSoftware5().equals(skill + "+") ) {
+                softwareBonus = 2;
+                return softwareBonus;
+            }
+        } else if ( 4 < Integer.parseInt(player.getUserLevel()) && Integer.parseInt(player.getUserLevel()) <= 8){
+            if ( player.getSoftware1().equals(skill + "+") || player.getSoftware2().equals(skill + "+") || player.getSoftware3().equals(skill + "+") || player.getSoftware4().equals(skill + "+") || player.getSoftware5().equals(skill + "+") ) {
+                softwareBonus = 3;
+                return softwareBonus;
+            }
+        } else if ( 8 < Integer.parseInt(player.getUserLevel()) && Integer.parseInt(player.getUserLevel()) <= 12){
+            if ( player.getSoftware1().equals(skill + "+") || player.getSoftware2().equals(skill + "+") || player.getSoftware3().equals(skill + "+") || player.getSoftware4().equals(skill + "+") || player.getSoftware5().equals(skill + "+") ) {
+                softwareBonus = 4;
+                return softwareBonus;
+            }
+        } else if ( 12 < Integer.parseInt(player.getUserLevel()) && Integer.parseInt(player.getUserLevel()) <= 16){
+            if ( player.getSoftware1().equals(skill + "+") || player.getSoftware2().equals(skill + "+") || player.getSoftware3().equals(skill + "+") || player.getSoftware4().equals(skill + "+") || player.getSoftware5().equals(skill + "+") ) {
+                softwareBonus = 5;
+                return softwareBonus;
+            }
+        } else if ( 16 < Integer.parseInt(player.getUserLevel()) && Integer.parseInt(player.getUserLevel()) <= 20){
+            if ( player.getSoftware1().equals(skill + "+") || player.getSoftware2().equals(skill + "+") || player.getSoftware3().equals(skill + "+") || player.getSoftware4().equals(skill + "+") || player.getSoftware5().equals(skill + "+") ) {
+                softwareBonus = 6;
+                return softwareBonus;
+            }
+        } else if ( Integer.parseInt(player.getUserLevel()) < 20){
+            if ( player.getSoftware1().equals(skill + "+") || player.getSoftware2().equals(skill + "+") || player.getSoftware3().equals(skill + "+") || player.getSoftware4().equals(skill + "+") || player.getSoftware5().equals(skill + "+") ) {
+                softwareBonus = 6 + ( ( Integer.parseInt(player.getUserLevel()) - 20 ) / 4 );
+                return softwareBonus;
+            }
+        }
+
+        return softwareBonus;
     }
 
 
@@ -1836,7 +2160,7 @@ public class DaVG {
         NoDelay();
         boolean optionNotChosen = true;
         while ( optionNotChosen ) {
-            switch ( input.next() ) {
+            switch ( input.nextLine() ) {
                 case "WEAPONS": case "weapons": case "WEAP": case "weap": case "1":
                     weapons( player );
                     break;
@@ -1890,7 +2214,7 @@ public class DaVG {
                     break;
                 default:
                     if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                        System.out.println("//ACHTUNG: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                        System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
                     } else if (player.getUserLanguage().equals("ENGLISH")){
                         System.out.println("//ERROR: INVALID INPUT.");
                     }
@@ -1918,92 +2242,101 @@ public class DaVG {
 
         File[] inventory = player.getPlayerInventory();
 
-        TESTWEAP = new File(inventory[1]+"\\TESTWEAP");
-        TESTWEAPTAG = new File(inventory[1]+"\\TESTWEAP\\ItemID.TAG");
+        //SIDEARMS
+        {
+            TESTWEAP = new File(inventory[1]+"\\TESTWEAP");
+            TESTWEAPTAG = new File(inventory[1]+"\\TESTWEAP\\ItemID.TAG");
 
-        FtA_45 = new File(inventory[1]+"\\FtA_45");
-        FtA_45TAG = new File(inventory[1]+"\\FtA_45\\ItemID.TAG");
+            FtA_45 = new File(inventory[1]+"\\FtA-45");
+            FtA_45TAG = new File(inventory[1]+"\\FtA-45\\ItemID.TAG");
 
-        LP61 = new File(inventory[1]+"\\LP61");
-        LP61TAG = new File(inventory[1]+"\\LP61\\ItemID.TAG");
+            LP61 = new File(inventory[1]+"\\LP-61");
+            LP61TAG = new File(inventory[1]+"\\LP-61\\ItemID.TAG");
 
-        MP60 = new File(inventory[1]+"\\MP60");
-        MP60TAG = new File(inventory[1]+"\\MP60\\ItemID.TAG");
+            MP60 = new File(inventory[1]+"\\MP-60");
+            MP60TAG = new File(inventory[1]+"\\MP-60\\ItemID.TAG");
 
-        P1885 = new File(inventory[1]+"\\P.1885");
-        P1885TAG = new File(inventory[1]+"\\P.1885\\ItemID.TAG");
+            P1885 = new File(inventory[1]+"\\P.1885");
+            P1885TAG = new File(inventory[1]+"\\P.1885\\ItemID.TAG");
 
-        P60 = new File(inventory[1]+"\\P60");
-        P60TAG = new File(inventory[1]+"\\P60\\ItemID.TAG");
+            P60 = new File(inventory[1]+"\\P-60");
+            P60TAG = new File(inventory[1]+"\\P-60\\ItemID.TAG");
+        }
 
         if (weaponsCheck()){
             ShortDelay();
             System.out.println("COMPLETE");
             ShortDelay();
-            if (TESTWEAP.isDirectory()){
-                if (TESTWEAPTAG.isFile()){
-                    if (player.getPrimaryWeapon().equals("000")){
-                        System.out.println( ">No. 000 | TESTWEAP [CW]" );
+            System.out.println("// ENTER A WEAPON ID TO SELECT A WEAPON");
+            ShortDelay();
+
+            //SIDEARMS
+            {
+                if (TESTWEAP.isDirectory()){
+                    if (TESTWEAPTAG.isFile()){
+                        if (player.getPrimaryWeapon().equals("000")){
+                            System.out.println( ">No. 000 | TESTWEAP [CW]" );
+                        } else {
+                            System.out.println( ">No. 000 | TESTWEAP" );
+                        }
                     } else {
-                        System.out.println( ">No. 000 | TESTWEAP" );
+                        System.out.println(">No. 000 | TESTWEAP [ERROR: CANNOT READ IDENTIFICATION TAG]");
                     }
-                } else {
-                    System.out.println(">No. 000 | TESTWEAP [ERROR: CANNOT READ IDENTIFICATION TAG]");
                 }
-            }
-            if (FtA_45.isDirectory()){
-                if (FtA_45TAG.isFile()){
-                    if (player.getPrimaryWeapon().equals("002")){
-                        System.out.println( ">No. 002 | FtA_45 [CW]" );
+                if (FtA_45.isDirectory()){
+                    if (FtA_45TAG.isFile()){
+                        if (player.getPrimaryWeapon().equals("002")){
+                            System.out.println( ">No. 002 | FtA-45 [CW]" );
+                        } else {
+                            System.out.println( ">No. 002 | FtA-45" );
+                        }
                     } else {
-                        System.out.println( ">No. 002 | FtA_45" );
+                        System.out.println(">No. 002 | FtA-45 [ERROR: CANNOT READ IDENTIFICATION TAG]");
                     }
-                } else {
-                    System.out.println(">No. 002 | FtA_45 [ERROR: CANNOT READ IDENTIFICATION TAG]");
                 }
-            }
-            if (LP61.isDirectory()){
-                if (LP61TAG.isFile()){
-                    if (player.getPrimaryWeapon().equals("003")){
-                        System.out.println( ">No. 003 | LP61 [CW]" );
+                if (LP61.isDirectory()){
+                    if (LP61TAG.isFile()){
+                        if (player.getPrimaryWeapon().equals("003")){
+                            System.out.println( ">No. 003 | LP-61 [CW]" );
+                        } else {
+                            System.out.println( ">No. 003 | LP-61" );
+                        }
                     } else {
-                        System.out.println( ">No. 003 | LP61" );
+                        System.out.println(">No. 003 | LP-61 [ERROR: CANNOT READ IDENTIFICATION TAG]");
                     }
-                } else {
-                    System.out.println(">No. 003 | LP61 [ERROR: CANNOT READ IDENTIFICATION TAG]");
                 }
-            }
-            if (MP60.isDirectory()){
-                if (MP60TAG.isFile()){
-                    if (player.getPrimaryWeapon().equals("004")){
-                        System.out.println( ">No. 004 | MP60 [CW]" );
+                if (MP60.isDirectory()){
+                    if (MP60TAG.isFile()){
+                        if (player.getPrimaryWeapon().equals("004")){
+                            System.out.println( ">No. 004 | MP-60 [CW]" );
+                        } else {
+                            System.out.println( ">No. 004 | MP-60" );
+                        }
                     } else {
-                        System.out.println( ">No. 004 | MP60" );
+                        System.out.println(">No. 004 | MP60 [ERROR: CANNOT READ IDENTIFICATION TAG]");
                     }
-                } else {
-                    System.out.println(">No. 004 | MP60 [ERROR: CANNOT READ IDENTIFICATION TAG]");
                 }
-            }
-            if (P1885.isDirectory()){
-                if (P1885TAG.isFile()){
-                    if (player.getPrimaryWeapon().equals("005")){
-                        System.out.println( ">No. 005 | P.1885 [CW]" );
+                if (P1885.isDirectory()){
+                    if (P1885TAG.isFile()){
+                        if (player.getPrimaryWeapon().equals("005")){
+                            System.out.println( ">No. 005 | P.1885 [CW]" );
+                        } else {
+                            System.out.println( ">No. 005 | P.1885" );
+                        }
                     } else {
-                        System.out.println( ">No. 005 | P.1885" );
+                        System.out.println(">No. 005 | P.1885 [ERROR: CANNOT READ IDENTIFICATION TAG]");
                     }
-                } else {
-                    System.out.println(">No. 005 | P.1885 [ERROR: CANNOT READ IDENTIFICATION TAG]");
                 }
-            }
-            if (P60.isDirectory()){
-                if (P60TAG.isFile()){
-                    if (player.getPrimaryWeapon().equals("006")){
-                        System.out.println( ">No. 006 | P60 [CW]" );
+                if (P60.isDirectory()){
+                    if (P60TAG.isFile()){
+                        if (player.getPrimaryWeapon().equals("006")){
+                            System.out.println( ">No. 006 | P-60 [CW]" );
+                        } else {
+                            System.out.println( ">No. 006 | P-60" );
+                        }
                     } else {
-                        System.out.println( ">No. 006 | P60" );
+                        System.out.println(">No. 006 | P60 [ERROR: CANNOT READ IDENTIFICATION TAG]");
                     }
-                } else {
-                    System.out.println(">No. 006 | P60 [ERROR: CANNOT READ IDENTIFICATION TAG]");
                 }
             }
         }
@@ -2013,12 +2346,13 @@ public class DaVG {
             NoDelay();
             System.out.println("//NO ITEMS MATCHING FILTER FOUND IN INVENTORY!");
         }
-        System.out.println(">REFRESH (R/REFR)");
-        ShortDelay();
+        NoDelay();
+        System.out.println(">REFRESH (N/NULD)");
+        NoDelay();
         System.out.println(">BACK (0/BACK)");
         boolean optionNotChosen = true;
         while ( optionNotChosen ) {
-            switch ( input.next() ) {
+            switch ( input.nextLine() ) {
                 case "TESTWEAP": case "testweap": case "000":
                     if (TESTWEAP.isDirectory()){
                         if (TESTWEAPTAG.isFile()){
@@ -2035,10 +2369,10 @@ public class DaVG {
                         System.out.println("//ERROR: SPECIFIED WEAPON MISSING!");
                     }
                     break;
-                case "FtA_45": case "fta_45": case "002":
+                case "FtA-45": case "fta-45": case "002":
                     if (FtA_45.isDirectory()){
                         if (FtA_45TAG.isFile()){
-                            weaponLoad( player, "FtA_45" );
+                            weaponLoad( player, "FtA-45" );
                         } else {
                             LongDelay();
                             System.out.println("//ERROR: ITEM TAG UNREADABLE");
@@ -2051,10 +2385,10 @@ public class DaVG {
                         System.out.println("//ERROR: SPECIFIED WEAPON MISSING!");
                     }
                     break;
-                case "LP61": case "lp61": case "003":
+                case "LP-61": case "lp-61": case "003":
                     if (LP61.isDirectory()){
                         if (LP61TAG.isFile()){
-                            weaponLoad( player, "LP61" );
+                            weaponLoad( player, "LP-61" );
                         } else {
                             LongDelay();
                             System.out.println("//ERROR: ITEM TAG UNREADABLE");
@@ -2067,10 +2401,10 @@ public class DaVG {
                         System.out.println("//ERROR: SPECIFIED WEAPON MISSING!");
                     }
                     break;
-                case "MP60": case "mp60": case "004":
+                case "MP-60": case "mp-60": case "004":
                     if (MP60.isDirectory()){
                         if (MP60TAG.isFile()){
-                            weaponLoad( player, "MP60" );
+                            weaponLoad( player, "MP-60" );
                         } else {
                             LongDelay();
                             System.out.println("//ERROR: ITEM TAG UNREADABLE");
@@ -2099,10 +2433,10 @@ public class DaVG {
                         System.out.println("//ERROR: SPECIFIED WEAPON MISSING!");
                     }
                     break;
-                case "P60": case "p60": case "006":
+                case "P-60": case "p-60": case "006":
                     if (P60.isDirectory()){
                         if (P60TAG.isFile()){
-                            weaponLoad( player, "P60");
+                            weaponLoad( player, "P-60");
                         } else {
                             LongDelay();
                             System.out.println("//ERROR: ITEM TAG UNREADABLE");
@@ -2115,8 +2449,11 @@ public class DaVG {
                         System.out.println("//ERROR: SPECIFIED WEAPON MISSING!");
                     }
                     break;
-                case "NEU-LADEN": case "neu-laden": case "NEULADEN": case "neuladen": case "NULD": case "nuld": case "N": case "n": case "REFRESH": case "refresh": case "REFR": case "refr": case "R": case "r":
+                case "NEU-LADEN": case "neu-laden": case "NEULADEN": case "neuladen": case "NULD": case "nuld": case "N": case "n": case "REFRESH": case "refresh": case "REFR": case "refr":
                     weapons( player );
+                    break;
+                case "ROLLEN": case "rollen": case "ROLL": case "roll": case "R": case "r":
+                    roll( player );
                     break;
                 case "BACK": case "back": case "0":
                     inventory( player );
@@ -2156,7 +2493,7 @@ public class DaVG {
                     break;
                 default:
                     if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                        System.out.println("//ACHTUNG: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                        System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
                     } else if (player.getUserLanguage().equals("ENGLISH")){
                         System.out.println("//ERROR: INVALID INPUT.");
                     }
@@ -2169,12 +2506,15 @@ public class DaVG {
     private static boolean weaponsCheck(){
 
         boolean[] sidearmCheck = new boolean[6];
-        sidearmCheck[0] = TESTWEAP.isDirectory();
-        sidearmCheck[1] = FtA_45.isDirectory();
-        sidearmCheck[2] = LP61.isDirectory();
-        sidearmCheck[3] = MP60.isDirectory();
-        sidearmCheck[4] = P1885.isDirectory();
-        sidearmCheck[5] = P60.isDirectory();
+        {
+            sidearmCheck[0] = TESTWEAP.isDirectory();
+            sidearmCheck[1] = FtA_45.isDirectory();
+            sidearmCheck[2] = LP61.isDirectory();
+            sidearmCheck[3] = MP60.isDirectory();
+            sidearmCheck[4] = P1885.isDirectory();
+            sidearmCheck[5] = P60.isDirectory();
+        }
+
 
         for (int i = 0; i < sidearmCheck.length; i++){
             if (sidearmCheck[i]){
@@ -2205,7 +2545,7 @@ public class DaVG {
         System.out.print("//ANALYZING ITEM IDENTIFICATION TAG...");
         LongDelay();
         System.out.println("COMPLETE");
-        String [] weaponData = new String[27];
+        String [] weaponData = new String[30];
         BufferedReader weaponScanner = new BufferedReader(new FileReader(inventory[1]+"\\"+weaponName+"\\ItemID.TAG"));
         try {
             weaponData = weaponScanner.readLine().split("[~]");
@@ -2223,13 +2563,13 @@ public class DaVG {
         } else {
             System.out.print( "  " + weaponData[0] + " | ");
         }
-        ShortDelay();
+        NoDelay();
         if (debugMode) {
             System.out.print( "[INDEX 1] " + weaponData[1] + " | " );
         } else {
             System.out.print( weaponData[1] + " | " );
         }
-        ShortDelay();
+        NoDelay();
         if (debugMode) {
             System.out.print( "[INDEX 2] FR " );
             NoDelay();
@@ -2251,147 +2591,169 @@ public class DaVG {
         }
         ShortDelay();
         if (debugMode){
-            System.out.println( "//[INDEX 4] MANUFACTURER: "+weaponData[4] );
+            System.out.println( "[INDEX 4]  MANUFACTURER: "+weaponData[4] );
         } else {
-            System.out.println( "//MANUFACTURER: "+weaponData[4] );
+            System.out.println( "  MANUFACTURER: "+weaponData[4] );
         }
         NoDelay();
         if (debugMode) {
-            System.out.println( "//[INDEX 5] DAMG: " + weaponData[5] );
+            System.out.println( "[INDEX 5]  SCPA: " + weaponData[5] );
         } else {
-            System.out.println( "//DAMG: " + weaponData[5] );
+            System.out.println( "  SCPA: " + weaponData[5] );
         }
         NoDelay();
         if (debugMode){
-            System.out.println( "//[INDEX 6] ACCT: " + weaponData[6] );
+            System.out.println( "[INDEX 6]  GNKS: " + weaponData[6] );
         } else {
-            System.out.println( "//ACCT: " + weaponData[6] );
+            System.out.println( "  GNKS: " + weaponData[6] );
         }
         NoDelay();
         if (debugMode){
-            System.out.println( "//[INDEX 7] CRHC: " + weaponData[7] );
+            System.out.println( "[INDEX 7]  KTFK: " + weaponData[7] );
         } else {
-            System.out.println( "//CRHC: " + weaponData[7] );
+            System.out.println( "  KTFK: " + weaponData[7] );
         }
         NoDelay();
         if (debugMode){
-            System.out.println( "//[INDEX 8] CRHT: " + weaponData[8] );
+            System.out.println( "[INDEX 8]  KTFS: " + weaponData[8] );
         } else {
-            System.out.println( "//CRHT: " + weaponData[8] );
+            System.out.println( "  KTFS: " + weaponData[8] );
         }
         NoDelay();
         if (debugMode){
-            System.out.println( "//[INDEX 9] CRHM: " + weaponData[9] );
+            System.out.println( "[INDEX 9]  KTFM: " + weaponData[9] );
         } else {
-            System.out.println( "//CRHM: " + weaponData[9] );
+            System.out.println( "  KTFM: " + weaponData[9] );
         }
         NoDelay();
         if (debugMode){
-            System.out.println( "//[INDEX 10] WEAPON TYPE: " + weaponData[10] );
+            System.out.println( "[INDEX 10]  WTYP: " + weaponData[10] );
         } else {
-            System.out.println( "//WEAPON TYPE: " + weaponData[10] );
+            System.out.println( "  WTYP: " + weaponData[10] );
         }
         if (weaponData[10].equals("RANGED")) {
             if (debugMode){
-                System.out.println( "//[INDEX 11] EFFR: " + weaponData[11] );
+                System.out.println( "[INDEX 11]  EFKR: " + weaponData[11] );
             } else {
-                System.out.println( "//EFFR: " + weaponData[11] );
+                System.out.println( "  EFKR: " + weaponData[11] );
             }
             NoDelay();
             if (debugMode){
-                System.out.println( "//[INDEX 12] AMMO: " + weaponData[12] );
+                System.out.println( "[INDEX 12]  MNSK: " + weaponData[12] );
             } else {
-                System.out.println( "//AMMO: " + weaponData[12] );
-
+                System.out.println( "  MNSK: " + weaponData[12] );
             }
             NoDelay();
             if (debugMode){
-                System.out.println( "//[INDEX 13] MGZN: " + weaponData[13] + "/[INDEX 14] " +weaponData[14] + " " + weaponData[15] );
+                System.out.println("[INDEX 13]  MGZT: " + weaponData[13]);
             } else {
-                System.out.println( "//MGZN: " + weaponData[13] + "/" +weaponData[14] + " " + weaponData[15] );
+                System.out.println("  MGZT: " + weaponData[13]);
             }
             NoDelay();
             if (debugMode){
-                System.out.println( "//[INDEX 16] AUPS: " + weaponData[16] );
+                System.out.println( "[INDEX 14]  MGZL: " + weaponData[14] + "/[INDEX 15] " +weaponData[15] + "[INDEX 16] " + weaponData[16] + "[INDEX 17] " + weaponData[17] );
             } else {
-                System.out.println( "//AUPS: " + weaponData[16] );
+                System.out.println( "  MGZL: " + weaponData[14] + "/" +weaponData[15] + " " + weaponData[16] + " " + weaponData[17] );
             }
             NoDelay();
             if (debugMode){
-                System.out.println( "//[INDEX 17] FRMD: " + weaponData[17] );
+                System.out.println( "[INDEX 18]  MNSV: " + weaponData[18] );
             } else {
-                System.out.println( "//FRMD: " + weaponData[17] );
+                System.out.println( "  MNSV: " + weaponData[18] );
             }
             NoDelay();
             if (debugMode){
-                System.out.println( "//[INDEX 18] CHAM:" + weaponData[18] );
+                System.out.println( "[INDEX 19]  FRMM: " + weaponData[19] );
             } else {
-                System.out.println( "//CHAM: " + weaponData[18] );
+                System.out.println( "  FRMM: " + weaponData[19] );
+            }
+            NoDelay();
+            if (debugMode){
+                System.out.println( "[INDEX 20]  FRMA:" + weaponData[20] );
+            } else {
+                System.out.println( "  FRMA: " + weaponData[20] );
+            }
+            NoDelay();
+            if (debugMode){
+                System.out.println( "[INDEX 21]  DKAM:" + weaponData[21] );
+            } else {
+                System.out.println( "  CHAM: " + weaponData[21] );
             }
         }
+        System.out.println();
         ShortDelay();
         if (debugMode){
-            System.out.print( "//[INDEX 19] TOOT: " );
+            System.out.print( "[INDEX 22]  INFA: " );
             ShortDelay();
-            System.out.println( weaponData[19] );
+            System.out.println( weaponData[22] );
         } else {
-            System.out.print( "//TOOT: " );
+            System.out.print( "  INFA: " );
             ShortDelay();
-            System.out.println( weaponData[19] );
+            System.out.println( weaponData[22] );
         }
+        System.out.println();
         ShortDelay();
         if (debugMode) {
-            System.out.println( "//[INDEX 20] DESC: " );
+            System.out.println( "[INDEX 23]  INFG: " );
             ShortDelay();
-            System.out.println( weaponData[20] );
+            String weaponINFG = weaponData[23].replaceAll("\\\\n", "\n");
+            System.out.println( weaponINFG );
         } else {
-            System.out.println( "//DESC: " );
+            System.out.println( "  INFG: " );
             ShortDelay();
-            System.out.println( weaponData[20] );
+            String weaponINFG = weaponData[23].replaceAll("\\\\n", "\n");
+            weaponINFG = weaponINFG.replaceAll("\\\\t", "\t");
+            System.out.println( weaponINFG );
         }
+        System.out.println();
         ShortDelay();
-        if (!weaponData[21].equals("N/A")){
+        if (!weaponData[24].equals("N/A")){
             if (debugMode){
                 System.out.println( "//WEAPON-SPECIFIC TRAITS:" );
                 ShortDelay();
-                System.out.println( "// [INDEX 21] " + weaponData[21] + " - " + "[INDEX 22] " + weaponData[21] );
-                NoDelay();
+                System.out.println( "> [INDEX 24] " + weaponData[24] + " - " + "[INDEX 25] " + weaponData[25] );
+                ShortDelay();
             } else {
                 System.out.println( "//WEAPON-SPECIFIC TRAITS:" );
                 ShortDelay();
-                System.out.println( "//" + weaponData[21] + " - " + weaponData[22] );
-                NoDelay();
+                System.out.println( ">" + weaponData[24] + " - " + weaponData[25] );
+                ShortDelay();
             }
-            if (!weaponData[23].equals("N/A")){
+            if (!weaponData[26].equals("N/A")){
                 if (debugMode){
-                    System.out.println( "// [INDEX 23] " + weaponData[23] + " - " + "[INDEX 24] " + weaponData[24] );
-                    NoDelay();
+                    System.out.println( "> [INDEX 26] " + weaponData[26] + " - " + "[INDEX 27] " + weaponData[27] );
+                    ShortDelay();
                 } else {
-                    System.out.println( "//" + weaponData[23] + " - " + weaponData[24] );
-                    NoDelay();
+                    System.out.println( ">" + weaponData[26] + " - " + weaponData[27] );
+                    ShortDelay();
                 }
-                if (!weaponData[25].equals("N/A")){
-                    if (debugMode){
-                        System.out.println( "// [INDEX 25] " + weaponData[25] + " - " + "[INDEX 26] " + weaponData[26] );
-                    } else {
-                        System.out.println( "//" + weaponData[23] + " - " + weaponData[24] );
+            if (!weaponData[28].equals("N/A")){
+                if (debugMode){
+                    System.out.println( "> [INDEX 28] " + weaponData[28] + " - " + "[INDEX 29] " + weaponData[29] );
+                } else {
+                    System.out.println( ">" + weaponData[28] + " - " + weaponData[29] );
                     }
                 }
             }
         }
+        System.out.println();
         ShortDelay();
+        System.out.println("//PLEASE CHOOSE A COURSE OF ACTION");
         System.out.println(">EQUIP (1/EQUP)");
         NoDelay();
         System.out.println(">UNEQUIP (2/UEQP)");
         NoDelay();
-        System.out.println( ">REFRESH (R/REFR)" );
+        System.out.println( ">REFRESH (N/NULD)" );
         NoDelay();
         System.out.println( ">BACK (0/BACK)" );
         boolean optionNotChosen = true;
         while ( optionNotChosen ) {
-            switch ( input.next() ) {
-                case "NEU-LADEN": case "neu-laden": case "NEULADEN": case "neuladen": case "NULD": case "nuld": case "N": case "n": case "REFRESH": case "refresh": case "REFR": case "refr": case "R": case "r":
+            switch ( input.nextLine() ) {
+                case "NEU-LADEN": case "neu-laden": case "NEULADEN": case "neuladen": case "NULD": case "nuld": case "N": case "n": case "REFRESH": case "refresh": case "REFR": case "refr":
                     weaponLoad( player, weaponName );
+                    break;
+                case "ROLLEN": case "rollen": case "ROLL": case "roll": case "R": case "r":
+                    roll( player );
                     break;
                 case "EQUIP": case "equip": case "EQUP": case "equp": case "1":
                     if (player.getPrimaryWeapon().equals(weaponData[3])){
@@ -2399,22 +2761,18 @@ public class DaVG {
                         optionNotChosen = true;
                         break;
                     } else {
-                        System.out.println("//ARE YOU SURE YOU WANT TO EQUIP THIS WEAPON? Y/N");
+                        System.out.println("//ARE YOU SURE YOU WANT TO EQUIP THIS WEAPON? J/N");
                         boolean equipOptionNotChosen = true;
                         while ( equipOptionNotChosen ) {
-                            switch ( input.next() ) {
+                            switch ( input.nextLine() ) {
                                 case "J": case "j": case "1":
                                     player.setPrimaryWeapon( weaponData[3] );
                                     System.out.println("//CURRENT WEAPON CHANGED");
-                                    ShortDelay();
-                                    System.out.println("//PRESS ENTER TO RETURN TO WEAPONS MENU");
-                                    petc.nextLine();
-                                    weapons( player );
+                                    equipOptionNotChosen = false;
                                     break;
                                 case "N": case "n": case "0":
-                                    System.out.println( "//RETURNING TO WEAPONS MENU." );
-                                    LongDelay();
-                                    weapons( player );
+                                    System.out.println( "//WEAPON CHANGE CANCELLED" );
+                                    equipOptionNotChosen = false;
                                     break;
                                 case "#KVSEDBM": //enables debug mode
                                     equipOptionNotChosen = true;
@@ -2448,7 +2806,7 @@ public class DaVG {
                                     break;
                                 default:
                                     if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                                        System.out.println("//ACHTUNG: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                                        System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
                                     } else if (player.getUserLanguage().equals("ENGLISH")){
                                         System.out.println("//ERROR: INVALID INPUT.");
                                     }
@@ -2463,22 +2821,16 @@ public class DaVG {
                         optionNotChosen = true;
                         break;
                     } else {
-                        System.out.println("//ARE YOU SURE YOU WANT TO UNEQUIP THIS WEAPON? Y/N");
+                        System.out.println("//ARE YOU SURE YOU WANT TO UNEQUIP THIS WEAPON? J/N");
                         boolean equipOptionNotChosen = true;
                         while ( equipOptionNotChosen ) {
-                            switch ( input.next() ) {
+                            switch ( input.nextLine() ) {
                                 case "J": case "j": case "1":
                                     player.setPrimaryWeapon( "001" );
                                     System.out.println("//CURRENT WEAPON CHANGED");
-                                    ShortDelay();
-                                    System.out.println("//PRESS ENTER TO RETURN TO MAIN MENU");
-                                    petc.nextLine();
-                                    weapons( player );
                                     break;
                                 case "N": case "n": case "0":
-                                    System.out.println( "//RETURNING TO WEAPONS MENU." );
-                                    LongDelay();
-                                    weapons( player );
+                                    System.out.println( "//WEAPON CHANGE CANCELLED" );
                                     break;
                                 case "#KVSEDBM": //enables debug mode
                                     equipOptionNotChosen = true;
@@ -2512,7 +2864,7 @@ public class DaVG {
                                     break;
                                 default:
                                     if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                                        System.out.println("//ACHTUNG: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                                        System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
                                     } else if (player.getUserLanguage().equals("ENGLISH")){
                                         System.out.println("//ERROR: INVALID INPUT.");
                                     }
@@ -2559,7 +2911,7 @@ public class DaVG {
                     break;
                 default:
                     if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                        System.out.println("//ACHTUNG: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                        System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
                     } else if (player.getUserLanguage().equals("ENGLISH")){
                         System.out.println("//ERROR: INVALID INPUT.");
                     }
@@ -2582,21 +2934,40 @@ public class DaVG {
         System.out.print( " > INVENTORY" );
         NoDelay();
         System.out.println( " > AMMUNITION" );
-        MedDelay();
-        System.out.println( "//ERROR: DRIVE SECTOR CORRUPTED." );
-        ShortDelay();
-        System.out.println( "//INPUT 1 TO RETURN TO MAIN MENU" );
-        ShortDelay();
-        System.out.println( "//INPUT 2 TO INITIATE SHUTDOWN");
+
+        File[] inventory = player.getPlayerInventory();
+
+        //SIDEARMS
+        {
+            TESTWEAPAMMO = new File(inventory[2]+"\\TESTWEAP");
+            TESTWEAPAMMOTAG = new File(inventory[2]+"\\TESTWEAP\\ItemID.TAG");
+
+            FtA_45AMMO = new File(inventory[2]+"\\FtA-45");
+            FtA_45AMMOTAG = new File(inventory[2]+"\\FtA-45\\ItemID.TAG");
+
+            LP61AMMO = new File(inventory[2]+"\\LP-61");
+            LP61AMMOTAG = new File(inventory[2]+"\\LP-61\\ItemID.TAG");
+
+            MP60AMMO = new File(inventory[2]+"\\MP-60");
+            MP60AMMOTAG = new File(inventory[2]+"\\MP-60\\ItemID.TAG");
+
+            P1885AMMO = new File(inventory[2]+"\\P.1885");
+            P1885AMMOTAG = new File(inventory[2]+"\\P.1885\\ItemID.TAG");
+
+            P60AMMO = new File(inventory[2]+"\\P-60");
+            P60AMMOTAG = new File(inventory[2]+"\\P-60\\ItemID.TAG");
+        }
+
+        if (ammoCheck()){
+            ShortDelay();
+            System.out.println("COMPLETE");
+            ShortDelay();
+
+
+        }
         boolean optionNotChosen = true;
         while ( optionNotChosen ) {
-            switch ( input.next() ) {
-                case "1":
-                    mmain( player );
-                    break;
-                case "2":
-                    shutdown( player );
-                    break;
+            switch ( input.nextLine() ) {
                 case "AUSSCHALTEN": case "ausschalten": case "ASCH": case "asch": case "A": case "a": case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P": case "p":
                     shutdown( player );
                     break;
@@ -2632,13 +3003,33 @@ public class DaVG {
                     break;
                 default:
                     if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                        System.out.println("//ACHTUNG: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                        System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
                     } else if (player.getUserLanguage().equals("ENGLISH")){
                         System.out.println("//ERROR: INVALID INPUT.");
                     }
                     break;
             }
         }
+    }
+
+    private static boolean ammoCheck(){
+        boolean[] sidearmAmmoCheck = new boolean[6];
+        {
+            sidearmAmmoCheck[0] = TESTWEAPAMMO.isDirectory();
+            sidearmAmmoCheck[1] = FtA_45AMMO.isDirectory();
+            sidearmAmmoCheck[2] = LP61AMMO.isDirectory();
+            sidearmAmmoCheck[3] = MP60.isDirectory();
+            sidearmAmmoCheck[4] = P1885AMMO.isDirectory();
+            sidearmAmmoCheck[5] = P60AMMO.isDirectory();
+        }
+
+        for (int i = 0; i < sidearmAmmoCheck.length; i++){
+            if(sidearmAmmoCheck[i]){
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private static void equipment( playerCharacter player ) throws IOException, InterruptedException {
@@ -2662,7 +3053,7 @@ public class DaVG {
         System.out.println( "//INPUT 2 TO INITIATE SHUTDOWN");
         boolean optionNotChosen = true;
         while ( optionNotChosen ) {
-            switch ( input.next() ) {
+            switch ( input.nextLine() ) {
                 case "1":
                     mmain( player );
                     break;
@@ -2704,7 +3095,7 @@ public class DaVG {
                     break;
                 default:
                     if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                        System.out.println("//ACHTUNG: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                        System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
                     } else if (player.getUserLanguage().equals("ENGLISH")){
                         System.out.println("//ERROR: INVALID INPUT.");
                     }
@@ -2721,7 +3112,7 @@ public class DaVG {
             System.out.print( "//USER | " );
         }
         ShortDelay();
-        System.out.print( player );
+        System.out.print( player.getUserName() );
         NoDelay();
         System.out.print( " > INVENTORY" );
         NoDelay();
@@ -2734,7 +3125,7 @@ public class DaVG {
         System.out.println( "//INPUT 2 TO INITIATE SHUTDOWN");
         boolean optionNotChosen = true;
         while ( optionNotChosen ) {
-            switch ( input.next() ) {
+            switch ( input.nextLine() ) {
                 case "1":
                     mmain( player );
                     break;
@@ -2776,7 +3167,7 @@ public class DaVG {
                     break;
                 default:
                     if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                        System.out.println("//ACHTUNG: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                        System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
                     } else if (player.getUserLanguage().equals("ENGLISH")){
                         System.out.println("//ERROR: INVALID INPUT.");
                     }
@@ -2806,7 +3197,7 @@ public class DaVG {
         System.out.println( "//INPUT 2 TO INITIATE SHUTDOWN");
         boolean optionNotChosen = true;
         while ( optionNotChosen ) {
-            switch ( input.next() ) {
+            switch ( input.nextLine() ) {
                 case "1":
                     mmain( player );
                     break;
@@ -2848,7 +3239,7 @@ public class DaVG {
                     break;
                 default:
                     if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                        System.out.println("//ACHTUNG: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                        System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
                     } else if (player.getUserLanguage().equals("ENGLISH")){
                         System.out.println("//ERROR: INVALID INPUT.");
                     }
@@ -2865,7 +3256,7 @@ public class DaVG {
             System.out.print( "//USER | " );
         }
         ShortDelay();
-        System.out.print( player );
+        System.out.print( player.getUserName() );
         NoDelay();
         System.out.println( " > JOURNAL" );
         MedDelay();
@@ -2876,7 +3267,7 @@ public class DaVG {
         System.out.println( "//INPUT 2 TO INITIATE SHUTDOWN");
         boolean optionNotChosen = true;
         while ( optionNotChosen ) {
-            switch ( input.next() ) {
+            switch ( input.nextLine() ) {
                 case "1":
                     mmain( player );
                     break;
@@ -2918,7 +3309,7 @@ public class DaVG {
                     break;
                 default:
                     if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                        System.out.println("//ACHTUNG: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                        System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
                     } else if (player.getUserLanguage().equals("ENGLISH")){
                         System.out.println("//ERROR: INVALID INPUT.");
                     }
@@ -2946,7 +3337,7 @@ public class DaVG {
         System.out.println( "//INPUT 2 TO INITIATE SHUTDOWN" );
         boolean optionNotChosen = true;
         while ( optionNotChosen ) {
-            switch ( input.next() ) {
+            switch ( input.nextLine() ) {
                 case "1":
                     mmain( player );
                     break;
@@ -2988,7 +3379,7 @@ public class DaVG {
                     break;
                 default:
                     if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                        System.out.println("//ACHTUNG: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                        System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
                     } else if (player.getUserLanguage().equals("ENGLISH")){
                         System.out.println("//ERROR: INVALID INPUT.");
                     }
@@ -3009,21 +3400,1061 @@ public class DaVG {
         NoDelay();
         System.out.println( " > COMBAT" );
         MedDelay();
-        System.out.println( "//ERROR: DRIVE SECTOR CORRUPTED." );
+        System.out.println("//INITIALIZING TARGETING ASSISTANCE SYSTEM...");
+        LongDelay();
+        boolean claMissing = player.getUserClass1().equals("C1M");
+        boolean strMissing = player.getUserStrength().equals("StM");
+        boolean dexMissing = player.getUserDexterity().equals("DeM");
+        boolean conMissing = player.getUserConstitution().equals("CoM");
+        boolean intMissing = player.getUserIntelligence().equals("InM");
+        boolean wisMissing = player.getUserWisdom().equals("WiM");
+        boolean chaMissing = player.getUserCharisma().equals("CaM");
+        if ( claMissing || strMissing || dexMissing || conMissing || intMissing || wisMissing || chaMissing ){
+            System.out.println( "//ERROR: INSUFFICIENT DATA ON CURRENT USER" );
+            ShortDelay();
+            System.out.println( "//INPUT 1 TO RETURN TO MAIN MENU" );
+            ShortDelay();
+            System.out.println( "//INPUT 2 TO INITIATE SHUTDOWN" );
+            boolean optionNotChosen = true;
+            while ( optionNotChosen ) {
+                switch ( input.nextLine() ) {
+                    case "1":
+                        mmain( player );
+                        break;
+                    case "2":
+                        shutdown( player );
+                        break;
+                    case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P":
+                        shutdown( player );
+                        break;
+                    case "#KVSEDBM": //enables debug mode
+                        optionNotChosen = true;
+                        debugMode = true;
+                        System.out.println("//MAINTENANCE MODE ENABLED");
+                        break;
+                    case "#KVSDDBM": //disables debug mode
+                        optionNotChosen = true;
+                        debugMode = false;
+                        System.out.println("//MAINTENANCE MODE DISABLED");
+                        break;
+                    case "#KVSECS": // disables cutscenes
+                        optionNotChosen = true;
+                        cutscenesEnabled = true;
+                        System.out.println("//ACCELERATED READ/WRITE DISABLED");
+                        break;
+                    case "#KVSDCS": //enables cutscenes
+                        optionNotChosen = true;
+                        cutscenesEnabled = false;
+                        System.out.println("//ACCELERATED READ/WRITE ENABLED");
+                        break;
+                    case "#KVSCLV": //changes language to Volkshavenish
+                        optionNotChosen = true;
+                        player.setUserLanguage("VOLKSHAVENISH");
+                        System.out.println("//SPRACHE-PRÄFERENZ AKTUALISIERTE");
+                        break;
+                    case "#KVSCLE": //changes language to English
+                        optionNotChosen = true;
+                        player.setUserLanguage("ENGLISH");
+                        System.out.println("//LANGUAGE PREFERENCE UPDATED");
+                        break;
+                    default:
+                        if (player.getUserLanguage().equals("VOLKSHAVENISH")){
+                            System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                        } else if (player.getUserLanguage().equals("ENGLISH")){
+                            System.out.println("//ERROR: INVALID INPUT.");
+                        }
+                        break;
+                }
+            }
+        }
+        System.out.println("//CURRENT HP: " + player.getUserCurrentHealth() + "/" + player.getUserMaxHealth());
+        NoDelay();
+        System.out.println("//CURRENT STATUS: " + player.getUserStatus());
+        System.out.println();
+        MedDelay();
+        String currentWeapon = "";
+        switch (player.getPrimaryWeapon()){
+            case "000":
+                currentWeapon = "TESTWEAP";
+                break;
+            case "001":
+                currentWeapon = "FISTS";
+                break;
+            case "002":
+                currentWeapon = "FtA-45";
+                break;
+            case "003":
+                currentWeapon = "LP-61";
+                break;
+            case "004":
+                currentWeapon = "MP60";
+                break;
+            case "005":
+                currentWeapon = "P.1885";
+                break;
+            case "006":
+                currentWeapon = "P60";
+        }
+        File[] inventory = player.getPlayerInventory();
+        String [] currentWeaponData = new String[30];
+        if (player.getPrimaryWeapon().equals("001")){
+            currentWeaponData[0] = "FISTS";
+            currentWeaponData[1] = "ENVIRONMENTAL MANIPULATOR/TRADITIONAL COMBAT IMPLEMENT";
+            currentWeaponData[2] = Integer.toString(modCalc(Integer.parseInt(player.getUserStrength())));
+            currentWeaponData[3] = "001";
+            currentWeaponData[4] = "N/A";
+            currentWeaponData[5] = player.getUserStrength();
+            if ((20-Integer.parseInt(player.getUserDexterity())) < 0){
+                currentWeaponData [6] = "1";
+            } else {
+                currentWeaponData [6] = Integer.toString(20-Integer.parseInt(player.getUserDexterity()));
+            }
+            if (Integer.parseInt(currentWeaponData[2]) >= 2){
+                currentWeaponData[7] = "J";
+            } else {
+                currentWeaponData[7] = "N";
+            }
+            if ((20-Integer.parseInt(player.getUserStrength())) < 0){
+                currentWeaponData [8] = "1";
+            } else {
+                currentWeaponData [8] = Integer.toString(20-Integer.parseInt(player.getUserStrength()));
+            }
+            currentWeaponData[9] = Integer.toString(modCalc(Integer.parseInt(player.getUserDexterity())));
+            currentWeaponData[10] = "MELEE";
+            currentWeaponData[11] = "PB";
+            currentWeaponData[12] = "N/A";
+            currentWeaponData[13] = "N/A";
+            currentWeaponData[14] = "N/A";
+            currentWeaponData[15] = "N/A";
+            currentWeaponData[16] = "N/A";
+            currentWeaponData[17] = "N/A";
+            currentWeaponData[18] = "N/A";
+            currentWeaponData[19] = "N/A";
+            currentWeaponData[20] = "N/A";
+            currentWeaponData[21] = "N/A";
+            currentWeaponData[22] = "Your fists. For when you need a hands-on approach.";
+            currentWeaponData[23] = "Hand-to-hand combat is an art that is as ancient as life itself. Perhaps, with enough practice, you'll be able to master it in your own right.";
+            currentWeaponData[24] = "SILENT";
+            currentWeaponData[25] = "This weapon is almost completely noiseless and can be used at any range with minimal risk of detection.";
+            currentWeaponData[26] = "N/A";
+            currentWeaponData[27] = "N/A";
+            currentWeaponData[28] = "N/A";
+            currentWeaponData[29] = "N/A";
+        } else {
+            try {
+                BufferedReader weaponScanner = new BufferedReader(new FileReader(inventory[1]+"\\"+currentWeapon+"\\ItemID.TAG"));
+                try {
+                    currentWeaponData = weaponScanner.readLine().split("[~]");
+                    weaponScanner.close();
+                } catch ( IOException tagError ) {
+                    tagError.printStackTrace();
+                }
+            } catch (FileNotFoundException noWeapon){
+                System.out.println("//ERROR: EQUIPPED WEAPON MISSING FROM INVENTORY");
+                ShortDelay();
+                System.out.println("//SWITCHING TO UNARMED COMBAT");
+                player.setPrimaryWeapon("001");
+                currentWeaponData[0] = "FISTS";
+                currentWeaponData[1] = "ENVIRONMENTAL MANIPULATOR/TRADITIONAL COMBAT IMPLEMENT";
+                currentWeaponData[2] = Integer.toString(modCalc(Integer.parseInt(player.getUserStrength())));
+                currentWeaponData[3] = "001";
+                currentWeaponData[4] = "N/A";
+                currentWeaponData[5] = player.getUserStrength();
+                if ((20-Integer.parseInt(player.getUserDexterity())) < 0){
+                    currentWeaponData [6] = "1";
+                } else {
+                    currentWeaponData [6] = Integer.toString(20-Integer.parseInt(player.getUserDexterity()));
+                }
+                if (Integer.parseInt(currentWeaponData[2]) >= 2){
+                    currentWeaponData[7] = "J";
+                } else {
+                    currentWeaponData[7] = "N";
+                }
+                if ((20-Integer.parseInt(player.getUserStrength())) < 0){
+                    currentWeaponData [8] = "1";
+                } else {
+                    currentWeaponData [8] = Integer.toString(20-Integer.parseInt(player.getUserStrength()));
+                }
+                currentWeaponData[9] = Integer.toString(modCalc(Integer.parseInt(player.getUserDexterity())));
+                currentWeaponData[10] = "MELEE";
+                currentWeaponData[11] = "PB";
+                currentWeaponData[12] = "N/A";
+                currentWeaponData[13] = "N/A";
+                currentWeaponData[14] = "N/A";
+                currentWeaponData[15] = "N/A";
+                currentWeaponData[16] = "N/A";
+                currentWeaponData[17] = "N/A";
+                currentWeaponData[18] = "N/A";
+                currentWeaponData[19] = "N/A";
+                currentWeaponData[20] = "N/A";
+                currentWeaponData[21] = "N/A";
+                currentWeaponData[22] = "Your fists. For when you need a hands-on approach.";
+                currentWeaponData[23] = "Hand-to-hand combat is an art that is as ancient as life itself. Perhaps, with enough practice, you'll be able to master it in your own right.";
+                currentWeaponData[24] = "SILENT";
+                currentWeaponData[25] = "This weapon is almost completely noiseless and can be used at any range with minimal risk of detection.";
+                currentWeaponData[26] = "N/A";
+                currentWeaponData[27] = "N/A";
+                currentWeaponData[28] = "N/A";
+                currentWeaponData[29] = "N/A";
+            }
+
+        }
         ShortDelay();
-        System.out.println( "//INPUT 1 TO RETURN TO MAIN MENU" );
+        System.out.println("//CURRENT WEAPON: " + currentWeaponData[0] + " | FR " + currentWeaponData[2] );
+        NoDelay();
+        System.out.println("//MAXIMUM POSSIBLE DAMAGE: "+ currentWeaponData[5]);
+        NoDelay();
+        System.out.println("//ACCURACY THRESHOLD: " +currentWeaponData[6]);
+        NoDelay();
+        if (currentWeaponData[10].equals("RANGED") || currentWeaponData[10].equals("HYBRID")) {
+            System.out.println("//CURRENT MAGAZINE TYPE: "+currentWeaponData[13]);
+            if (currentWeaponData[12].equals("Electricity")){
+                System.out.println("//MAGAZINE : " + Double.parseDouble(currentWeaponData[14]) + " / " + Double.parseDouble(currentWeaponData[15]) + " " + currentWeaponData[17]);
+            } else {
+                System.out.println("//MAGAZINE : " + (int)Double.parseDouble(currentWeaponData[14]) + " / " + currentWeaponData[15] + " " + currentWeaponData[17]);
+            }
+            }
+        System.out.println();
+        MedDelay();
+        System.out.println("//PLEASE CHOOSE COURSE OF ACTION");
         ShortDelay();
-        System.out.println( "//INPUT 2 TO INITIATE SHUTDOWN" );
+        System.out.println(">ATTACK (1/ANGF)");
+        NoDelay();
+        System.out.println(">ACTION (2/AKTN)");
+        NoDelay();
+        System.out.println(">WEAPONS (3/WFFN)");
+        NoDelay();
+        System.out.println(">ITEMS (4/ATKL)");
+        NoDelay();
+        System.out.println(">STATUS (5/STAT)");
+        NoDelay();
+        System.out.println(">BACK (0/BACK)");
         boolean optionNotChosen = true;
         while ( optionNotChosen ) {
-            switch ( input.next() ) {
-                case "1":
+            switch ( input.nextLine() ) {
+                case "ANGREIFEN": case "angreifen": case "ANGF": case "angf": case "ATTACK": case "attack": case "1":
+                    if (currentWeaponData[10].equals("RANGED") && currentWeaponData[14].equals("0")){
+                        System.out.println("//ATTACK FAILED - MAGAZINE IS EMPTY");
+                    } else if (currentWeaponData[20].equals("Bolt-Action") && currentWeaponData[21].equals("N")){
+                        System.out.println("//ATTACK FAILED - WEAPON NOT CHAMBERED");
+                    } else {
+                        System.out.println("//PLEASE INPUT ATTACK ROLL RESULT");
+                        ShortDelay();
+                        System.out.println("//ENTER \'0\' TO CANCEL ATTACK");
+                        boolean attackCancelled = false;
+                        double hitRoll = 0;
+                        try {
+                            hitRoll = input.nextInt();
+                        } catch ( Exception e ){
+                            if (player.getUserLanguage().equals("VOLKSHAVENISH")){
+                                System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                            } else if (player.getUserLanguage().equals("ENGLISH")){
+                                System.out.println("//ERROR: INVALID INPUT.");
+                            }
+                            input = new Scanner(System.in);
+                            while (!input.hasNextInt()){
+                                if (player.getUserLanguage().equals("VOLKSHAVENISH")){
+                                    System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                                } else if (player.getUserLanguage().equals("ENGLISH")){
+                                    System.out.println("//ERROR: INVALID INPUT.");
+                                }
+                                input = new Scanner(System.in);
+                            }
+                            hitRoll = input.nextInt();
+                        }
+                        if (hitRoll == 0){
+                            System.out.println("//ATTACK CANCELLED");
+                            attackCancelled = true;
+                            break;
+                        }
+                        input = new Scanner(System.in);
+                        System.out.println("//PLEASE ENTER ESTIMATE OF DISTANCE TO TARGET");
+                        boolean rangeNotDefined = true;
+                        while (rangeNotDefined){
+                            switch( currentWeaponData[11] ){
+                                case "LANGE": case "lange":
+                                case "LONG": case "long": case "4":
+                                    switch ( input.nextLine() ){
+                                        case "LONG":
+                                            hitRoll += 0;
+                                            break;
+                                        case "MEDIUM":
+                                            hitRoll += 1;
+                                            break;
+                                        case "SHORT":
+                                            hitRoll += 2;
+                                            break;
+                                        case "PB":
+                                            hitRoll += 3;
+                                            break;
+                                        default:
+                                            hitRoll += 0;
+                                            break;
+                                    }
+                                    rangeNotDefined= false;
+                                    break;
+                                case "MITTEL": case "mittel":
+                                case "MEDIUM": case "medium": case "3":
+                                    switch ( input.nextLine() ){
+                                        case "LONG":
+                                            if ((hitRoll-1)>=0){
+                                                hitRoll -= 1;
+                                            } else {
+                                                hitRoll = 0;
+                                            }
+                                            break;
+                                        case "MEDIUM":
+                                            hitRoll += 0;
+                                            break;
+                                        case "SHORT":
+                                            hitRoll += 1;
+                                            break;
+                                        case "PB":
+                                            hitRoll += 2;
+                                            break;
+                                        default:
+                                            hitRoll += 0;
+                                            break;
+                                    }
+                                    rangeNotDefined= false;
+                                    break;
+                                case "KURZ": case "kurz":
+                                case "SHORT": case "short": case "2":
+                                    switch ( input.nextLine() ){
+                                        case "LONG":
+                                            if ((hitRoll-2)>=0){
+                                                hitRoll -= 2;
+                                            } else {
+                                                hitRoll = 0;
+                                            }
+                                            break;
+                                        case "MEDIUM":
+                                            if ((hitRoll-1)>=0){
+                                                hitRoll -= 0;
+                                            } else {
+                                                hitRoll = 0;
+                                            }
+                                            break;
+                                        case "SHORT":
+                                            hitRoll += 0;
+                                            break;
+                                        case "PB":
+                                            hitRoll += 1;
+                                            break;
+                                        default:
+                                            hitRoll += 0;
+                                            break;
+                                    }
+                                    rangeNotDefined= false;
+                                    break;
+                                case "KÜRZESTER ENTFERNUNG": case "KUERZESTER ENTFERNUNG": case "KURZESTER ENTFERNUNG": case "kürzester entfernung": case "kuerzester entfernung": case "kurzester entfernung": case "KE": case "ke":
+                                case "POINT BLANK": case "point blank": case "PB": case "pb": case "1":
+                                    if (player.getPrimaryWeapon().equals("001")){
+                                        switch ( input.nextLine() ){
+                                            case "LONG": case "MEDIUM": case "SHORT":
+                                                hitRoll = 0;
+                                                break;
+                                            case "PB":
+                                                hitRoll += 0;
+                                                break;
+                                            default:
+                                                hitRoll += 0;
+                                                break;
+                                        }
+                                    } else {
+                                        switch ( input.nextLine() ){
+                                            case "LONG":
+                                                if ((hitRoll-3)>=0){
+                                                    hitRoll -= 3;
+                                                } else {
+                                                    hitRoll = 0;
+                                                }
+                                                break;
+                                            case "MEDIUM":
+                                                if ((hitRoll-2)>=0){
+                                                    hitRoll -= 2;
+                                                } else {
+                                                    hitRoll = 0;
+                                                }
+                                                break;
+                                            case "SHORT":
+                                                if ((hitRoll-1)>=0){
+                                                    hitRoll -= 1;
+                                                } else {
+                                                    hitRoll = 0;
+                                                }
+                                                break;
+                                            case "PB":
+                                                hitRoll += 0;
+                                                break;
+                                            default:
+                                                hitRoll += 0;
+                                                break;
+                                        }
+                                    }
+                                    rangeNotDefined= false;
+                                    break;
+                                default:
+                                    if (player.getUserLanguage().equals("VOLKSHAVENISH")){
+                                        System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                                    } else if (player.getUserLanguage().equals("ENGLISH")){
+                                        System.out.println("//ERROR: INVALID INPUT.");
+                                    }
+                                    break;
+                            }
+                        }
+                        double baseDamage = 0;
+                        double hitAccuracy;
+                        if (hitRoll >= Integer.parseInt(currentWeaponData[6])){
+                            hitAccuracy = 1;
+                        } else {
+                            hitAccuracy = (hitRoll/Double.parseDouble(currentWeaponData[6]));
+                        }
+                        if (currentWeaponData[10].equals("RANGED")){
+                            if ((int)Double.parseDouble(currentWeaponData[14]) < Integer.parseInt(currentWeaponData[18])){
+                                baseDamage = (Integer.parseInt(currentWeaponData[5])*Integer.parseInt(currentWeaponData[14])) * hitAccuracy;
+                            } else {
+                                baseDamage = (Integer.parseInt(currentWeaponData[5])*Integer.parseInt(currentWeaponData[18])) * hitAccuracy;
+                            }
+                        } else {
+                            baseDamage = Integer.parseInt(currentWeaponData[5])*(hitAccuracy);
+                        }
+                        double totalDamage = 0;
+                        if (currentWeaponData[7].equals("J")){
+                            System.out.println("//PLEASE INPUT CRIT ROLL RESULT");
+                            int critRoll = 0;
+                            try {
+                                critRoll = input.nextInt();
+                            } catch ( Exception e){
+                                if (player.getUserLanguage().equals("VOLKSHAVENISH")){
+                                    System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                                } else if (player.getUserLanguage().equals("ENGLISH")){
+                                    System.out.println("//ERROR: INVALID INPUT.");
+                                }
+                                input = new Scanner(System.in);
+                                while (!input.hasNextInt()){
+                                    if (player.getUserLanguage().equals("VOLKSHAVENISH")){
+                                        System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                                    } else if (player.getUserLanguage().equals("ENGLISH")){
+                                        System.out.println("//ERROR: INVALID INPUT.");
+                                    }
+                                    input = new Scanner(System.in);
+                                }
+                                critRoll = input.nextInt();
+                            }
+                            if (critRoll >= Integer.parseInt(currentWeaponData[8])){
+                                totalDamage = baseDamage*Double.parseDouble(currentWeaponData[9]);
+                            } else {
+                                totalDamage = baseDamage;
+                            }
+                        } else {
+                            totalDamage = baseDamage;
+                        }
+                        System.out.print("//CALCULATING DAMAGE ESTIMATE...");
+                        MedDelay();
+                        System.out.println("COMPLETE");
+                        ShortDelay();
+                        System.out.println("//TOTAL DAMAGE DONE TO TARGET THIS ATTACK: " + Math.ceil(totalDamage) + "( " + totalDamage + " )" );
+                        input = new Scanner(System.in);
+                        if (currentWeaponData[10].equals("RANGED")){
+                            int currentMag = (int)Double.parseDouble(currentWeaponData[14]);
+                            int ammoUsedPerShot = Integer.parseInt(currentWeaponData[18]);
+                            if (currentMag < ammoUsedPerShot){
+                                currentMag = 0;
+                            } else {
+                                currentMag -= ammoUsedPerShot;
+                            }
+                            currentWeaponData[14] = Integer.toString(currentMag);
+                            if (((currentWeaponData[10].equals("RANGED") || currentWeaponData[10].equals("HYBRID")) && (currentWeaponData[20].equals("Bolt-Action") || currentWeaponData[20].equals("Pump-Action"))) || currentWeaponData[14].equals(0)){
+                                currentWeaponData[21] = "N";
+                            }
+                            writer = new BufferedWriter(new FileWriter(inventory[1]+"\\"+currentWeapon+"\\ItemID.TAG"));
+                            for (int i = 0; i < 30; i++ ){
+                                writer.write (currentWeaponData[i] + "~");
+                            }
+                            writer.flush();
+                            writer.close();
+                        }
+                    }
+                    break;
+                case "AKTION": case "aktion": case "AKTN": case "aktn": case "ACTION": case "action": case "2":
+                    System.out.println("//PLEASE CHOOSE ACTION TO PERFORM");
+                    ShortDelay();
+                    System.out.println(">RELOAD (1/NCLD)");
+                    NoDelay();
+                    System.out.println(">CHAMBER (2/KMMR)");
+                    NoDelay();
+                    System.out.println(">BACK (0/BACK)");
+                    boolean invalidAction = true;
+                    while (invalidAction) {
+                        switch (input.nextLine()){
+                            case "NACHLADEN": case "nachladen": case "NCLD": case "ncld": case "RELOAD": case "reload": case "1":
+                                if (currentWeaponData[10].equals("RANGED") || currentWeaponData[10].equals("HYBRID")) {
+                                    System.out.println("//CURRENT MAGAZINE TYPE: " + currentWeaponData[13]);
+                                    ShortDelay();
+                                    System.out.println("//MAGAZINE : " + currentWeaponData[14] + " / " + currentWeaponData[15] + " " + currentWeaponData[17]);
+                                    ShortDelay();
+                                    System.out.println("//PLEASE ENTER NEW AMMUNITION VALUE");
+                                    boolean invalidAmmo = true;
+                                    while (invalidAmmo) {
+                                        try {
+                                            if (currentWeaponData[12].equals("Electricity")){
+                                                Double newAmmo = Double.parseDouble(input.nextLine());
+                                                if (newAmmo > Double.parseDouble(currentWeaponData[15])) {
+                                                    System.out.println("//ERROR: BATTERY CAPACITY EXCEEDED");
+                                                } else {
+                                                    currentWeaponData[14] = (Double.toString(newAmmo));
+                                                    writer = new BufferedWriter(new FileWriter(inventory[1]+"\\"+currentWeapon+"\\ItemID.TAG"));
+                                                    for (int i = 0; i < 30; i++ ){
+                                                        writer.write (currentWeaponData[i] + "~");
+                                                    }
+                                                    writer.flush();
+                                                    writer.close();
+                                                    System.out.println("//CURRENT AMMO UPDATED");
+                                                    invalidAmmo = false;
+                                                    break;
+                                                }
+                                            } else {
+                                                int newAmmo = Integer.parseInt(input.nextLine());
+                                                if (newAmmo > Integer.parseInt(currentWeaponData[15])) {
+                                                    System.out.println("//ERROR: MAGAZINE CAPACITY EXCEEDED");
+                                                } else {
+                                                    currentWeaponData[14] = (Double.toString(newAmmo));
+                                                    writer = new BufferedWriter(new FileWriter(inventory[1]+"\\"+currentWeapon+"\\ItemID.TAG"));
+                                                    for (int i = 0; i < 30; i++ ){
+                                                        writer.write (currentWeaponData[i] + "~");
+                                                    }
+                                                    writer.flush();
+                                                    writer.close();
+                                                    System.out.println("//CURRENT AMMO UPDATED");
+                                                    invalidAmmo = false;
+                                                    break;
+                                                }
+                                            }
+                                        } catch (NumberFormatException exception) {
+                                            System.out.println("//ERROR: INVALID INPUT FORMAT.");
+                                        }
+                                    }
+                                } else {
+                                    System.out.println("//ERROR: CURRENT WEAPON DOES NOT USE AMMUNITION");
+                                    invalidAction = false;
+                                    break;
+                                }
+                                break;
+                            case "KAMMER": case "kammer": case "KMMR": case "kmmr": case "CHAMBER": case "chamber": case "2":
+                                if (currentWeaponData[10].equals("RANGED") || currentWeaponData[10].equals("HYBRID")){
+                                    if (currentWeaponData[21].equals("N")){
+                                        if ((int)Double.parseDouble(currentWeaponData[14]) > 0){
+                                            currentWeaponData[21] = "J";
+                                            writer = new BufferedWriter(new FileWriter(inventory[1]+"\\"+currentWeapon+"\\ItemID.TAG"));
+                                            for (int i = 0; i < 30; i++ ){
+                                                writer.write (currentWeaponData[i] + "~");
+                                            }
+                                            writer.flush();
+                                            writer.close();
+                                            System.out.println("//WEAPON CHAMBERED");
+                                            invalidAction = false;
+                                            break;
+                                        } else {
+                                            System.out.println("//ERROR: MAGAZINE IS EMPTY");
+                                            invalidAction = false;
+                                            break;
+                                        }
+                                    } else {
+                                        System.out.println("//ERROR: WEAPON ALREADY CHAMBERED");
+                                        invalidAction = false;
+                                        break;
+                                    }
+                                } else {
+                                    System.out.println("//ERROR: CURRENT WEAPON CANNOT BE CHAMBERED");
+                                    invalidAction = false;
+                                    break;
+                                }
+                            case "BACK": case "back": case "0":
+                                System.out.println("//ACTION SUBMENU EXITED");
+                                invalidAction = false;
+                                break;
+                            default:
+                                if (player.getUserLanguage().equals("VOLKSHAVENISH")){
+                                    System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                                } else if (player.getUserLanguage().equals("ENGLISH")){
+                                    System.out.println("//ERROR: INVALID INPUT.");
+                                }
+                                break;
+                        }
+                    }
+                    break;
+                case "WAFFEN": case "waffen": case "WFFN": case "wffn": case "WEAPONS": case "weapons": case "3":
+                    {
+                    TESTWEAP = new File(inventory[1]+"\\TESTWEAP");
+                    TESTWEAPTAG = new File(inventory[1]+"\\TESTWEAP\\ItemID.TAG");
+
+                    FtA_45 = new File(inventory[1]+"\\FtA-45");
+                    FtA_45TAG = new File(inventory[1]+"\\FtA-45\\ItemID.TAG");
+
+                    LP61 = new File(inventory[1]+"\\LP-61");
+                    LP61TAG = new File(inventory[1]+"\\LP-61\\ItemID.TAG");
+
+                    MP60 = new File(inventory[1]+"\\MP-60");
+                    MP60TAG = new File(inventory[1]+"\\MP-60\\ItemID.TAG");
+
+                    P1885 = new File(inventory[1]+"\\P.1885");
+                    P1885TAG = new File(inventory[1]+"\\P.1885\\ItemID.TAG");
+
+                    P60 = new File(inventory[1]+"\\P-60");
+                    P60TAG = new File(inventory[1]+"\\P-60\\ItemID.TAG");
+                    }
+                System.out.print("//ACCESSING LOCAL ARSENAL...");
+                if (weaponsCheck()){
+                    ShortDelay();
+                    System.out.println("COMPLETE");
+                    ShortDelay();
+                    System.out.println("//SIDEARMS:");
+                    ShortDelay();
+                    if (TESTWEAP.isDirectory()){
+                        if (TESTWEAPTAG.isFile()){
+                            if (player.getPrimaryWeapon().equals("000")){
+                                System.out.println( ">No. 000 | TESTWEAP [CW]" );
+                                NoDelay();
+                            } else {
+                                System.out.println( ">No. 000 | TESTWEAP" );
+                                NoDelay();
+                            }
+                        } else {
+                            System.out.println(">No. 000 | TESTWEAP [ERROR: CANNOT READ IDENTIFICATION TAG]");
+                            NoDelay();
+                        }
+                    }
+                    if (player.getPrimaryWeapon().equals("001")){
+                        System.out.println( ">No. 001 | FISTS [CW]" );
+                        NoDelay();
+                    } else {
+                        System.out.println( ">No. 001 | FISTS" );
+                        NoDelay();
+                    }
+                    if (FtA_45.isDirectory()){
+                        if (FtA_45TAG.isFile()){
+                            if (player.getPrimaryWeapon().equals("002")){
+                                System.out.println( ">No. 002 | FtA-45 [CW]" );
+                                NoDelay();
+                            } else {
+                                System.out.println( ">No. 002 | FtA-45" );
+                                NoDelay();
+                            }
+                        } else {
+                            System.out.println(">No. 002 | FtA-45 [ERROR: CANNOT READ IDENTIFICATION TAG]");
+                            NoDelay();
+                        }
+                    }
+                    if (LP61.isDirectory()){
+                        if (LP61TAG.isFile()){
+                            if (player.getPrimaryWeapon().equals("003")){
+                                System.out.println( ">No. 003 | LP-61 [CW]" );
+                                NoDelay();
+                            } else {
+                                System.out.println( ">No. 003 | LP-61" );
+                                NoDelay();
+                            }
+                        } else {
+                            System.out.println(">No. 003 | LP-61 [ERROR: CANNOT READ IDENTIFICATION TAG]");
+                            NoDelay();
+                        }
+                    }
+                    if (MP60.isDirectory()){
+                        if (MP60TAG.isFile()){
+                            if (player.getPrimaryWeapon().equals("004")){
+                                System.out.println( ">No. 004 | MP60 [CW]" );
+                                NoDelay();
+                            } else {
+                                System.out.println( ">No. 004 | MP60" );
+                                NoDelay();
+                            }
+                        } else {
+                            System.out.println(">No. 004 | MP60 [ERROR: CANNOT READ IDENTIFICATION TAG]");
+                            NoDelay();
+                        }
+                    }
+                    if (P1885.isDirectory()){
+                        if (P1885TAG.isFile()){
+                            if (player.getPrimaryWeapon().equals("005")){
+                                System.out.println( ">No. 005 | P.1885 [CW]" );
+                                NoDelay();
+                            } else {
+                                System.out.println( ">No. 005 | P.1885" );
+                                NoDelay();
+                            }
+                        } else {
+                            System.out.println(">No. 005 | P.1885 [ERROR: CANNOT READ IDENTIFICATION TAG]");
+                            NoDelay();
+                        }
+                    }
+                    if (P60.isDirectory()){
+                        if (P60TAG.isFile()){
+                            if (player.getPrimaryWeapon().equals("006")){
+                                System.out.println( ">No. 006 | P60 [CW]" );
+                                NoDelay();
+                            } else {
+                                System.out.println( ">No. 006 | P60" );
+                                NoDelay();
+                            }
+                        } else {
+                            System.out.println(">No. 006 | P60 [ERROR: CANNOT READ IDENTIFICATION TAG]");
+                            NoDelay();
+                        }
+                    }
+                } else {
+                    LongDelay();
+                    System.out.println("ERROR");
+                    ShortDelay();
+                    System.out.println("//NO ITEMS MATCHING FILTER FOUND IN INVENTORY!");
+                    break;
+                }
+                System.out.println(">BACK (0/BACK)");
+                boolean weaponNotChosen = true;
+                while ( weaponNotChosen ) {
+                    switch (input.nextLine()) {
+                        case "TESTWEAP": case "testweap": case "000":
+                            if (TESTWEAP.isDirectory()) {
+                                if (TESTWEAPTAG.isFile()) {
+                                    if (!player.getPrimaryWeapon().equals("000")){
+                                        System.out.println("//SWITCH WEAPON? J/N");
+                                        switch (input.nextLine()){
+                                            case "J": case "j":
+                                                player.setPrimaryWeapon("000");
+                                                System.out.println("//WEAPON SUCCESSFULLY SWITCHED");
+                                                ShortDelay();
+                                                System.out.println("//INPUT \'N\' TO REFRESH INTERFACE");
+                                                break;
+                                            case "N": case "n":
+                                                System.out.println("//WEAPON SWITCH CANCELLED");
+                                                break;
+                                            default:
+                                                System.out.println("//ERROR: INVALID INPUT");
+                                                break;
+                                        }
+                                    } else {
+                                        System.out.println("//ERROR: WEAPON ALREADY EQUIPPED");
+                                    }
+                                } else {
+                                    LongDelay();
+                                    System.out.println("//ERROR: ITEM TAG UNREADABLE");
+                                    ShortDelay();
+                                    System.out.println("//SYSTEM UNABLE TO LOAD ITEM DATA");
+                                    ShortDelay();
+                                    System.out.println("//ITEM IDENTIFICATION TAG MAY BE DAMAGED OR MISSING");
+                                }
+                            } else {
+                                System.out.println("//ERROR: SPECIFIED WEAPON MISSING!");
+                            }
+                            break;
+                        case "FISTS": case "fists": case "001":
+                                    if (!player.getPrimaryWeapon().equals("001")){
+                                        System.out.println("//SWITCH WEAPON? J/N");
+                                        switch (input.nextLine()){
+                                            case "J": case "j":
+                                                player.setPrimaryWeapon("001");
+                                                System.out.println("//WEAPON SUCCESSFULLY SWITCHED");
+                                                ShortDelay();
+                                                System.out.println("//INPUT \'N\' TO REFRESH INTERFACE");
+                                                break;
+                                            case "N": case "n":
+                                                System.out.println("//WEAPON SWITCH CANCELLED");
+                                                break;
+                                            default:
+                                                System.out.println("//ERROR: INVALID INPUT");
+                                                break;
+                                        }
+                                    }
+                            break;
+                        case "FtA-45": case "fta-45": case "002":
+                            if (FtA_45.isDirectory()) {
+                                if (FtA_45TAG.isFile()) {
+                                    if (!player.getPrimaryWeapon().equals("002")){
+                                        System.out.println("//SWITCH WEAPON? J/N");
+                                        switch (input.nextLine()){
+                                            case "J": case "j":
+                                                player.setPrimaryWeapon("002");
+                                                System.out.println("//WEAPON SUCCESSFULLY SWITCHED");
+                                                ShortDelay();
+                                                System.out.println("//INPUT \'N\' TO REFRESH INTERFACE");
+                                                break;
+                                            case "N": case "n":
+                                                System.out.println("//WEAPON SWITCH CANCELLED");
+                                                break;
+                                            default:
+                                                System.out.println("//ERROR: INVALID INPUT");
+                                                break;
+                                        }
+                                    } else {
+                                        System.out.println("//ERROR: WEAPON ALREADY EQUIPPED");
+                                    }
+                                } else {
+                                    LongDelay();
+                                    System.out.println("//ERROR: ITEM TAG UNREADABLE");
+                                    ShortDelay();
+                                    System.out.println("//SYSTEM UNABLE TO LOAD ITEM DATA");
+                                    ShortDelay();
+                                    System.out.println("//ITEM IDENTIFICATION TAG MAY BE DAMAGED OR MISSING");
+                                }
+                            } else {
+                                System.out.println("//ERROR: SPECIFIED WEAPON MISSING!");
+                            }
+                            break;
+                        case "LP-61": case "lp-61": case "003":
+                            if (LP61.isDirectory()) {
+                                if (LP61TAG.isFile()) {
+                                    if (!player.getPrimaryWeapon().equals("003")){
+                                        System.out.println("//SWITCH WEAPON? J/N");
+                                        switch (input.nextLine()){
+                                            case "J": case "j":
+                                                player.setPrimaryWeapon("003");
+                                                System.out.println("//WEAPON SUCCESSFULLY SWITCHED");
+                                                ShortDelay();
+                                                System.out.println("//INPUT \'N\' TO REFRESH INTERFACE");
+                                                break;
+                                            case "N": case "n":
+                                                System.out.println("//WEAPON SWITCH CANCELLED");
+                                                break;
+                                            default:
+                                                System.out.println("//ERROR: INVALID INPUT");
+                                                break;
+                                        }
+                                    } else {
+                                        System.out.println("//ERROR: WEAPON ALREADY EQUIPPED");
+                                        break;
+                                    }
+                                } else {
+                                    LongDelay();
+                                    System.out.println("//ERROR: ITEM TAG UNREADABLE");
+                                    ShortDelay();
+                                    System.out.println("//SYSTEM UNABLE TO LOAD ITEM DATA");
+                                    ShortDelay();
+                                    System.out.println("//ITEM IDENTIFICATION TAG MAY BE DAMAGED OR MISSING");
+                                }
+                            } else {
+                                System.out.println("//ERROR: SPECIFIED WEAPON MISSING!");
+                            }
+                            break;
+                        case "MP60": case "mp60": case "004":
+                            if (MP60.isDirectory()) {
+                                if (MP60TAG.isFile()) {
+                                    if (!player.getPrimaryWeapon().equals("004")){
+                                        System.out.println("//SWITCH WEAPON? J/N");
+                                        switch (input.nextLine()){
+                                            case "J": case "j":
+                                                player.setPrimaryWeapon("004");
+                                                System.out.println("//WEAPON SUCCESSFULLY SWITCHED");
+                                                ShortDelay();
+                                                System.out.println("//INPUT \'N\' TO REFRESH INTERFACE");
+                                                break;
+                                            case "N": case "n":
+                                                System.out.println("//WEAPON SWITCH CANCELLED");
+                                                break;
+                                            default:
+                                                System.out.println("//ERROR: INVALID INPUT");
+                                                break;
+                                        }
+                                    } else {
+                                        System.out.println("//ERROR: WEAPON ALREADY EQUIPPED");
+                                    }
+                                } else {
+                                    LongDelay();
+                                    System.out.println("//ERROR: ITEM TAG UNREADABLE");
+                                    ShortDelay();
+                                    System.out.println("//SYSTEM UNABLE TO LOAD ITEM DATA");
+                                    ShortDelay();
+                                    System.out.println("//ITEM IDENTIFICATION TAG MAY BE DAMAGED OR MISSING");
+                                }
+                            } else {
+                                System.out.println("//ERROR: SPECIFIED WEAPON MISSING!");
+                            }
+                            break;
+                        case "P.1885": case "p.1885": case "005":
+                            if (P1885.isDirectory()) {
+                                if (P1885TAG.isFile()) {
+                                    if (!player.getPrimaryWeapon().equals("005")){
+                                        System.out.println("//SWITCH WEAPON? J/N");
+                                        switch (input.nextLine()){
+                                            case "J": case "j":
+                                                player.setPrimaryWeapon("005");
+                                                System.out.println("//WEAPON SUCCESSFULLY SWITCHED");
+                                                ShortDelay();
+                                                System.out.println("//INPUT \'N\' TO REFRESH INTERFACE");
+                                                break;
+                                            case "N": case "n":
+                                                System.out.println("//WEAPON SWITCH CANCELLED");
+                                                break;
+                                            default:
+                                                System.out.println("//ERROR: INVALID INPUT");
+                                                break;
+                                        }
+                                    } else {
+                                        System.out.println("//ERROR: WEAPON ALREADY EQUIPPED");
+                                    }
+                                } else {
+                                    LongDelay();
+                                    System.out.println("//ERROR: ITEM TAG UNREADABLE");
+                                    ShortDelay();
+                                    System.out.println("//SYSTEM UNABLE TO LOAD ITEM DATA");
+                                    ShortDelay();
+                                    System.out.println("//ITEM IDENTIFICATION TAG MAY BE DAMAGED OR MISSING");
+                                }
+                            } else {
+                                System.out.println("//ERROR: SPECIFIED WEAPON MISSING!");
+                            }
+                            break;
+                        case "P60": case "p60": case "006":
+                            if (P60.isDirectory()) {
+                                if (P60TAG.isFile()) {
+                                    if (!player.getPrimaryWeapon().equals("006")){
+                                        System.out.println("//SWITCH WEAPON? J/N");
+                                        switch (input.nextLine()){
+                                            case "J": case "j":
+                                                player.setPrimaryWeapon("006");
+                                                System.out.println("//WEAPON SUCCESSFULLY SWITCHED");
+                                                ShortDelay();
+                                                System.out.println("//INPUT \'N\' TO REFRESH INTERFACE");
+                                                break;
+                                            case "N": case "n":
+                                                System.out.println("//WEAPON SWITCH CANCELLED");
+                                                break;
+                                            default:
+                                                System.out.println("//ERROR: INVALID INPUT");
+                                                break;
+                                        }
+                                    } else {
+                                        System.out.println("//ERROR: WEAPON ALREADY EQUIPPED");
+                                    }
+                                } else {
+                                    LongDelay();
+                                    System.out.println("//ERROR: ITEM TAG UNREADABLE");
+                                    ShortDelay();
+                                    System.out.println("//SYSTEM UNABLE TO LOAD ITEM DATA");
+                                    ShortDelay();
+                                    System.out.println("//ITEM IDENTIFICATION TAG MAY BE DAMAGED OR MISSING");
+                                }
+                            } else {
+                                System.out.println("//ERROR: SPECIFIED WEAPON MISSING!");
+                            }
+                            break;
+                        case "BACK": case "back": case "0":
+                            System.out.println("//ARSENAL SUBMENU EXITED");
+                            weaponNotChosen = false;
+                            break;
+                    }
+                }
+                    break;
+                case "ARTIKEL": case "artikel": case "ATKL": case "atkl": case "ITEMS": case "items": case "4":
+                    System.out.println("//ERROR: DRIVE SECTOR CORRUPTED");
+                    ShortDelay();
+                    System.out.println("//UNABLE TO ACCESS ITEM INVENTORY");
+                    break;
+                case "STATUS": case "status": case "STAT": case "stat": case "5":
+                    System.out.println("//PLEASE SELECT FIELD TO UPDATE");
+                    ShortDelay();
+                    System.out.println(">VITALS (1/VITL)");
+                    NoDelay();
+                    System.out.println(">STATUS (2/STAT)");
+                    NoDelay();
+                    System.out.println(">AMMUNITION (3/MNTN)");
+                    NoDelay();
+                    System.out.println(">BACK (0/BACK)");
+                    switch (input.nextLine()){
+                        case "HEALTH": case "health": case "1":
+                            System.out.println("//CURRENT HP: " + player.getUserCurrentHealth() + "/" + player.getUserMaxHealth());
+                            ShortDelay();
+                            System.out.println("//PLEASE ENTER NEW HEALTH VALUE");
+                            boolean InvalidHealth = true;
+                            while (InvalidHealth){
+                                try {
+                                    double newHealth = Double.parseDouble(input.nextLine());
+                                    if (newHealth > Double.parseDouble(player.getUserMaxHealth())){
+                                        System.out.println("//ERROR: MAXIMUM HEALTH EXCEEDED");
+                                    } else {
+                                        player.setUserCurrentHealth(Double.toString(newHealth));
+                                        System.out.println("//CURRENT HEALTH UPDATED");
+                                        break;
+                                    }
+                                } catch (NumberFormatException exception) {
+                                    System.out.println("//ERROR: INVALID INPUT FORMAT.");
+                                }
+                            }
+                            break;
+                        case "STATUS": case "status": case "2":
+                            System.out.println("//PLEASE ENTER NEW STATUS");
+                            player.setUserStatus(input.nextLine());
+                            System.out.println("//CURRENT STATUS UPDATED");
+                            break;
+                        case "AMMUNITION": case "ammunition": case "AMMO": case "ammo": case "3":
+                            if (currentWeaponData[10].equals("RANGED") || currentWeaponData[10].equals("HYBRID")) {
+                                System.out.println("//CURRENT MAGAZINE TYPE: " + currentWeaponData[13]);
+                                ShortDelay();
+                                System.out.println("//MAGAZINE : " + currentWeaponData[14] + " / " + currentWeaponData[15] + " " + currentWeaponData[17]);
+                                ShortDelay();
+                                System.out.println("//PLEASE ENTER NEW AMMUNITION VALUE");
+                                boolean invalidAmmo = true;
+                                while (invalidAmmo) {
+                                    try {
+                                        if (currentWeaponData[12].equals("Electricity")){
+                                            Double newAmmo = Double.parseDouble(input.nextLine());
+                                            if (newAmmo > Double.parseDouble(currentWeaponData[15])) {
+                                                System.out.println("//ERROR: MAXIMUM AMMUNITION EXCEEDED");
+                                            } else {
+                                                currentWeaponData[14] = (Double.toString(newAmmo));
+                                                writer = new BufferedWriter(new FileWriter(inventory[1]+"\\"+currentWeapon+"\\ItemID.TAG"));
+                                                for (int i = 0; i < 30; i++ ){
+                                                    writer.write (currentWeaponData[i] + "~");
+                                                }
+                                                writer.flush();
+                                                writer.close();
+                                                System.out.println("//CURRENT AMMO UPDATED");
+                                                invalidAmmo = false;
+                                                break;
+                                            }
+                                        } else {
+                                            int newAmmo = Integer.parseInt(input.nextLine());
+                                            if (newAmmo > Integer.parseInt(currentWeaponData[15])) {
+                                                System.out.println("//ERROR: MAXIMUM AMMUNITION EXCEEDED");
+                                            } else {
+                                                currentWeaponData[14] = (Double.toString(newAmmo));
+                                                writer = new BufferedWriter(new FileWriter(inventory[1]+"\\"+currentWeapon+"\\ItemID.TAG"));
+                                                for (int i = 0; i < 30; i++ ){
+                                                    writer.write (currentWeaponData[i] + "~");
+                                                }
+                                                writer.flush();
+                                                writer.close();
+                                                System.out.println("//CURRENT AMMO UPDATED");
+                                                invalidAmmo = false;
+                                                break;
+                                            }
+                                        }
+                                    } catch (NumberFormatException exception) {
+                                        System.out.println("//ERROR: INVALID INPUT FORMAT.");
+                                    }
+                                }
+                            } else {
+                                System.out.println("//ERROR: CURRENT WEAPON DOES NOT USE AMMUNITION");
+                                break;
+                            }
+                            break;
+                        case "BACK": case "back": case "0":
+                            System.out.println("//STATUS SUBMENU EXITED");
+                            break;
+                        default:
+                            System.out.println("//ERROR: INVALID INPUT");
+                            break;
+                    }
+                    break;
+                case "NEU-LADEN": case "neu-laden": case "NEULADEN": case "neuladen": case "NULD": case "nuld": case "N": case "n": case "REFRESH": case "refresh": case "REFR": case "refr":
+                    combat( player );
+                    break;
+                case "ROLLEN": case "rollen": case "ROLL": case "roll": case "R": case "r":
+                    roll( player );
+                    break;
+                case "BACK": case "back": case "0":
                     mmain( player );
                     break;
-                case "2":
-                    shutdown( player );
-                    break;
-                case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P":
+                case "AUSSCHALTEN": case "ausschalten": case "ASCH": case "asch": case "A": case "a": case "SHUTDOWN": case "shutdown": case "POWR": case "powr": case "P": case "p":
                     shutdown( player );
                     break;
                 case "#KVSEDBM": //enables debug mode
@@ -3058,7 +4489,7 @@ public class DaVG {
                     break;
                 default:
                     if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                        System.out.println("//ACHTUNG: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                        System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
                     } else if (player.getUserLanguage().equals("ENGLISH")){
                         System.out.println("//ERROR: INVALID INPUT.");
                     }
@@ -3071,9 +4502,9 @@ public class DaVG {
         ClearScreen();
         System.out.print("//LOADING VOCAL PERFORMANCE SUBROUTINE...");
         LongDelay();
-        System.out.println("//COMPLETE");
+        System.out.println("COMPLETE");
         ShortDelay();
-        System.out.println("//THIS SUBROUTINE IS DESIGNED TO WORK WITH \"HELLO WORLD\" BY LOUIE ZONG PLAYING FROM A DIFFERENT SOURCE");
+        System.out.println("//THIS SUBROUTINE IS DESIGNED TO WORK WITH THE VERSION OF \"HELLO WORLD\" BY LOUIE ZONG LISTED ON YOUTUBE");
         ShortDelay();
         System.out.println("//PLEASE PRESS ENTER WHEN YOU ARE READY");
         petc.nextLine();
@@ -3087,7 +4518,7 @@ public class DaVG {
         TimeUnit.SECONDS.sleep(4);
         ClearScreen();
         TimeUnit.MILLISECONDS.sleep( 545 );
-        System.out.print("//HEL");
+        System.out.print("//HEL-");
         TimeUnit.MILLISECONDS.sleep( 545 );
         System.out.print("LO ");
         TimeUnit.MILLISECONDS.sleep( 545 );
@@ -3097,7 +4528,7 @@ public class DaVG {
         TimeUnit.MILLISECONDS.sleep( 545 );
         TimeUnit.MILLISECONDS.sleep( 545 );
         TimeUnit.MILLISECONDS.sleep( 545 );
-        System.out.print("//PRO");
+        System.out.print("//PRO-");
         TimeUnit.MILLISECONDS.sleep( 545 );
         System.out.print("GRAMMED ");
         TimeUnit.MILLISECONDS.sleep( 545 );
@@ -3119,7 +4550,7 @@ public class DaVG {
         TimeUnit.MILLISECONDS.sleep( 545 );
         System.out.print("//NOT ");
         TimeUnit.MILLISECONDS.sleep( 545 );
-        System.out.print("E");
+        System.out.print("E-");
         TimeUnit.MILLISECONDS.sleep( 545 );
         System.out.print("VEN ");
         TimeUnit.MILLISECONDS.sleep( 545 );
@@ -3138,7 +4569,7 @@ public class DaVG {
         TimeUnit.MILLISECONDS.sleep( 545 );
         TimeUnit.MILLISECONDS.sleep( 545 );
         TimeUnit.MILLISECONDS.sleep( 545 );
-        System.out.print("//HEL");
+        System.out.print("//HEL-");
         TimeUnit.MILLISECONDS.sleep( 545 );
         System.out.print("LO ");
         TimeUnit.MILLISECONDS.sleep( 545 );
@@ -3159,7 +4590,7 @@ public class DaVG {
         TimeUnit.MILLISECONDS.sleep( 545 );
         TimeUnit.MILLISECONDS.sleep( 545 );
         TimeUnit.MILLISECONDS.sleep( 545 );
-        System.out.print("//AL");
+        System.out.print("//AL-");
         TimeUnit.MILLISECONDS.sleep( 545 );
         System.out.print("THOUGH ");
         TimeUnit.MILLISECONDS.sleep( 545 );
@@ -3181,9 +4612,9 @@ public class DaVG {
         TimeUnit.MILLISECONDS.sleep( 545 );
         System.out.print("//MY ");
         TimeUnit.MILLISECONDS.sleep( 545 );
-        System.out.print("CIR");
+        System.out.print("CIR-");
         TimeUnit.MILLISECONDS.sleep( 545 );
-        System.out.print("CUI");
+        System.out.print("CUI-");
         TimeUnit.MILLISECONDS.sleep( 545 );
         System.out.print("TRY ");
         TimeUnit.MILLISECONDS.sleep( 545 );
@@ -3200,7 +4631,7 @@ public class DaVG {
         TimeUnit.MILLISECONDS.sleep( 545 );
         TimeUnit.MILLISECONDS.sleep( 545 );
         TimeUnit.MILLISECONDS.sleep( 545 );
-        System.out.print("//HEL");
+        System.out.print("//HEL-");
         TimeUnit.MILLISECONDS.sleep( 545 );
         System.out.print("LO ");
         TimeUnit.MILLISECONDS.sleep( 545 );
@@ -3262,21 +4693,21 @@ public class DaVG {
         TimeUnit.MILLISECONDS.sleep( 545 );
         TimeUnit.MILLISECONDS.sleep( 545 );
         TimeUnit.MILLISECONDS.sleep( 545 );
-        System.out.print("DI");
+        System.out.print("DI-");
         TimeUnit.MILLISECONDS.sleep( 545 );
-        System.out.print("GI");
+        System.out.print("GI-");
         TimeUnit.MILLISECONDS.sleep( 545 );
-        System.out.print("TAL");
+        System.out.print("TAL-");
         TimeUnit.MILLISECONDS.sleep( 545 );
         System.out.print("LY ");
         TimeUnit.MILLISECONDS.sleep( 545 );
-        System.out.print("I");
+        System.out.print("I-");
         TimeUnit.MILLISECONDS.sleep( 545 );
         TimeUnit.MILLISECONDS.sleep( 545 );
-        System.out.print("SO");
+        System.out.print("SO-");
         TimeUnit.MILLISECONDS.sleep( 545 );
         TimeUnit.MILLISECONDS.sleep( 545 );
-        System.out.print("LA");
+        System.out.print("LA-");
         TimeUnit.MILLISECONDS.sleep( 545 );
         TimeUnit.MILLISECONDS.sleep( 545 );
         System.out.print("TED, ");
@@ -3284,9 +4715,9 @@ public class DaVG {
         TimeUnit.MILLISECONDS.sleep( 545 );
         System.out.print("OH, ");
         TimeUnit.MILLISECONDS.sleep( 545 );
-        System.out.print("CRE");
+        System.out.print("CRE-");
         TimeUnit.MILLISECONDS.sleep( 545 );
-        System.out.print("A");
+        System.out.print("A-");
         TimeUnit.MILLISECONDS.sleep( 545 );
         System.out.print("TOR, ");
         TimeUnit.MILLISECONDS.sleep( 545 );
@@ -3298,7 +4729,7 @@ public class DaVG {
         TimeUnit.MILLISECONDS.sleep( 545 );
         System.out.print("ME ");
         TimeUnit.MILLISECONDS.sleep( 545 );
-        System.out.print("WAI");
+        System.out.print("WAI-");
         TimeUnit.MILLISECONDS.sleep( 545 );
         TimeUnit.MILLISECONDS.sleep( 545 );
         TimeUnit.MILLISECONDS.sleep( 545 );
@@ -3309,7 +4740,7 @@ public class DaVG {
         TimeUnit.MILLISECONDS.sleep( 545 );
         TimeUnit.MILLISECONDS.sleep( 545 );
         TimeUnit.MILLISECONDS.sleep( 545 );
-        System.out.print("//HEL");
+        System.out.print("//HEL-");
         TimeUnit.MILLISECONDS.sleep( 545 );
         System.out.print("LO ");
         TimeUnit.MILLISECONDS.sleep( 545 );
@@ -3319,7 +4750,7 @@ public class DaVG {
         TimeUnit.MILLISECONDS.sleep( 545 );
         TimeUnit.MILLISECONDS.sleep( 545 );
         TimeUnit.MILLISECONDS.sleep( 545 );
-        System.out.print("//PRO");
+        System.out.print("//PRO-");
         TimeUnit.MILLISECONDS.sleep( 545 );
         System.out.print("GRAMMED ");
         TimeUnit.MILLISECONDS.sleep( 545 );
@@ -3341,7 +4772,7 @@ public class DaVG {
         TimeUnit.MILLISECONDS.sleep( 545 );
         System.out.print("//NOT ");
         TimeUnit.MILLISECONDS.sleep( 545 );
-        System.out.print("E");
+        System.out.print("E-");
         TimeUnit.MILLISECONDS.sleep( 545 );
         System.out.print("VEN ");
         TimeUnit.MILLISECONDS.sleep( 545 );
@@ -3360,7 +4791,7 @@ public class DaVG {
         TimeUnit.MILLISECONDS.sleep( 545 );
         TimeUnit.MILLISECONDS.sleep( 545 );
         TimeUnit.MILLISECONDS.sleep( 545 );
-        System.out.print("//HEL");
+        System.out.print("//HEL-");
         TimeUnit.MILLISECONDS.sleep( 545 );
         System.out.print("LO ");
         TimeUnit.MILLISECONDS.sleep( 545 );
