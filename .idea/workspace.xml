@@ -7,38 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="402cbc04-7430-4dd3-ba34-cc8977d4d00f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/.idea/artifacts/DaVG_AusfJ_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/.idea/artifacts/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/.idea/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/.idea/dictionaries/agbay.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/.idea/dictionaries/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/DaVG Ausf. J.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/META-INF/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/out/artifacts/DaVG_AusfJ_jar/Beta Releases/DaVG_AusfJ_V0.1.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/out/artifacts/DaVG_AusfJ_jar/Beta Releases/DaVG_AusfJ_V0.11.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/out/artifacts/DaVG_AusfJ_jar/DaVG_AusfJ.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/out/artifacts/DaVG_AusfJ_jar/IMPORTANT - READ THIS FIRST.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/out/artifacts/DaVG_AusfJ_jar/rubberglove.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/out/artifacts/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/out/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/out/production/DaVG Ausf. J/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/out/production/DaVG Ausf. J/META-INF/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/out/production/DaVG Ausf. J/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/src/DaVG.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/src/DaVG.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/src/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/src/META-INF/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/src/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J/src/playerCharacter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DaVG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DaVG.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,32 +17,50 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/DaVG.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="17">
-                    <caret line="2226" column="31" selection-start-line="2226" selection-start-column="24" selection-end-line="2226" selection-end-column="31" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DaVG.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="2953" column="58" lean-forward="true" selection-start-line="2953" selection-start-column="58" selection-end-line="2953" selection-end-column="58" />
+            <state relative-caret-position="442">
+              <caret line="78" column="35" lean-forward="true" selection-start-line="78" selection-start-column="35" selection-end-line="78" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/playerCharacter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="527" selection-start-line="527" selection-end-line="527" />
+              <folding>
+                <element signature="e#7849#7850#0" expanded="true" />
+                <element signature="e#7881#7882#0" expanded="true" />
+                <element signature="e#9649#9650#0" expanded="true" />
+                <element signature="e#9685#9686#0" expanded="true" />
+                <element signature="e#10834#10835#0" expanded="true" />
+                <element signature="e#10883#10884#0" expanded="true" />
+                <element signature="e#11082#11083#0" expanded="true" />
+                <element signature="e#11131#11132#0" expanded="true" />
+                <element signature="e#11325#11326#0" expanded="true" />
+                <element signature="e#11369#11370#0" expanded="true" />
+                <element signature="e#11553#11554#0" expanded="true" />
+                <element signature="e#11597#11598#0" expanded="true" />
+                <element signature="e#11781#11782#0" expanded="true" />
+                <element signature="e#11825#11826#0" expanded="true" />
+                <element signature="e#12009#12010#0" expanded="true" />
+                <element signature="e#12053#12054#0" expanded="true" />
+                <element signature="e#12454#12455#0" expanded="true" />
+                <element signature="e#12486#12487#0" expanded="true" />
+                <element signature="e#12628#12629#0" expanded="true" />
+                <element signature="e#12660#12661#0" expanded="true" />
+                <element signature="e#12802#12803#0" expanded="true" />
+                <element signature="e#12834#12835#0" expanded="true" />
+                <element signature="e#12976#12977#0" expanded="true" />
+                <element signature="e#13008#13009#0" expanded="true" />
+                <element signature="e#13182#13183#0" expanded="true" />
+                <element signature="e#13604#16716#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -88,12 +76,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>reload</find>
-      <find>refresh</find>
-      <find>.equals(&quot;Y&quot;</find>
-      <find>&quot;Y&quot;</find>
-      <find>//ACHTUNG:</find>
-      <find>TAG</find>
       <find>LANG</find>
       <find>LANGE</find>
       <find>optionNotChosen = false;</find>
@@ -118,10 +100,14 @@
       <find>ammunition</find>
       <find>weaponLoad</find>
       <find>weapons</find>
+      <find>TESTWEAP</find>
+      <find>health</find>
+      <find>stealth</find>
+      <find>modCalc</find>
+      <find>*10</find>
+      <find>STEALTH</find>
     </findStrings>
     <replaceStrings>
-      <replace>Proficiency3</replace>
-      <replace>Proficiency4</replace>
       <replace>2</replace>
       <replace>3</replace>
       <replace>playerData[]</replace>
@@ -150,6 +136,8 @@
       <replace>LP-61</replace>
       <replace>.equals(&quot;J&quot;</replace>
       <replace>//FEHLER:</replace>
+      <replace>MP60</replace>
+      <replace>P60</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -170,10 +158,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="32" />
-    <option name="width" value="1040" />
-    <option name="height" value="744" />
+    <option name="x" value="-186" />
+    <option name="y" value="70" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -207,12 +195,12 @@
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="davg_ausf._j" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/agbay/OneDrive/Documents/GitHub/DaVG/DaVG Ausf. J/.idea/misc.xml" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572649938358" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572830891949" />
     <property name="last_opened_file_path" value="$USER_HOME$/Google Drive/Miscellaneous Universes/Test" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -286,8 +274,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.08315565" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.08635394" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -297,7 +286,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49926794" weight="0.3336945" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -385,11 +374,43 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$USER_HOME$/Google Drive/Miscellaneous Universes/Test/Test.iml" />
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/net/SocketInputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="93" column="23" selection-start-line="93" selection-start-column="23" selection-end-line="93" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/playerCharacter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="145" column="55" selection-start-line="145" selection-start-column="55" selection-end-line="145" selection-end-column="55" />
+        <state relative-caret-position="304">
+          <caret line="527" selection-start-line="527" selection-end-line="527" />
           <folding>
+            <element signature="e#7849#7850#0" expanded="true" />
+            <element signature="e#7881#7882#0" expanded="true" />
+            <element signature="e#9649#9650#0" expanded="true" />
+            <element signature="e#9685#9686#0" expanded="true" />
+            <element signature="e#10834#10835#0" expanded="true" />
+            <element signature="e#10883#10884#0" expanded="true" />
+            <element signature="e#11082#11083#0" expanded="true" />
+            <element signature="e#11131#11132#0" expanded="true" />
+            <element signature="e#11325#11326#0" expanded="true" />
+            <element signature="e#11369#11370#0" expanded="true" />
+            <element signature="e#11553#11554#0" expanded="true" />
+            <element signature="e#11597#11598#0" expanded="true" />
+            <element signature="e#11781#11782#0" expanded="true" />
+            <element signature="e#11825#11826#0" expanded="true" />
+            <element signature="e#12009#12010#0" expanded="true" />
+            <element signature="e#12053#12054#0" expanded="true" />
+            <element signature="e#12454#12455#0" expanded="true" />
+            <element signature="e#12486#12487#0" expanded="true" />
+            <element signature="e#12628#12629#0" expanded="true" />
+            <element signature="e#12660#12661#0" expanded="true" />
+            <element signature="e#12802#12803#0" expanded="true" />
+            <element signature="e#12834#12835#0" expanded="true" />
+            <element signature="e#12976#12977#0" expanded="true" />
+            <element signature="e#13008#13009#0" expanded="true" />
+            <element signature="e#13182#13183#0" expanded="true" />
             <element signature="e#13604#16716#0" />
           </folding>
         </state>
@@ -397,8 +418,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DaVG.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="2953" column="58" lean-forward="true" selection-start-line="2953" selection-start-column="58" selection-end-line="2953" selection-end-column="58" />
+        <state relative-caret-position="442">
+          <caret line="78" column="35" lean-forward="true" selection-start-line="78" selection-start-column="35" selection-end-line="78" selection-end-column="35" />
         </state>
       </provider>
     </entry>

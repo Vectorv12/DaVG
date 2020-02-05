@@ -1713,47 +1713,47 @@ public class DaVG {
             NoDelay();
             System.out.println( ">SLEIGHT-OF-HAND (DEX1) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserDexterity())) + profiCalc( player,"SLEIGHT-OF-HAND" ) + sftwrCalc( player, "SLEIGHT-OF-HAND" ) ) + " )");
             NoDelay();
-            System.out.println( ">STEALTH (DEX2) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserDexterity())) + profiCalc( player,"STEALTH" ) ) + sftwrCalc( player, "STEALTH" ) + " )");
+            System.out.println( ">STEALTH (DEX2) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserDexterity())) + profiCalc( player,"STEALTH" ) + sftwrCalc( player, "STEALTH" ) )  + " )");
             ShortDelay();
             System.out.println();
 
             System.out.println( "//INTELLIGENCE (INTL) SKILLS" );
             ShortDelay();
-            System.out.println( ">ARCANA (INT0) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserIntelligence())) + profiCalc( player,"ARCANA" ) ) + sftwrCalc( player, "ARCANA" )  +" )");
+            System.out.println( ">ARCANA (INT0) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserIntelligence())) + profiCalc( player,"ARCANA" )  + sftwrCalc( player, "ARCANA" ) )  +" )");
             NoDelay();
-            System.out.println( ">HISTORY (INT1) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserIntelligence())) + profiCalc( player,"HISTORY" ) )  + sftwrCalc( player, "HISTORY" ) +" )");
+            System.out.println( ">HISTORY (INT1) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserIntelligence())) + profiCalc( player,"HISTORY" )   + sftwrCalc( player, "HISTORY" ) ) +" )");
             NoDelay();
-            System.out.println( ">INVESTIGATION (INT2) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserIntelligence())) + profiCalc( player,"INVESTIGATION" ) ) + sftwrCalc( player, "INVESTIGATION" )  +" )");
+            System.out.println( ">INVESTIGATION (INT2) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserIntelligence())) + profiCalc( player,"INVESTIGATION" )  + sftwrCalc( player, "INVESTIGATION" ) )  +" )");
             NoDelay();
-            System.out.println( ">NATURE (INT3) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserIntelligence())) + profiCalc( player,"NATURE" ) ) + sftwrCalc( player, "NATURE" )  +" )");
+            System.out.println( ">NATURE (INT3) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserIntelligence())) + profiCalc( player,"NATURE" )  + sftwrCalc( player, "NATURE" ) )  +" )");
             NoDelay();
-            System.out.println( ">RELIGION (INT4) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserIntelligence())) + profiCalc( player,"RELIGION" ) ) + sftwrCalc( player, "RELIGION" )  +" )");
+            System.out.println( ">RELIGION (INT4) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserIntelligence())) + profiCalc( player,"RELIGION" )  + sftwrCalc( player, "RELIGION" ) )  +" )");
             ShortDelay();
             System.out.println();
 
             System.out.println( "//WISDOM (WSDM) SKILLS" );
             ShortDelay();
-            System.out.println( ">ANIMAL HANDLING (WSD0) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserWisdom())) + profiCalc( player,"ANIMAL HANDLING" ) ) + sftwrCalc( player, "ANIMAL HANDLING" )  +" )");
+            System.out.println( ">ANIMAL HANDLING (WSD0) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserWisdom())) + profiCalc( player,"ANIMAL HANDLING" ) + sftwrCalc( player, "ANIMAL HANDLING" ) )  +" )");
             NoDelay();
-            System.out.println( ">INSIGHT (WSD1) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserWisdom())) + profiCalc( player,"INSIGHT" ) ) + sftwrCalc( player, "INSIGHT" )  +" )");
+            System.out.println( ">INSIGHT (WSD1) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserWisdom())) + profiCalc( player,"INSIGHT" ) + sftwrCalc( player, "INSIGHT" ) )  +" )");
             NoDelay();
-            System.out.println( ">MEDICINE (WSD2) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserWisdom())) + profiCalc( player,"MEDICINE" ) ) + sftwrCalc( player, "MEDICINE" )  +" )");
+            System.out.println( ">MEDICINE (WSD2) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserWisdom())) + profiCalc( player,"MEDICINE" ) + sftwrCalc( player, "MEDICINE" ) )  +" )");
             NoDelay();
-            System.out.println( ">PERCEPTION (WSD3) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserWisdom())) + profiCalc( player,"PERCEPTION" ) ) + sftwrCalc( player, "PERCEPTION" )  +" )");
+            System.out.println( ">PERCEPTION (WSD3) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserWisdom())) + profiCalc( player,"PERCEPTION" ) + sftwrCalc( player, "PERCEPTION" ) )  +" )");
             NoDelay();
-            System.out.println( ">SURVIVAL (WSD4) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserWisdom())) + profiCalc( player,"SURVIVAL" ) ) + sftwrCalc( player, "SURVIVAL" )  +" )");
+            System.out.println( ">SURVIVAL (WSD4) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserWisdom())) + profiCalc( player,"SURVIVAL" ) + sftwrCalc( player, "SURVIVAL" ) )  +" )");
             ShortDelay();
             System.out.println();
 
             System.out.println( "//CHARISMA (CHRM) SKILLS" );
             ShortDelay();
-            System.out.println( ">DECEPTION (CHR0) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserCharisma())) + profiCalc( player,"DECEPTION" ) ) + sftwrCalc( player, "DECEPTION" )  +" )");
+            System.out.println( ">DECEPTION (CHR0) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserCharisma())) + profiCalc( player,"DECEPTION" ) + sftwrCalc( player, "DECEPTION" ) )  +" )");
             NoDelay();
-            System.out.println( ">INTIMIDATION (CHR1) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserCharisma())) + profiCalc( player,"INTIMIDATION" ) ) + sftwrCalc( player, "INTIMIDATION" )  +" )");
+            System.out.println( ">INTIMIDATION (CHR1) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserCharisma())) + profiCalc( player,"INTIMIDATION" ) + sftwrCalc( player, "INTIMIDATION" ) )  +" )");
             NoDelay();
-            System.out.println( ">PERFORMANCE (CHR2) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserCharisma())) + profiCalc( player,"PERFORMANCE" ) ) + sftwrCalc( player, "PERFORMANCE" )  +" )");
+            System.out.println( ">PERFORMANCE (CHR2) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserCharisma())) + profiCalc( player,"PERFORMANCE" ) + sftwrCalc( player, "PERFORMANCE" ) )  +" )");
             NoDelay();
-            System.out.println( ">PERSUASION (CHR3) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserCharisma())) + profiCalc( player,"PERSUASION" ) ) + sftwrCalc( player, "PERSUASION" )  +" )");
+            System.out.println( ">PERSUASION (CHR3) MODIFIER: R + ( " + ( modCalc(Integer.parseInt(player.getUserCharisma())) + profiCalc( player,"PERSUASION" ) + sftwrCalc( player, "PERSUASION" ) )  +" )");
             ShortDelay();
             System.out.println();
 
@@ -2238,7 +2238,7 @@ public class DaVG {
         NoDelay();
         System.out.println( " > WEAPONS" );
         NoDelay();
-        System.out.print( "//SCANNING ITEM REGISTRY..." );
+        System.out.print( "//RETRIEVING WEAPON REGISTRY..." );
 
         File[] inventory = player.getPlayerInventory();
 
@@ -2937,6 +2937,8 @@ public class DaVG {
 
         File[] inventory = player.getPlayerInventory();
 
+        System.out.print("//RETRIEVING AMMUNITION REGISTRY...");
+
         //SIDEARMS
         {
             TESTWEAPAMMO = new File(inventory[2]+"\\TESTWEAP");
@@ -2962,9 +2964,63 @@ public class DaVG {
             ShortDelay();
             System.out.println("COMPLETE");
             ShortDelay();
+            System.out.println("// ENTER WEAPON ID TO INSPECT AMMUNITION RESERVES");
 
+            //SIDEARMS
+            {
+                if (TESTWEAPAMMO.isDirectory()){
+                    if (TESTWEAPAMMOTAG.isFile()){
+                        System.out.println(">No. 000 | TESTWEAPAMMO");
+                    } else {
+                        System.out.println(">No. 000 | TESTWEAPAMMO [ERROR: CANNOT READ IDENTIFICATION TAG]");
+                    }
+                }
+                if (FtA_45AMMO.isDirectory()){
+                    if (FtA_45AMMOTAG.isFile()){
+                        System.out.println(">No. 002 | 8mm Flechette");
+                    } else {
+                        System.out.println(">No. 002 | 8mm Flechette [ERROR: CANNOT READ IDENTIFICATION TAG]");
+                    }
+                }
+                if (LP61AMMO.isDirectory()){
+                    if (LP61AMMOTAG.isFile()){
+                        System.out.println(">No. 003 | LP61 Batteries");
+                    } else {
+                        System.out.println(">No. 003 | LP61 Batteries [ERROR: CANNOT READ IDENTIFICATION TAG]");
+                    }
+                }
+                if (MP60AMMO.isDirectory()){
+                    if (TESTWEAPAMMOTAG.isFile()){
+                        System.out.println(">No. 004 | 10mm (MP-60)");
+                    } else {
+                        System.out.println(">No. 004 | MP-60 [ERROR: CANNOT READ IDENTIFICATION TAG]");
+                    }
+                }
+                if (P1885AMMO.isDirectory()){
+                    if (P1885AMMOTAG.isFile()){
+                        System.out.println(">No. 005 | 12.5mm Kurz");
+                    } else {
+                        System.out.println(">No. 005 | 12.5mm Kurz [ERROR: CANNOT READ IDENTIFICATION TAG]");
+                    }
+                }
+                if (P60AMMO.isDirectory()){
+                    if (P60AMMOTAG.isFile()){
+                        System.out.println(">No. 006 | 10mm (P-60)");
+                    } else {
+                        System.out.println(">No. 006 | 10mm (P-60) [ERROR: CANNOT READ IDENTIFICATION TAG]");
+                    }
+                }
+            }
 
+        } else {
+            LongDelay();
+            System.out.println("ERROR");
+            ShortDelay();
+            System.out.println("//NO AMMUNITION IN INVENTORY!");
         }
+
+
+
         boolean optionNotChosen = true;
         while ( optionNotChosen ) {
             switch ( input.nextLine() ) {
