@@ -22,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DaVG.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="78" column="35" lean-forward="true" selection-start-line="78" selection-start-column="35" selection-end-line="78" selection-end-column="35" />
+            <state relative-caret-position="402">
+              <caret line="2577" column="51" lean-forward="true" selection-start-line="2577" selection-start-column="51" selection-end-line="2577" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -31,7 +31,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/playerCharacter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
+            <state relative-caret-position="6579">
               <caret line="527" selection-start-line="527" selection-end-line="527" />
               <folding>
                 <element signature="e#7849#7850#0" expanded="true" />
@@ -76,14 +76,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>LANG</find>
-      <find>LANGE</find>
-      <find>optionNotChosen = false;</find>
-      <find>calculating damage</find>
-      <find>write</find>
-      <find>i &lt; 30</find>
-      <find>status</find>
-      <find>FtA 45</find>
       <find>Y</find>
       <find>Y/N</find>
       <find>MAXIMUM AMM</find>
@@ -95,10 +87,8 @@
       <find>medicine</find>
       <find>meds</find>
       <find>medical</find>
-      <find>vitals</find>
       <find>System.out.println(&quot;&quot;)</find>
       <find>ammunition</find>
-      <find>weaponLoad</find>
       <find>weapons</find>
       <find>TESTWEAP</find>
       <find>health</find>
@@ -106,6 +96,16 @@
       <find>modCalc</find>
       <find>*10</find>
       <find>STEALTH</find>
+      <find>critical</find>
+      <find>CRIT</find>
+      <find>attack</find>
+      <find>delay</find>
+      <find>weaponData</find>
+      <find>weaponLoad</find>
+      <find>vitals</find>
+      <find>playerData</find>
+      <find>indexes</find>
+      <find>index</find>
     </findStrings>
     <replaceStrings>
       <replace>2</replace>
@@ -158,10 +158,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-186" />
-    <option name="y" value="70" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-8" />
+    <option name="y" value="40" />
+    <option name="width" value="974" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -169,7 +169,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -186,6 +185,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -195,7 +195,7 @@
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="davg_ausf._j" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/agbay/OneDrive/Documents/GitHub/DaVG/DaVG Ausf. J/.idea/misc.xml" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572830891949" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1581058148783" />
     <property name="last_opened_file_path" value="$USER_HOME$/Google Drive/Miscellaneous Universes/Test" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -274,9 +274,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.08635394" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.086886995" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -383,7 +382,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/playerCharacter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
+        <state relative-caret-position="6579">
           <caret line="527" selection-start-line="527" selection-end-line="527" />
           <folding>
             <element signature="e#7849#7850#0" expanded="true" />
@@ -418,8 +417,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DaVG.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="78" column="35" lean-forward="true" selection-start-line="78" selection-start-column="35" selection-end-line="78" selection-end-column="35" />
+        <state relative-caret-position="402">
+          <caret line="2577" column="51" lean-forward="true" selection-start-line="2577" selection-start-column="51" selection-end-line="2577" selection-end-column="51" />
         </state>
       </provider>
     </entry>

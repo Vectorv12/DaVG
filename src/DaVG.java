@@ -2526,6 +2526,11 @@ public class DaVG {
     }
 
     private static void weaponLoad( playerCharacter player, String weaponName ) throws IOException, InterruptedException {
+        /* weaponLoad is used to pull information from the .TAG files within a weapon's folder.
+         * This subroutine is called during weapon inspection, but also when a user wishes to switch their equipped weapon.
+         *
+         * The DaVG starts by analyzing the item's Identification Tag.
+         */
         ClearScreen();
         if (debugMode){
             System.out.print( "//USER [DEBUG] | " );
@@ -2545,6 +2550,47 @@ public class DaVG {
         System.out.print("//ANALYZING ITEM IDENTIFICATION TAG...");
         LongDelay();
         System.out.println("COMPLETE");
+
+        /* Here, the program will then pull information from the weapon's ID tag.
+         *
+         * The information on a weapon - the Weapon Data - is stored in an index of 30 values, shown below:
+         * 00 - Name
+         * 01 - Role (Rolle)
+         * 02 - Familiarity Rating
+         * 03 - Weapon ID Number (Waffennummer)
+         * 04 - Manufacturer (Hersteller)
+         * 05 - Base Damage (Grundschaden)
+         * 06 - Accuracy Threshold (Genauigkeitschwelle)
+         * 07 - Critical Hit Capability (Kritische-Trefferfähigkeit)
+         * 08 - Critical Hit Threshold (Kritische-Treffergrenze)
+         * 09 - Critical Hit Multiplier (Kritischer-Treffermultiplikator)
+         * 10 - Weapon Type (Waffentyp)
+         * 11 - Effective Range (Effektive-Reichweite)
+         *
+         *  \/ RANGED HYBRID WEAPONS ONLY \/
+         * 12 - Ammunition Caliber (Munitionskaliber)
+         * 13 - Current Magazine Type (Magazintyp)
+         * 14 - Current Magazine Load (Magazin-Laden)
+         * 15 - Magazine Capacity (Magazinkapazität)
+         * 16 - Current Ammo Subtype (Munitionsuntertyp)
+         * 17 - Ammo Unit of Measurement (Munition-maßenheit)
+         * 18 - Ammo Per Shot (Munition-Verwendet)
+         * 19 - Possible Firemodes (Feuerwehrmoden)
+         * 20 - Current Firemode (Feuerwehrmodus - Aktueller)
+         * 21 - Chamber Status (Kammerstatus)
+         *  /\ RANGED/HYBRID WEAPONS ONLY /\
+         *
+         * 22 - General Weapon Information (Information Allgemeine)
+         * 23 - Detailed Weapon Information (Information Genaue)
+         * 24 - Weapon Modifier 1 Name
+         * 25 - Weapon Modifier 1 Description
+         * 26 - Weapon Modifier 2 Name
+         * 27 - Weapon Modifier 2 Description
+         * 28 - Weapon Modifier 3 Name
+         * 29 - Weapon Modifier 3 Description
+         *
+         */
+
         String [] weaponData = new String[30];
         BufferedReader weaponScanner = new BufferedReader(new FileReader(inventory[1]+"\\"+weaponName+"\\ItemID.TAG"));
         try {
@@ -2597,9 +2643,9 @@ public class DaVG {
         }
         NoDelay();
         if (debugMode) {
-            System.out.println( "[INDEX 5]  SCPA: " + weaponData[5] );
+            System.out.println( "[INDEX 5]  GNSD: " + weaponData[5] );
         } else {
-            System.out.println( "  SCPA: " + weaponData[5] );
+            System.out.println( "  GNSD: " + weaponData[5] );
         }
         NoDelay();
         if (debugMode){
@@ -2615,9 +2661,9 @@ public class DaVG {
         }
         NoDelay();
         if (debugMode){
-            System.out.println( "[INDEX 8]  KTFS: " + weaponData[8] );
+            System.out.println( "[INDEX 8]  KTFG: " + weaponData[8] );
         } else {
-            System.out.println( "  KTFS: " + weaponData[8] );
+            System.out.println( "  KTFG: " + weaponData[8] );
         }
         NoDelay();
         if (debugMode){
@@ -2663,9 +2709,9 @@ public class DaVG {
             }
             NoDelay();
             if (debugMode){
-                System.out.println( "[INDEX 19]  FRMM: " + weaponData[19] );
+                System.out.println( "[INDEX 19]  FWMD: " + weaponData[19] );
             } else {
-                System.out.println( "  FRMM: " + weaponData[19] );
+                System.out.println( "  FWMD: " + weaponData[19] );
             }
             NoDelay();
             if (debugMode){
@@ -2675,9 +2721,9 @@ public class DaVG {
             }
             NoDelay();
             if (debugMode){
-                System.out.println( "[INDEX 21]  DKAM:" + weaponData[21] );
+                System.out.println( "[INDEX 21]  KMST:" + weaponData[21] );
             } else {
-                System.out.println( "  CHAM: " + weaponData[21] );
+                System.out.println( "  KMST: " + weaponData[21] );
             }
         }
         System.out.println();
@@ -3851,11 +3897,16 @@ public class DaVG {
                                     rangeNotDefined= false;
                                     break;
                                 default:
-                                    if (player.getUserLanguage().equals("VOLKSHAVENISH")){
-                                        System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
-                                    } else if (player.getUserLanguage().equals("ENGLISH")){
-                                        System.out.println("//ERROR: INVALID INPUT.");
+                                    try {
+                                        hitRoll = input.nextInt();
+                                    } catch ( Exception e ){
+                                        if (player.getUserLanguage().equals("VOLKSHAVENISH")){
+                                            System.out.println("//FEHLER: UNGÜLTIGE EINGABE."); //ERROR: INVALID INPUT.
+                                        } else if (player.getUserLanguage().equals("ENGLISH")){
+                                            System.out.println("//ERROR: INVALID INPUT.");
+                                        }
                                     }
+
                                     break;
                             }
                         }
@@ -3876,6 +3927,7 @@ public class DaVG {
                             baseDamage = Integer.parseInt(currentWeaponData[5])*(hitAccuracy);
                         }
                         double totalDamage = 0;
+                        boolean criticalHit = false;
                         if (currentWeaponData[7].equals("J")){
                             System.out.println("//PLEASE INPUT CRIT ROLL RESULT");
                             int critRoll = 0;
@@ -3900,6 +3952,7 @@ public class DaVG {
                             }
                             if (critRoll >= Integer.parseInt(currentWeaponData[8])){
                                 totalDamage = baseDamage*Double.parseDouble(currentWeaponData[9]);
+                                criticalHit = true;
                             } else {
                                 totalDamage = baseDamage;
                             }
@@ -3910,7 +3963,12 @@ public class DaVG {
                         MedDelay();
                         System.out.println("COMPLETE");
                         ShortDelay();
-                        System.out.println("//TOTAL DAMAGE DONE TO TARGET THIS ATTACK: " + Math.ceil(totalDamage) + "( " + totalDamage + " )" );
+                        System.out.print("//TOTAL DAMAGE DONE TO TARGET THIS ATTACK: " + Math.ceil(totalDamage) + "( " + totalDamage + " ) " );
+                        if (criticalHit){
+                            System.out.println("! CRITICAL HIT !");
+                        } else {
+                            System.out.println();
+                        }
                         input = new Scanner(System.in);
                         if (currentWeaponData[10].equals("RANGED")){
                             int currentMag = (int)Double.parseDouble(currentWeaponData[14]);
