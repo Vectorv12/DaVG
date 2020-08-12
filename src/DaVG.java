@@ -27,7 +27,7 @@ public class DaVG {
 
 
     public static void main( String[] args ) throws InterruptedException, IOException {
-        VersionNo = "R080720"; //Version Number
+        VersionNo = "R081220"; //Version Number
         debugMode = false; //Debug Mode (true/false)
         cutscenesEnabled = true; //Cutscenes (enabled = true, disabled = false)
         LongDelay = 3; //length of LongDelay in seconds
@@ -2686,6 +2686,7 @@ public class DaVG {
         String [] weaponData = weaponRead(player, weaponName);
         LongDelay();
         System.out.println("COMPLETE");
+        ShortDelay();
 
         String weaponDisplayName = weaponData[0];
         weaponDisplayName = weaponDisplayName.replace("\\AE\\", "\u00C4");
@@ -2942,8 +2943,9 @@ public class DaVG {
         ShortDelay();
 
         System.out.println(weaponDisplayDetailedDescription);
+        System.out.println();
 
-        if (!weaponData[17].equals("N/A")){
+        if (weaponData[17].equals("N/A")){
             if (!weaponData[52].equals("$")){
                 System.out.println("SPECIAL PROPERTIES: ");
                 if (weaponData[52].contains("[SILENT]")) {
@@ -2970,10 +2972,10 @@ public class DaVG {
 
                 // /\ PRIMARY ATTACK SPECIAL PROPERTIES /\
             }
-            System.out.println();
-            NoDelay();
             if (!weaponData[53].equals("$")){
                 // \/ SECONDARY ATTACK SPECIAL PROPERTIES \/
+                System.out.println();
+                NoDelay();
                 System.out.println("SECONDARY ATTACK SPECIAL PROPERTIES: ");
                 if (weaponData[53].contains("[SILENT]")){
                     System.out.println(">SILENT | This weapon is near-silent and can be used with minimal risk of detection.");
@@ -2985,8 +2987,9 @@ public class DaVG {
                 }
                 // /\ SECONDARY ATTACK SPECIAL PROPERTIES /\
             }
-            System.out.println();
         }
+
+        System.out.println();
 
         ShortDelay();
         System.out.println("//PLEASE CHOOSE COURSE OF ACTION");
@@ -2994,6 +2997,8 @@ public class DaVG {
         System.out.println( "> 0_ EQUIP [ASRÜ]" );
         NoDelay();
         System.out.println( "> 1_ UNEQUIP [ENTF]" );
+        NoDelay();
+        System.out.println( "> 2_ RENAME [RNAM]");
         NoDelay();
         System.out.println( "> A_ REFRESH [AKTL]" );
         NoDelay();
@@ -3210,7 +3215,7 @@ public class DaVG {
                         }
                     }
                     break;
-                case "UNEQUIP": case "unequip": case "UEQP": case "ueqp": case "2":
+                case "UNEQUIP": case "unequip": case "UEQP": case "ueqp": case "1":
                     if (!player.getPrimaryWeapon().equals(weaponName)){
                         System.out.println("//ERROR: WEAPON NOT EQUIPPED");
                         optionNotChosen = true;
@@ -3267,6 +3272,33 @@ public class DaVG {
                             }
                         }
                     }
+                    break;
+                case "RENAME": case "rename": case "2":
+                    System.out.println("//PLEASE INPUT NEW NAME");
+                    ShortDelay();
+                    System.out.println("//REPLACE SPECIAL CHARACTERS WITH THE FOLLOWING");
+                    ShortDelay();
+                    System.out.println("\t > \u00C4 -> \\AE\\");
+                    NoDelay();
+                    System.out.println("\t > \u00D6 -> \\OE\\");
+                    NoDelay();
+                    System.out.println("\t > \u00DC -> \\UE\\");
+                    NoDelay();
+                    System.out.println("\t > \u00E4 -> \\ae\\");
+                    NoDelay();
+                    System.out.println("\t > \u00EB -> \\ee\\");
+                    NoDelay();
+                    System.out.println("\t > \u00EF -> \\ie\\");
+                    NoDelay();
+                    System.out.println("\t > \u00F6 -> \\oe\\");
+                    NoDelay();
+                    System.out.println("\t > \u00FC -> \\ue\\");
+                    weaponData[0] = input.nextLine();
+                    weaponWrite (player, weaponName, weaponData);
+                    ShortDelay();
+                    System.out.println("//WEAPON RENAMED");
+                    ShortDelay();
+                    System.out.println("//INPUT \"A\" TO REFRESH");
                     break;
                 case "HERUNTERFAHREN": case "herunterfahren": case "SHUTDOWN": case "shutdown": case "HNTF": case "hntf": case "H": case "h":
                     optionNotChosen = false;
