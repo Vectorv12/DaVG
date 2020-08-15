@@ -8,8 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="402cbc04-7430-4dd3-ba34-cc8977d4d00f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/DaVG_AusfJ_jar/DaVG_AusfJ.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DaVG_AusfJ_jar/DaVG_AusfJ.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DaVG Ausf. J/DaVG.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DaVG Ausf. J/DaVG.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DaVG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DaVG.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
