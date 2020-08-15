@@ -2791,7 +2791,7 @@ public class DaVG {
             if (!weaponData[17].equals("RANGED")){
                 System.out.println("AMMUNITION CALIBER: " + weaponData[24]);
                 NoDelay();
-                if (weaponData[22].equals("Electricity")){
+                if (weaponData[24].equals("Electricity")){
                     System.out.println("CURRENT CAPACITOR STATUS: " + weaponData[32]);
                     NoDelay();
                     System.out.println("CURRENT CAPACITOR LOAD: " + Double.parseDouble(weaponData[33]) + " / " + Double.parseDouble(weaponData[34]) + " " + weaponData[29]);
@@ -2813,7 +2813,7 @@ public class DaVG {
             } else {
                 System.out.println("PRIMARY AMMUNITION CALIBER: " + weaponData[24]);
                 NoDelay();
-                if (weaponData[22].equals("Electricity")){
+                if (weaponData[24].equals("Electricity")){
                     System.out.println("CURRENT PRIMARY CAPACITOR STATUS: " + weaponData[32]);
                     NoDelay();
                     System.out.println("CURRENT PRIMARY CAPACITOR LOAD: " + Double.parseDouble(weaponData[33]) + " / " + Double.parseDouble(weaponData[34]) + " " + weaponData[29]);
@@ -2834,7 +2834,7 @@ public class DaVG {
                 }
                 System.out.println("SECONDARY AMMUNITION CALIBER: " + weaponData[37]);
                 NoDelay();
-                if (weaponData[22].equals("Electricity")){
+                if (weaponData[24].equals("Electricity")){
                     System.out.println("CURRENT SECONDARY CAPACITOR STATUS: " + weaponData[45]);
                     NoDelay();
                     System.out.println("CURRENT SECONDARY CAPACITOR LOAD: " + Double.parseDouble(weaponData[46]) + " / " + Double.parseDouble(weaponData[47]) + " " + weaponData[42]);
@@ -6184,7 +6184,7 @@ public class DaVG {
                 System.out.println("\t > CRITICAL HIT MULTIPLIER: " + currentPrimaryWeaponData[16] + "x");
             }
             if (currentPrimaryWeaponData[10].equals("RANGED")){
-                if (currentPrimaryWeaponData[22].equals("Electricity")){
+                if (currentPrimaryWeaponData[24].equals("Electricity")){
                     System.out.println("\t > CURRENT CAPACITOR STATUS: " + currentPrimaryWeaponData[32]);
                     NoDelay();
                     System.out.println("\t > CURRENT CAPACITOR LOAD: " + Double.parseDouble(currentPrimaryWeaponData[33]) + " / " + Double.parseDouble(currentPrimaryWeaponData[34]) + " " + currentPrimaryWeaponData[29]);
@@ -6240,7 +6240,7 @@ public class DaVG {
                 System.out.println("\t > PRIMARY ATTACK CRITICAL HIT MULTIPLIER: " + currentPrimaryWeaponData[16] + "x");
             }
             if (currentPrimaryWeaponData[10].equals("RANGED")){
-                if (currentPrimaryWeaponData[22].equals("Electricity")){
+                if (currentPrimaryWeaponData[24].equals("Electricity")){
                     System.out.println("\t > PRIMARY CAPACITOR CURRENT STATUS: " + currentPrimaryWeaponData[32]);
                     NoDelay();
                     System.out.println("\t > PRIMARY CAPACITOR CURRENT LOAD: " + Double.parseDouble(currentPrimaryWeaponData[33]) + " / " + Double.parseDouble(currentPrimaryWeaponData[34]) + " " + currentPrimaryWeaponData[29]);
@@ -6298,7 +6298,7 @@ public class DaVG {
                 System.out.println("\t > SECONDARY ATTACK CRITICAL HIT MULTIPLIER: " + currentPrimaryWeaponData[16] + "x");
             }
             if (currentPrimaryWeaponData[17].equals("RANGED")){
-                if (currentPrimaryWeaponData[22].equals("Electricity")){
+                if (currentPrimaryWeaponData[24].equals("Electricity")){
                     System.out.println("\t > SECONDARY CAPACITOR CURRENT STATUS: " + currentPrimaryWeaponData[32]);
                     NoDelay();
                     System.out.println("\t > SECONDARY CAPACITOR CURRENT LOAD: " + Double.parseDouble(currentPrimaryWeaponData[33]) + " / " + Double.parseDouble(currentPrimaryWeaponData[34]) + " " + currentPrimaryWeaponData[29]);
@@ -6361,7 +6361,7 @@ public class DaVG {
                 System.out.println("\t > CRITICAL HIT MULTIPLIER: " + currentSecondaryWeaponData[16] + "x");
             }
             if (currentSecondaryWeaponData[10].equals("RANGED")){
-                if (currentSecondaryWeaponData[22].equals("Electricity")){
+                if (currentSecondaryWeaponData[24].equals("Electricity")){
                     System.out.println("\t > CURRENT CAPACITOR STATUS: " + currentSecondaryWeaponData[32]);
                     NoDelay();
                     System.out.println("\t > CURRENT CAPACITOR LOAD: " + Double.parseDouble(currentSecondaryWeaponData[33]) + " / " + Double.parseDouble(currentSecondaryWeaponData[34]) + " " + currentSecondaryWeaponData[29]);
@@ -6416,7 +6416,7 @@ public class DaVG {
                 System.out.println("\t > PRIMARY ATTACK CRITICAL HIT MULTIPLIER: " + currentSecondaryWeaponData[16] + "x");
             }
             if (currentSecondaryWeaponData[10].equals("RANGED")){
-                if (currentSecondaryWeaponData[22].equals("Electricity")){
+                if (currentSecondaryWeaponData[24].equals("Electricity")){
                     System.out.println("\t > PRIMARY CAPACITOR CURRENT STATUS: " + currentSecondaryWeaponData[32]);
                     NoDelay();
                     System.out.println("\t > PRIMARY CAPACITOR CURRENT LOAD: " + Double.parseDouble(currentSecondaryWeaponData[33]) + " / " + Double.parseDouble(currentSecondaryWeaponData[34]) + " " + currentSecondaryWeaponData[29]);
@@ -6474,7 +6474,7 @@ public class DaVG {
                 System.out.println("\t > SECONDARY ATTACK CRITICAL HIT MULTIPLIER: " + currentSecondaryWeaponData[16] + "x");
             }
             if (currentSecondaryWeaponData[17].equals("RANGED")){
-                if (currentSecondaryWeaponData[22].equals("Electricity")){
+                if (currentSecondaryWeaponData[24].equals("Electricity")){
                     System.out.println("\t > SECONDARY CAPACITOR CURRENT STATUS: " + currentSecondaryWeaponData[32]);
                     NoDelay();
                     System.out.println("\t > SECONDARY CAPACITOR CURRENT LOAD: " + Double.parseDouble(currentSecondaryWeaponData[33]) + " / " + Double.parseDouble(currentSecondaryWeaponData[34]) + " " + currentSecondaryWeaponData[29]);
@@ -6688,7 +6688,7 @@ public class DaVG {
                                 } else {
                                     System.out.println("PRIMARY AMMUNITION CALIBER: " + reloadChosenWeaponData[26]);
                                     NoDelay();
-                                    if (reloadChosenWeaponData[22].equals("Electricity")){
+                                    if (reloadChosenWeaponData[24].equals("Electricity")){
                                         System.out.println("\t > CURRENT PRIMARY CAPACITOR STATUS: " + reloadChosenWeaponData[32]);
                                         NoDelay();
                                         System.out.println("\t > CURRENT PRIMARY CAPACITOR LOAD: " + Double.parseDouble(reloadChosenWeaponData[33]) + " / " + Double.parseDouble(reloadChosenWeaponData[34]) + " " + reloadChosenWeaponData[29]);
@@ -6717,7 +6717,7 @@ public class DaVG {
                                     }
                                     System.out.println("SECONDARY AMMUNITION CALIBER: " + reloadChosenWeaponData[37]);
                                     NoDelay();
-                                    if (reloadChosenWeaponData[22].equals("Electricity")){
+                                    if (reloadChosenWeaponData[24].equals("Electricity")){
                                         System.out.println("\t > CURRENT SECONDARY CAPACITOR STATUS: " + reloadChosenWeaponData[45]);
                                         NoDelay();
                                         System.out.println("\t > CURRENT SECONDARY CAPACITOR LOAD: " + Double.parseDouble(reloadChosenWeaponData[46]) + " / " + Double.parseDouble(reloadChosenWeaponData[47]) + " " + reloadChosenWeaponData[42]);
@@ -7060,7 +7060,7 @@ public class DaVG {
                                 if (chamberChosenWeaponData[10].equals("RANGED") && chamberChosenWeaponData[17].equals("RANGED")){
                                     System.out.println("PRIMARY AMMUNITION CALIBER: " + chamberChosenWeaponData[26]);
                                     NoDelay();
-                                    if (chamberChosenWeaponData[22].equals("Electricity")){
+                                    if (chamberChosenWeaponData[24].equals("Electricity")){
                                         System.out.println("\t > CURRENT PRIMARY CAPACITOR STATUS: " + chamberChosenWeaponData[32]);
                                         NoDelay();
                                         System.out.println("\t > CURRENT PRIMARY CAPACITOR LOAD: " + Double.parseDouble(chamberChosenWeaponData[33]) + " / " + Double.parseDouble(chamberChosenWeaponData[34]) + " " + chamberChosenWeaponData[29]);
@@ -7089,7 +7089,7 @@ public class DaVG {
                                     }
                                     System.out.println("SECONDARY AMMUNITION CALIBER: " + chamberChosenWeaponData[37]);
                                     NoDelay();
-                                    if (chamberChosenWeaponData[22].equals("Electricity")){
+                                    if (chamberChosenWeaponData[24].equals("Electricity")){
                                         System.out.println("\t > CURRENT SECONDARY CAPACITOR STATUS: " + chamberChosenWeaponData[45]);
                                         NoDelay();
                                         System.out.println("\t > CURRENT SECONDARY CAPACITOR LOAD: " + Double.parseDouble(chamberChosenWeaponData[46]) + " / " + Double.parseDouble(chamberChosenWeaponData[47]) + " " + chamberChosenWeaponData[42]);
@@ -7318,7 +7318,7 @@ public class DaVG {
                                 } else {
                                     System.out.println("PRIMARY AMMUNITION CALIBER: " + firemodeChosenWeaponData[26]);
                                     NoDelay();
-                                    if (firemodeChosenWeaponData[22].equals("Electricity")){
+                                    if (firemodeChosenWeaponData[24].equals("Electricity")){
                                         System.out.println("\t > CURRENT PRIMARY CAPACITOR STATUS: " + firemodeChosenWeaponData[32]);
                                         NoDelay();
                                         System.out.println("\t > CURRENT PRIMARY CAPACITOR LOAD: " + Double.parseDouble(firemodeChosenWeaponData[33]) + " / " + Double.parseDouble(firemodeChosenWeaponData[34]) + " " + firemodeChosenWeaponData[29]);
@@ -7347,7 +7347,7 @@ public class DaVG {
                                     }
                                     System.out.println("SECONDARY AMMUNITION CALIBER: " + firemodeChosenWeaponData[37]);
                                     NoDelay();
-                                    if (firemodeChosenWeaponData[22].equals("Electricity")){
+                                    if (firemodeChosenWeaponData[24].equals("Electricity")){
                                         System.out.println("\t > CURRENT SECONDARY CAPACITOR STATUS: " + firemodeChosenWeaponData[45]);
                                         NoDelay();
                                         System.out.println("\t > CURRENT SECONDARY CAPACITOR LOAD: " + Double.parseDouble(firemodeChosenWeaponData[46]) + " / " + Double.parseDouble(firemodeChosenWeaponData[47]) + " " + firemodeChosenWeaponData[42]);
@@ -7659,7 +7659,7 @@ public class DaVG {
                                 } else {
                                     System.out.println("PRIMARY AMMUNITION CALIBER: " + ammoEditChosenWeaponData[26]);
                                     NoDelay();
-                                    if (ammoEditChosenWeaponData[22].equals("Electricity")){
+                                    if (ammoEditChosenWeaponData[24].equals("Electricity")){
                                         System.out.println("\t > CURRENT PRIMARY CAPACITOR STATUS: " + ammoEditChosenWeaponData[32]);
                                         NoDelay();
                                         System.out.println("\t > CURRENT PRIMARY CAPACITOR LOAD: " + Double.parseDouble(ammoEditChosenWeaponData[33]) + " / " + Double.parseDouble(ammoEditChosenWeaponData[34]) + " " + ammoEditChosenWeaponData[29]);
@@ -7688,7 +7688,7 @@ public class DaVG {
                                     }
                                     System.out.println("SECONDARY AMMUNITION CALIBER: " + ammoEditChosenWeaponData[37]);
                                     NoDelay();
-                                    if (ammoEditChosenWeaponData[22].equals("Electricity")){
+                                    if (ammoEditChosenWeaponData[24].equals("Electricity")){
                                         System.out.println("\t > CURRENT SECONDARY CAPACITOR STATUS: " + ammoEditChosenWeaponData[45]);
                                         NoDelay();
                                         System.out.println("\t > CURRENT SECONDARY CAPACITOR LOAD: " + Double.parseDouble(ammoEditChosenWeaponData[46]) + " / " + Double.parseDouble(ammoEditChosenWeaponData[47]) + " " + ammoEditChosenWeaponData[42]);
