@@ -5613,8 +5613,11 @@ public class DaVG {
             case "10mm":
                 unitOfMeasurement = "10mm";
                 break;
-            case "12.5mm Kurz":
-                unitOfMeasurement = "12.5mm K";
+            case "12.5mm Katzer Kurzpatrone":
+                unitOfMeasurement = "12.5mm K/K";
+                break;
+            case "12.5mm Katzer Langpatrone":
+                unitOfMeasurement = "12.5mm K/L";
                 break;
             case ".308":
                 unitOfMeasurement = ".308";
@@ -8634,14 +8637,16 @@ public class DaVG {
                 case "Electricity": case "8mm Flechette":
                     caliberRecoil = 0;
                     break;
-                case "10mm": case "12.5mm Kurz":
+                case "10mm":
                     caliberRecoil = 1;
                     break;
-                case ".308":
+                case ".308": case "12.5mm Katzer Kurzpatrone":
                     caliberRecoil = 2;
                     break;
-                case "12-Gauge":
+                case "12.5mm Katzer Langpatrone":
                     caliberRecoil = 3;
+                case "12-Gauge":
+                    caliberRecoil = 4;
                     break;
                 default:
                     caliberRecoil = 0;
