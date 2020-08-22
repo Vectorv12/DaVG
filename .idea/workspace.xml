@@ -8,8 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="402cbc04-7430-4dd3-ba34-cc8977d4d00f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/DaVG_AusfJ_jar/DaVG_AusfJ.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DaVG_AusfJ_jar/DaVG_AusfJ.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DaVG Ausf. J/DaVG.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DaVG Ausf. J/DaVG.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DaVG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DaVG.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,38 +127,38 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="687" y="371" key="FileChooserDialogImpl/0.40.1920.1040@0.40.1920.1040" timestamp="1597560122761" />
-    <state width="1877" height="340" key="GridCell.Tab.0.bottom" timestamp="1598094705979">
+    <state width="1877" height="340" key="GridCell.Tab.0.bottom" timestamp="1598098665157">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="340" key="GridCell.Tab.0.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1598094705979" />
-    <state width="1877" height="340" key="GridCell.Tab.0.center" timestamp="1598094705979">
+    <state width="1877" height="340" key="GridCell.Tab.0.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1598098665157" />
+    <state width="1877" height="340" key="GridCell.Tab.0.center" timestamp="1598098665157">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="340" key="GridCell.Tab.0.center/0.40.1920.1040@0.40.1920.1040" timestamp="1598094705979" />
-    <state width="1877" height="340" key="GridCell.Tab.0.left" timestamp="1598094705979">
+    <state width="1877" height="340" key="GridCell.Tab.0.center/0.40.1920.1040@0.40.1920.1040" timestamp="1598098665157" />
+    <state width="1877" height="340" key="GridCell.Tab.0.left" timestamp="1598098665157">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="340" key="GridCell.Tab.0.left/0.40.1920.1040@0.40.1920.1040" timestamp="1598094705979" />
-    <state width="1877" height="340" key="GridCell.Tab.0.right" timestamp="1598094705979">
+    <state width="1877" height="340" key="GridCell.Tab.0.left/0.40.1920.1040@0.40.1920.1040" timestamp="1598098665157" />
+    <state width="1877" height="340" key="GridCell.Tab.0.right" timestamp="1598098665157">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="340" key="GridCell.Tab.0.right/0.40.1920.1040@0.40.1920.1040" timestamp="1598094705979" />
-    <state width="1877" height="340" key="GridCell.Tab.1.bottom" timestamp="1598094705979">
+    <state width="1877" height="340" key="GridCell.Tab.0.right/0.40.1920.1040@0.40.1920.1040" timestamp="1598098665157" />
+    <state width="1877" height="340" key="GridCell.Tab.1.bottom" timestamp="1598098665157">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="340" key="GridCell.Tab.1.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1598094705979" />
-    <state width="1877" height="340" key="GridCell.Tab.1.center" timestamp="1598094705979">
+    <state width="1877" height="340" key="GridCell.Tab.1.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1598098665157" />
+    <state width="1877" height="340" key="GridCell.Tab.1.center" timestamp="1598098665157">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="340" key="GridCell.Tab.1.center/0.40.1920.1040@0.40.1920.1040" timestamp="1598094705979" />
-    <state width="1877" height="340" key="GridCell.Tab.1.left" timestamp="1598094705979">
+    <state width="1877" height="340" key="GridCell.Tab.1.center/0.40.1920.1040@0.40.1920.1040" timestamp="1598098665157" />
+    <state width="1877" height="340" key="GridCell.Tab.1.left" timestamp="1598098665157">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="340" key="GridCell.Tab.1.left/0.40.1920.1040@0.40.1920.1040" timestamp="1598094705979" />
-    <state width="1877" height="340" key="GridCell.Tab.1.right" timestamp="1598094705979">
+    <state width="1877" height="340" key="GridCell.Tab.1.left/0.40.1920.1040@0.40.1920.1040" timestamp="1598098665157" />
+    <state width="1877" height="340" key="GridCell.Tab.1.right" timestamp="1598098665157">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="340" key="GridCell.Tab.1.right/0.40.1920.1040@0.40.1920.1040" timestamp="1598094705979" />
+    <state width="1877" height="340" key="GridCell.Tab.1.right/0.40.1920.1040@0.40.1920.1040" timestamp="1598098665157" />
     <state x="540" y="302" key="IDE.errors.dialog" timestamp="1597531545442">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
@@ -221,6 +219,116 @@
           <properties class="java.lang.NumberFormatException" package="java.lang" />
           <option name="timeStamp" value="360" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>2837</line>
+          <option name="timeStamp" value="362" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>2838</line>
+          <option name="timeStamp" value="363" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>2839</line>
+          <option name="timeStamp" value="364" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>2840</line>
+          <option name="timeStamp" value="365" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>2841</line>
+          <option name="timeStamp" value="366" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>5090</line>
+          <option name="timeStamp" value="367" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>5073</line>
+          <option name="timeStamp" value="368" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>5074</line>
+          <option name="timeStamp" value="369" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>5075</line>
+          <option name="timeStamp" value="370" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>5076</line>
+          <option name="timeStamp" value="371" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>5078</line>
+          <option name="timeStamp" value="372" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>5079</line>
+          <option name="timeStamp" value="373" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>5077</line>
+          <option name="timeStamp" value="374" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>5080</line>
+          <option name="timeStamp" value="375" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>5081</line>
+          <option name="timeStamp" value="376" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>5082</line>
+          <option name="timeStamp" value="377" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>5084</line>
+          <option name="timeStamp" value="378" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>5085</line>
+          <option name="timeStamp" value="379" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>5083</line>
+          <option name="timeStamp" value="380" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>5086</line>
+          <option name="timeStamp" value="381" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>5087</line>
+          <option name="timeStamp" value="382" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DaVG.java</url>
+          <line>5089</line>
+          <option name="timeStamp" value="383" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

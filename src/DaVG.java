@@ -4643,7 +4643,7 @@ public class DaVG {
                         baseSecondaryCaliberDamage = 45;
                         break;
                     case "12-Gauge":
-                        baseSecondaryCaliberDamage = 50;
+                        baseSecondaryCaliberDamage = 75;
                         break;
                     default:
                         baseSecondaryCaliberDamage = 0;
