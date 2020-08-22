@@ -7,8 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="402cbc04-7430-4dd3-ba34-cc8977d4d00f" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DaVG Ausf. J.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DaVG Ausf. J.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/DaVG_AusfJ_jar/DaVG_AusfJ.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DaVG_AusfJ_jar/DaVG_AusfJ.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/DaVG_AusfJ_jar/IMPORTANT - READ THIS FIRST.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DaVG_AusfJ_jar/IMPORTANT - READ THIS FIRST.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DaVG Ausf. J/DaVG.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DaVG Ausf. J/DaVG.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DaVG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DaVG.java" afterDir="false" />
     </list>
@@ -35,18 +38,22 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="davg_ausf._j" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/agbay/OneDrive/Documents/GitHub/DaVG/DaVG Ausf. J/.idea/misc.xml" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584425595408" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/IntelliJ Libraries/json-20200518.jar!/" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/IntelliJ Libraries/commons-text-1.9/commons-text-1.9.jar" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -113,50 +120,58 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="214" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595554219508">
+    <state x="414" y="214" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597622342975">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="414" y="214" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1595554219508" />
-    <state x="687" y="371" key="FileChooserDialogImpl" timestamp="1596017778151">
+    <state x="414" y="214" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1597622342975" />
+    <state x="984" y="308" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1597560126937">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="687" y="371" key="FileChooserDialogImpl/0.40.1920.1040@0.40.1920.1040" timestamp="1596017778151" />
-    <state width="1877" height="343" key="GridCell.Tab.0.bottom" timestamp="1597474840622">
+    <state x="984" y="308" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1597560126937" />
+    <state x="687" y="371" key="FileChooserDialogImpl" timestamp="1597560122761">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="343" key="GridCell.Tab.0.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1597474840622" />
-    <state width="1877" height="343" key="GridCell.Tab.0.center" timestamp="1597474840622">
+    <state x="687" y="371" key="FileChooserDialogImpl/0.40.1920.1040@0.40.1920.1040" timestamp="1597560122761" />
+    <state width="1877" height="340" key="GridCell.Tab.0.bottom" timestamp="1598093272725">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="343" key="GridCell.Tab.0.center/0.40.1920.1040@0.40.1920.1040" timestamp="1597474840622" />
-    <state width="1877" height="343" key="GridCell.Tab.0.left" timestamp="1597474840622">
+    <state width="1877" height="340" key="GridCell.Tab.0.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1598093272725" />
+    <state width="1877" height="340" key="GridCell.Tab.0.center" timestamp="1598093272725">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="343" key="GridCell.Tab.0.left/0.40.1920.1040@0.40.1920.1040" timestamp="1597474840622" />
-    <state width="1877" height="343" key="GridCell.Tab.0.right" timestamp="1597474840622">
+    <state width="1877" height="340" key="GridCell.Tab.0.center/0.40.1920.1040@0.40.1920.1040" timestamp="1598093272725" />
+    <state width="1877" height="340" key="GridCell.Tab.0.left" timestamp="1598093272725">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="343" key="GridCell.Tab.0.right/0.40.1920.1040@0.40.1920.1040" timestamp="1597474840622" />
-    <state width="1877" height="343" key="GridCell.Tab.1.bottom" timestamp="1597474840623">
+    <state width="1877" height="340" key="GridCell.Tab.0.left/0.40.1920.1040@0.40.1920.1040" timestamp="1598093272725" />
+    <state width="1877" height="340" key="GridCell.Tab.0.right" timestamp="1598093272725">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="343" key="GridCell.Tab.1.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1597474840623" />
-    <state width="1877" height="343" key="GridCell.Tab.1.center" timestamp="1597474840622">
+    <state width="1877" height="340" key="GridCell.Tab.0.right/0.40.1920.1040@0.40.1920.1040" timestamp="1598093272725" />
+    <state width="1877" height="340" key="GridCell.Tab.1.bottom" timestamp="1598093272725">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="343" key="GridCell.Tab.1.center/0.40.1920.1040@0.40.1920.1040" timestamp="1597474840622" />
-    <state width="1877" height="343" key="GridCell.Tab.1.left" timestamp="1597474840622">
+    <state width="1877" height="340" key="GridCell.Tab.1.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1598093272725" />
+    <state width="1877" height="340" key="GridCell.Tab.1.center" timestamp="1598093272725">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="343" key="GridCell.Tab.1.left/0.40.1920.1040@0.40.1920.1040" timestamp="1597474840622" />
-    <state width="1877" height="343" key="GridCell.Tab.1.right" timestamp="1597474840623">
+    <state width="1877" height="340" key="GridCell.Tab.1.center/0.40.1920.1040@0.40.1920.1040" timestamp="1598093272725" />
+    <state width="1877" height="340" key="GridCell.Tab.1.left" timestamp="1598093272725">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="343" key="GridCell.Tab.1.right/0.40.1920.1040@0.40.1920.1040" timestamp="1597474840623" />
-    <state x="634" y="189" key="SettingsEditor" timestamp="1595554244584">
+    <state width="1877" height="340" key="GridCell.Tab.1.left/0.40.1920.1040@0.40.1920.1040" timestamp="1598093272725" />
+    <state width="1877" height="340" key="GridCell.Tab.1.right" timestamp="1598093272725">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="634" y="189" key="SettingsEditor/0.40.1920.1040@0.40.1920.1040" timestamp="1595554244584" />
+    <state width="1877" height="340" key="GridCell.Tab.1.right/0.40.1920.1040@0.40.1920.1040" timestamp="1598093272725" />
+    <state x="540" y="302" key="IDE.errors.dialog" timestamp="1597531545442">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="540" y="302" key="IDE.errors.dialog/0.40.1920.1040@0.40.1920.1040" timestamp="1597531545442" />
+    <state x="634" y="189" key="SettingsEditor" timestamp="1597624155482">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="634" y="189" key="SettingsEditor/0.40.1920.1040@0.40.1920.1040" timestamp="1597624155482" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1596115200976">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
@@ -165,14 +180,18 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="656" y="383" key="com.intellij.ide.util.TipDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1592711523064" />
-    <state x="566" y="170" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1596787881138">
+    <state x="858" y="506" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1597560080783">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="566" y="170" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.40.1920.1040@0.40.1920.1040" timestamp="1596787881138" />
-    <state x="470" y="295" width="979" height="630" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1596439126703">
+    <state x="858" y="506" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.40.1920.1040@0.40.1920.1040" timestamp="1597560080783" />
+    <state x="566" y="170" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1598088341951">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="470" y="295" width="979" height="630" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.40.1920.1040@0.40.1920.1040" timestamp="1596439126703" />
+    <state x="566" y="170" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.40.1920.1040@0.40.1920.1040" timestamp="1598088341951" />
+    <state x="470" y="295" width="979" height="630" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1597528520327">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="470" y="295" width="979" height="630" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.40.1920.1040@0.40.1920.1040" timestamp="1597528520327" />
     <state x="953" y="560" width="974" height="527" key="dock-window-1" timestamp="1595567278192">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
@@ -200,6 +219,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="186" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NumberFormatException" package="java.lang" />
+          <option name="timeStamp" value="360" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

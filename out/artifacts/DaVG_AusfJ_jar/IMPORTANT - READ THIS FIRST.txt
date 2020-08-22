@@ -1,5 +1,7 @@
 Don't forget to install the Java Runtime Environment (JRE) from Oracle before running!
 
-The JRE can be found here:
+DaVG Ausf. J requires at least JRE 8 in order to function but will work with any later JRE or JDK release.
 
-http://www.oracle.com/technetwork/java/javase/downloads/jre10-downloads-4417026.html
+JRE 8 can be found here:
+
+https://java.com/en/download/
