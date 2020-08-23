@@ -27,7 +27,7 @@ public class DaVG {
 
 
     public static void main( String[] args ) throws InterruptedException, IOException {
-        VersionNo = "R082220"; //Version Number
+        VersionNo = "R082320"; //Version Number
         debugMode = false; //Debug Mode (true/false)
         cutscenesEnabled = true; //Cutscenes (enabled = true, disabled = false)
         LongDelay = 3; //length of LongDelay in seconds
@@ -2828,7 +2828,7 @@ public class DaVG {
             NoDelay();
             System.out.println("CRITICAL HIT CAPABILITY: " + weaponData[14]);
             NoDelay();
-            if (weaponData[13].equals("Y")){
+            if (weaponData[14].equals("J")){
                 System.out.println("CRITICAL HIT THRESHOLD: " + weaponData[15]);
                 NoDelay();
                 System.out.println("CRITICAL HIT MULTIPLIER: " + weaponData[16]);
@@ -2842,7 +2842,7 @@ public class DaVG {
             System.out.println("PRIMARY ATTACK ACCURACY THRESHOLD: " + weaponData[13]);
             NoDelay();
             System.out.println("PRIMARY ATTACK CRITICAL HIT CAPABILITY: " + weaponData[14]);
-            if (weaponData[13].equals("Y")){
+            if (weaponData[14].equals("J")){
                 System.out.println("PRIMARY ATTACK CRITICAL HIT THRESHOLD: " + weaponData[15]);
                 NoDelay();
                 System.out.println("PRIMARY ATTACK CRITICAL HIT MULTIPLIER: " + weaponData[16]);
@@ -2856,7 +2856,7 @@ public class DaVG {
             NoDelay();
             System.out.println("SECONDARY ATTACK CRITICAL HIT CAPABILITY: " + weaponData[21]);
             NoDelay();
-            if (weaponData[19].equals("Y")){
+            if (weaponData[20].equals("J")){
                 System.out.println("SECONDARY ATTACK CRITICAL HIT THRESHOLD: " + weaponData[22]);
                 NoDelay();
                 System.out.println("SECONDARY ATTACK CRITICAL HIT MULTIPLIER: " + weaponData[23]);
