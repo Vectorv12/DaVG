@@ -5,3 +5,5 @@ DaVG Ausf. J requires at least JRE 8 in order to function but will work with any
 JRE 8 can be found here:
 
 https://java.com/en/download/
+
+To run DaVG Ausf. J, simply double-click on rubberglove.bat, or navigate to it via command prompt and run it from there.

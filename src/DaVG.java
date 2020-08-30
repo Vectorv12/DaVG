@@ -2848,6 +2848,7 @@ public class DaVG {
                 System.out.println("PRIMARY ATTACK CRITICAL HIT MULTIPLIER: " + weaponData[16]);
                 NoDelay();
             }
+            System.out.println();
             System.out.println("MAXIMUM SECONDARY ATTACK DAMAGE OUTPUT: " + weaponData[18]);
             NoDelay();
             System.out.println("SECONDARY ATTACK EFFECTIVE RANGE: " + weaponData[19]);
@@ -2916,6 +2917,7 @@ public class DaVG {
                     System.out.println("CURRENT PRIMARY MAGAZINE LOAD: " + (int)Double.parseDouble(weaponData[27]) + " / " + (int)Double.parseDouble(weaponData[28]) + " " + weaponData[25] + " " + weaponData[29]);
                     NoDelay();
                 }
+                System.out.println();
                 System.out.println("SECONDARY AMMUNITION CALIBER: " + weaponData[37]);
                 NoDelay();
                 if (weaponData[24].equals("Electricity")){
@@ -3032,6 +3034,14 @@ public class DaVG {
         if (weaponData[17].equals("N/A")){
             if (!weaponData[52].equals("$")){
                 System.out.println("SPECIAL PROPERTIES: ");
+                if (weaponData[52].contains("[ARMOR-PIERCING]")) {
+                    System.out.println(">ARMOR-PIERCING | This weapon is capable of penetrating armor.");
+                    NoDelay();
+                }
+                if (weaponData[52].contains("[LASER]")) {
+                    System.out.println(">LASER | This weapon fires a laser beam capable of penetrating thin metal sheets.");
+                    NoDelay();
+                }
                 if (weaponData[52].contains("[SILENT]")) {
                     System.out.println(">SILENT | This weapon is near-silent and can be used with minimal risk of detection.");
                     NoDelay();
@@ -3040,26 +3050,27 @@ public class DaVG {
                         NoDelay();
                     }
                 }
-                if (weaponData[52].contains("[LASER]")) {
-                    System.out.println(">LASER | This weapon fires a laser beam capable of penetrating thin metal sheets.");
-                    NoDelay();
-                }
+
             }
         } else {
             if (!weaponData[52].equals("$")){
                 // \/ PRIMARY ATTACK SPECIAL PROPERTIES \/
                 System.out.println("PRIMARY ATTACK SPECIAL PROPERTIES: ");
-                if (weaponData[52].contains("[SILENT]")){
-                    System.out.println(">SILENT | This weapon's primary fire is near-silent and can be used with minimal risk of detection.");
+                if (weaponData[52].contains("[ARMOR-PIERCING]")) {
+                    System.out.println(">ARMOR-PIERCING | This weapon is capable of penetrating armor.");
                     NoDelay();
-                    if (weaponData[52].contains("[SILENT]") && (player.getSpecialProperties().contains("[CLOAK AND DAGGER]") || softwareCheck(player, "[CLOAK AND DAGGER]") != -1)) {
-                        System.out.println("\t>CLOAK AND DAGGER | Any attacks made with this weapon's primary fire that have a hit roll at/above ACCT instantly kill while the user is undetected.");
-                        NoDelay();
-                    }
                 }
                 if (weaponData[52].contains("[LASER]")) {
                     System.out.println(">LASER | This weapon fires a laser beam capable of penetrating thin metal sheets.");
                     NoDelay();
+                }
+                if (weaponData[52].contains("[SILENT]")) {
+                    System.out.println(">SILENT | This weapon is near-silent and can be used with minimal risk of detection.");
+                    NoDelay();
+                    if (weaponData[52].contains("[SILENT]") && (player.getSpecialProperties().contains("[CLOAK AND DAGGER]") || softwareCheck(player, "[CLOAK AND DAGGER]") != -1)) {
+                        System.out.println("\t>CLOAK AND DAGGER | Any attacks made with this weapon that have a hit roll at/above ACCT instantly kill while the user is undetected.");
+                        NoDelay();
+                    }
                 }
 
                 // /\ PRIMARY ATTACK SPECIAL PROPERTIES /\
@@ -3069,17 +3080,21 @@ public class DaVG {
                 System.out.println();
                 NoDelay();
                 System.out.println("SECONDARY ATTACK SPECIAL PROPERTIES: ");
-                if (weaponData[53].contains("[SILENT]")){
-                    System.out.println(">SILENT | This weapon is near-silent and can be used with minimal risk of detection.");
+                if (weaponData[52].contains("[ARMOR-PIERCING]")) {
+                    System.out.println(">ARMOR-PIERCING | This weapon is capable of penetrating armor.");
                     NoDelay();
-                    if (weaponData[53].contains("[SILENT]") && (player.getSpecialProperties().contains("[CLOAK AND DAGGER]") || softwareCheck(player, "[CLOAK AND DAGGER]") != -1)) {
-                        System.out.println("\t>CLOAK AND DAGGER | Any attacks made with this weapon's secondary fire that have a hit roll at/above ACCT instantly kill while the user is undetected.");
-                        NoDelay();
-                    }
                 }
-                if (weaponData[53].contains("[LASER]")) {
+                if (weaponData[52].contains("[LASER]")) {
                     System.out.println(">LASER | This weapon fires a laser beam capable of penetrating thin metal sheets.");
                     NoDelay();
+                }
+                if (weaponData[52].contains("[SILENT]")) {
+                    System.out.println(">SILENT | This weapon is near-silent and can be used with minimal risk of detection.");
+                    NoDelay();
+                    if (weaponData[52].contains("[SILENT]") && (player.getSpecialProperties().contains("[CLOAK AND DAGGER]") || softwareCheck(player, "[CLOAK AND DAGGER]") != -1)) {
+                        System.out.println("\t>CLOAK AND DAGGER | Any attacks made with this weapon that have a hit roll at/above ACCT instantly kill while the user is undetected.");
+                        NoDelay();
+                    }
                 }
                 // /\ SECONDARY ATTACK SPECIAL PROPERTIES /\
             }
@@ -3660,7 +3675,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primaryReceiverData[1].contains(frameData[1])){
+                    if (primaryReceiverData[1].contains(frameData[1]) || primaryReceiverData[1].equals("UNI") || primaryReceiverData[1].equals("UNI(RNG)") || primaryReceiverData[1].equals("HSTL: " + frameData[4])){
                         primaryReceiverIndex = i;
                     }
                 }
@@ -3685,7 +3700,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondaryReceiverData[1].contains(frameData[1])){
+                    if (secondaryReceiverData[1].contains(frameData[1]) || secondaryReceiverData[1].equals("UNI") || secondaryReceiverData[1].equals("UNI(RNG)") || secondaryReceiverData[1].equals("HSTL: " + frameData[4])){
                         secondaryReceiverIndex = i;
                     }
                 }
@@ -3744,7 +3759,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primaryBarrelData[1].contains(frameData[1])){
+                    if (primaryBarrelData[1].contains(frameData[1]) || primaryBarrelData[1].equals("UNI") || primaryBarrelData[1].equals("UNI(RNG)") || primaryBarrelData[1].equals("HSTL: " + frameData[4])){
                         primaryBarrelIndex = i;
                     }
                 }
@@ -3769,7 +3784,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondaryBarrelData[1].contains(frameData[1])){
+                    if (secondaryBarrelData[1].contains(frameData[1])  || secondaryBarrelData[1].equals("UNI") || secondaryBarrelData[1].equals("UNI(RNG)") || secondaryBarrelData[1].equals("HSTL: " + frameData[4])){
                         secondaryBarrelIndex = i;
                     }
                 }
@@ -3825,7 +3840,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primaryMagazineData[1].contains(frameData[1])){
+                    if (primaryMagazineData[1].contains(frameData[1])  || primaryMagazineData[1].equals("UNI") || primaryMagazineData[1].equals("UNI(RNG)") || primaryMagazineData[1].equals("HSTL: " + frameData[4])){
                         primaryMagazineIndex = i;
                     }
                 }
@@ -3850,7 +3865,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondaryMagazineData[1].contains(frameData[1])){
+                    if (secondaryMagazineData[1].contains(frameData[1]) || secondaryMagazineData.equals("UNI") || secondaryMagazineData[1].equals("UNI(RNG)") || secondaryMagazineData[1].equals("HSTL: " + frameData[4])){
                         secondaryMagazineIndex = i;
                     }
                 }
@@ -3865,11 +3880,17 @@ public class DaVG {
         /*
         Fire Control Systems consist of the trigger mechanisms of firearms and hybrids.
 
-        The Fire Control System determines the following attributes:
+        The Primary Fire Control System determines the following attributes:
         31 - Primary Current Firemode
 
-        If the weapon has a secondary fire mechanism, the Fire Control System also determines the following:
+        The Primary Fire Control System can also add to the following attributes:
+        30 - Primary Firemodes
+
+        If the weapon has a secondary fire mechanism, the Secondary Fire Control System determines the following:
         44 - Secondary Current Firemode
+
+        The Secondary Fire Control System can also add to the following attributes:
+        43 - Secondary Firemodes
 
         Fire Control Systems are defined by the following attributes:
         FC00 - Name
@@ -3893,7 +3914,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primaryFireControlSystemData[1].contains(frameData[1])){
+                    if (primaryFireControlSystemData[1].contains(frameData[1]) || primaryFireControlSystemData[1].equals("UNI") || primaryFireControlSystemData[1].equals("UNI(RNG)") || primaryFireControlSystemData[1].equals("HSTL: " + frameData[4])){
                         primaryFireControlSystemIndex = i;
                     }
                 }
@@ -3918,7 +3939,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondaryFireControlSystemData[1].contains(frameData[1])){
+                    if (secondaryFireControlSystemData[1].contains(frameData[1]) || secondaryFireControlSystemData[1].equals("UNI") || secondaryFireControlSystemData[1].equals("UNI(RNG)") || secondaryFireControlSystemData[1].equals("HSTL: " + frameData[4])){
                         secondaryFireControlSystemIndex = i;
                     }
                 }
@@ -3970,7 +3991,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primaryBoltData[1].contains(frameData[1])){
+                    if (primaryBoltData[1].contains(frameData[1]) || primaryBoltData[1].equals("UNI") || primaryBoltData[1].equals("UNI(RNG)") || primaryBoltData[1].equals("HSTL: " + frameData[4])){
                         primaryBoltIndex = i;
                     }
                 }
@@ -3995,7 +4016,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondaryBoltData[1].contains(frameData[1])){
+                    if (secondaryBoltData[1].contains(frameData[1]) || secondaryBoltData[1].equals("UNI") || secondaryBoltData[1].equals("UNI(RNG)") || secondaryBoltData[1].equals("HSTL: " + frameData[4])){
                         secondaryBoltIndex = i;
                     }
                 }
@@ -4018,13 +4039,13 @@ public class DaVG {
         48 - Secondary Minimum Burst Length
         49 - Secondary Maximum Burst Length
 
-        Bolts are determined by the following attributes:
+        Heat Dispersion Systems are defined by the following attributes:
         HD00 - Name
         HD01 - Weapon Compatibility List
         HD02 - Minimum Burst Length
         HD03 - Maximum Burst Length
-        HD04 - General Bolt Description
-        HD05 - Detailed Bolt Description
+        HD04 - General Heat Dispersion System Description
+        HD05 - Detailed Heat Dispersion System Description
          */
 
         boolean primaryHeatDispersionSystemMissing = false;
@@ -4040,7 +4061,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primaryHeatDispersionSystemData[1].contains(frameData[1])){
+                    if (primaryHeatDispersionSystemData[1].contains(frameData[1]) || primaryHeatDispersionSystemData[1].equals("UNI") || primaryHeatDispersionSystemData[1].equals("UNI(RNG)") || primaryHeatDispersionSystemData[1].equals("HSTL: " + frameData[4])){
                         primaryHeatDispersionSystemIndex = i;
                     }
                 }
@@ -4065,7 +4086,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondaryHeatDispersionSystemData[1].contains(frameData[1])){
+                    if (secondaryHeatDispersionSystemData[1].contains(frameData[1]) || secondaryHeatDispersionSystemData[1].equals("UNI") || secondaryHeatDispersionSystemData[1].equals("UNI(RNG)") || secondaryHeatDispersionSystemData[1].equals("HSTL: " + frameData[4])){
                         secondaryHeatDispersionSystemIndex = i;
                     }
                 }
@@ -4111,7 +4132,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primaryGripData[1].contains(frameData[1])){
+                    if (primaryGripData[1].contains(frameData[1]) || primaryGripData[1].equals("UNI") || primaryGripData[1].equals("UNI(RNG)") || primaryGripData[1].equals("HSTL: " + frameData[4])){
                         primaryGripIndex = i;
                     }
                 }
@@ -4136,7 +4157,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondaryGripData[1].contains(frameData[1])){
+                    if (secondaryGripData[1].contains(frameData[1]) || secondaryGripData[1].equals("UNI") || secondaryGripData[1].equals("UNI(RNG)") || secondaryGripData[1].equals("HSTL: " + frameData[4])){
                         secondaryGripIndex = i;
                     }
                 }
@@ -4183,7 +4204,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primaryGripData[1].contains(frameData[1])){
+                    if (stockData[1].contains(frameData[1]) || stockData[1].equals("UNI") || stockData[1].equals("UNI(RNG)") || stockData[1].equals("HSTL: " + frameData[4])){
                         stockIndex = i;
                     }
                 }
@@ -4245,7 +4266,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primarySightsData[1].contains(frameData[1])){
+                    if (primarySightsData[1].contains(frameData[1]) || primarySightsData[1].equals("UNI") || primarySightsData[1].equals("UNI(RNG)") || primarySightsData[1].equals("HSTL: " + frameData[4])){
                         primarySightsIndex = i;
                     }
                 }
@@ -4270,7 +4291,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondarySightsData[1].contains(frameData[1])){
+                    if (secondarySightsData[1].contains(frameData[1]) || secondarySightsData[1].equals("UNI") || secondarySightsData[1].equals("UNI(RNG)") || secondarySightsData[1].equals("HSTL: " + frameData[4])){
                         secondarySightsIndex = i;
                     }
                 }
@@ -4319,7 +4340,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primaryMuzzleData[1].contains(frameData[1])){
+                    if (primaryMuzzleData[1].contains(frameData[1]) || primaryMuzzleData[1].equals("UNI") || primaryMuzzleData[1].equals("UNI(RNG)") || primaryMuzzleData[1].equals("HSTL: " + frameData[4])){
                         primaryMuzzleIndex = i;
                     }
                 }
@@ -4344,7 +4365,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondaryMuzzleData[1].contains(frameData[1])){
+                    if (secondaryMuzzleData[1].contains(frameData[1]) || secondaryMuzzleData[1].equals("UNI") || secondaryMuzzleData[1].equals("UNI(RNG)") || secondaryMuzzleData[1].equals("HSTL: " + frameData[4])){
                         secondaryMuzzleIndex = i;
                     }
                 }
@@ -4396,7 +4417,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primaryLimbsData[1].contains(frameData[1])){
+                    if (primaryLimbsData[1].contains(frameData[1]) || primaryLimbsData[1].equals("UNI") || primaryLimbsData[1].equals("UNI(RNG)") || primaryLimbsData[1].equals("HSTL: " + frameData[4])){
                         primaryLimbsIndex = i;
                     }
                 }
@@ -4421,7 +4442,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondaryLimbsData[1].contains(frameData[1])){
+                    if (secondaryLimbsData[1].contains(frameData[1]) || secondaryLimbsData[1].equals("UNI") || secondaryLimbsData[1].equals("UNI(RNG)") || secondaryLimbsData[1].equals("HSTL: " + frameData[4])){
                         secondaryLimbsIndex = i;
                     }
                 }
@@ -4466,7 +4487,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primaryBowstringData[1].contains(frameData[1])){
+                    if (primaryBowstringData[1].contains(frameData[1]) || primaryBowstringData[1].equals("UNI") || primaryBowstringData[1].equals("UNI(RNG)") || primaryBowstringData[1].equals("HSTL: " + frameData[4])){
                         primaryBowstringIndex = i;
                     }
                 }
@@ -4491,7 +4512,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondaryBowstringData[1].contains(frameData[1])){
+                    if (secondaryBowstringData[1].contains(frameData[1]) || secondaryBowstringData[1].equals("UNI") || secondaryBowstringData[1].equals("UNI(RNG)") || secondaryBowstringData[1].equals("HSTL: " + frameData[4])){
                         secondaryBowstringIndex = i;
                     }
                 }
@@ -4532,10 +4553,11 @@ public class DaVG {
         weaponData[53] = "$";
         // /\ FRAME ATTRIBUTES
 
-        if (frameData[6].equals("RANGED") || frameData[6].equals("HYBRID")){
+        if ( frameData[6].equals("RANGED") || frameData[6].equals("HYBRID") ){
             // \/ PRIMARY RECEIVER ATTRIBUTES \/
             int primaryReceiverDamageModifier = 0;
             int basePrimaryCaliberDamage = -1;
+
             if (frameData[10].equals("RANGED") && frameData[5].contains("[RECEIVER (PRIMARY)]")){
                 if (!primaryReceiverMissing){
                     weaponData[24] = primaryReceiverData[2]; // Ammunition Caliber
@@ -4571,7 +4593,7 @@ public class DaVG {
                         basePrimaryCaliberDamage = 25;
                         break;
                     case "12.5mm Katzer Kurzpatrone":
-                        basePrimaryCaliberDamage = 27;
+                        basePrimaryCaliberDamage = 35;
                         break;
                     case ".308":
                         basePrimaryCaliberDamage = 40;
@@ -4599,7 +4621,7 @@ public class DaVG {
             // \/ SECONDARY RECEIVER ATTRIBUTES \/
             int secondaryReceiverDamageModifier = 0;
             int baseSecondaryCaliberDamage = -1;
-            if (frameData[11].equals("RANGED") && frameData[5].contains("[RECEIVER (SECONDARY)]")){
+            if (frameData[10].equals("RANGED") && frameData[5].contains("[RECEIVER (SECONDARY)]")){
                 if (!secondaryReceiverMissing){
                     weaponData[37] = secondaryReceiverData[2]; // Ammunition Caliber
                     weaponData[42] = secondaryReceiverData[3]; // Ammo Unit of Measurement
@@ -4634,7 +4656,7 @@ public class DaVG {
                         baseSecondaryCaliberDamage = 25;
                         break;
                     case "12.5mm Katzer Kurzpatrone":
-                        baseSecondaryCaliberDamage = 27;
+                        baseSecondaryCaliberDamage = 35;
                         break;
                     case ".308":
                         baseSecondaryCaliberDamage = 40;
@@ -4802,10 +4824,10 @@ public class DaVG {
                 }
             } else {
                 if (weaponData[35] == null){
-                    weaponData[35] = "N/A";
+                    weaponData[35] = "-1";
                 }
                 if (weaponData[36] == null){
-                    weaponData[36] = "N/A";
+                    weaponData[36] = "-1";
                 }
             }
             // /\ PRIMARY BOLT /\
@@ -4825,10 +4847,10 @@ public class DaVG {
                 }
             } else {
                 if (weaponData[48] == null){
-                    weaponData[48] = "N/A";
+                    weaponData[48] = "-1";
                 }
                 if (weaponData[49] == null){
-                    weaponData[49] = "N/A";
+                    weaponData[49] = "-1";
                 }
             }
             // /\ SECONDARY BOLT /\
@@ -4845,10 +4867,10 @@ public class DaVG {
                 }
             } else {
                 if (weaponData[35] == null){
-                    weaponData[35] = "N/A";
+                    weaponData[35] = "-1";
                 }
                 if (weaponData[36] == null){
-                    weaponData[36] = "N/A";
+                    weaponData[36] = "-1";
 
                 }
             }
@@ -4866,10 +4888,10 @@ public class DaVG {
                 }
             } else {
                 if (weaponData[48] == null){
-                    weaponData[49] = "N/A";
+                    weaponData[49] = "-1";
                 }
                 if (weaponData[48] == null){
-                    weaponData[49] = "N/A";
+                    weaponData[49] = "-1";
                 }
             }
             // /\ SECONDARY HEAT DISPERSION SYSTEM /\
@@ -4932,8 +4954,8 @@ public class DaVG {
                 }
             } else {
                 weaponData[14] = "N/A";
-                weaponData[15] = "N/A";
-                weaponData[16] = "N/A";
+                weaponData[15] = "-1";
+                weaponData[16] = "-1";
             }
             // /\ PRIMARY SIGHTS /\
 
@@ -4958,8 +4980,8 @@ public class DaVG {
                 }
             } else {
                 weaponData[21] = "N/A";
-                weaponData[22] = "N/A";
-                weaponData[23] = "N/A";
+                weaponData[22] = "-1";
+                weaponData[23] = "-1";
             }
             // /\ SECONDARY SIGHTS /\
 
@@ -5070,7 +5092,7 @@ public class DaVG {
             // \/ TOTAL PRIMARY FIRE DAMAGE CALCULATION \/
             int primaryTotalDamage = 0;
 
-            if (weaponData[6].equals("RANGED") || weaponData[6].equals("HYBRID")){
+            if (weaponData[10].equals("RANGED")){
                 primaryTotalDamage = basePrimaryCaliberDamage;
                 primaryTotalDamage += primaryReceiverDamageModifier;
                 if (frameData[5].contains("[BARREL (PRIMARY)]")){
@@ -5085,8 +5107,10 @@ public class DaVG {
                 if (frameData[5].contains("[BOWSTRING (PRIMARY)]")){
                     primaryTotalDamage += primaryBowstringDamageModifier;
                 }
-            } else if (weaponData[6].equals("MELEE") || weaponData[6].equals("HYBRID")){
+            } else if (weaponData[10].equals("MELEE")){
 
+            } else {
+                primaryTotalDamage = -1;
             }
             weaponData[11] = Integer.toString(primaryTotalDamage);
             // /\ TOTAL PRIMARY FIRE DAMAGE CALCULATION /\
@@ -5094,7 +5118,7 @@ public class DaVG {
             // \/ TOTAL SECONDARY FIRE DAMAGE CALCULATION \/
             int secondaryTotalDamage = 0;
 
-            if (weaponData[6].equals("RANGED") || weaponData[6].equals("HYBRID")){
+            if (weaponData[17].equals("RANGED")){
                 secondaryTotalDamage = baseSecondaryCaliberDamage;
                 secondaryTotalDamage += secondaryReceiverDamageModifier;
                 if (frameData[5].contains("[BARREL (SECONDARY)]")){
@@ -5109,8 +5133,10 @@ public class DaVG {
                 if (frameData[5].contains("[BOWSTRING (SECONDARY)]")){
                     secondaryTotalDamage += secondaryBowstringDamageModifier;
                 }
-            } else if (weaponData[6].equals("MELEE") || weaponData[6].equals("HYBRID")){
+            } else if (weaponData[17].equals("MELEE")){
 
+            } else {
+                secondaryTotalDamage = -1;
             }
             weaponData[18] = Integer.toString(secondaryTotalDamage);
             // /\ TOTAL SECONDARY FIRE DAMAGE CALCULATION /\
@@ -5118,7 +5144,7 @@ public class DaVG {
             // \/ TOTAL PRIMARY FIRE ACCURACY THRESHOLD CALCULATION \/
             int primaryTotalAccuracyThreshold = 0;
 
-            if (weaponData[6].equals("RANGED") || weaponData[6].equals("HYBRID")){
+            if (weaponData[10].equals("RANGED")){
                 if (frameData[5].contains("[LIMBS (PRIMARY)]")){
                     primaryTotalAccuracyThreshold = basePrimaryLimbsAccuracyThreshold;
                 }
@@ -5146,8 +5172,10 @@ public class DaVG {
                 if (frameData[5].contains("[BOWSTRING (PRIMARY)]")){
                     primaryTotalAccuracyThreshold += primaryBowstringAccuracyThresholdModifier;
                 }
-            } else if (weaponData[6].equals("MELEE") || weaponData[6].equals("HYBRID")){
+            } else if (weaponData[10].equals("MELEE")){
 
+            } else {
+                primaryTotalAccuracyThreshold = -1;
             }
             weaponData[13] = Integer.toString(primaryTotalAccuracyThreshold);
             // /\ TOTAL PRIMARY FIRE ACCURACY THRESHOLD CALCULATION /\
@@ -5155,7 +5183,7 @@ public class DaVG {
             // \/ TOTAL SECONDARY FIRE ACCURACY THRESHOLD CALCULATION \/
             int secondaryTotalAccuracyThreshold = 0;
 
-            if (weaponData[6].equals("RANGED") || weaponData[6].equals("HYBRID")){
+            if (weaponData[17].equals("RANGED")){
                 if (frameData[5].contains("[LIMBS (SECONDARY)]")){
                     secondaryTotalAccuracyThreshold = baseSecondaryLimbsAccuracyThreshold;
                 }
@@ -5183,8 +5211,10 @@ public class DaVG {
                 if (frameData[5].contains("[BOWSTRING (SECONDARY)]")){
                     secondaryTotalAccuracyThreshold += secondaryBowstringAccuracyThresholdModifier;
                 }
-            } else if (weaponData[6].equals("MELEE") || weaponData[6].equals("HYBRID")){
+            } else if (weaponData[17].equals("MELEE")){
 
+            } else {
+                secondaryTotalAccuracyThreshold = -1;
             }
             weaponData[20] = Integer.toString(secondaryTotalAccuracyThreshold);
             // /\ TOTAL SECONDARY FIRE ACCURACY THRESHOLD CALCULATION /\
@@ -5761,11 +5791,14 @@ public class DaVG {
 
     private static String[] ammoRead (playerCharacter player, String ammoName, String specifiedSubtype ) throws IOException{
         File[] inventory = player.getPlayerInventory();
-        String[] ammoData = new String[3];
+        String[] ammoData = new String[5];
 
         /*
         00 - Subtype Name
         01 - Subtype Amount
+        02 - Subtype Damage Type
+        03 - Damage Multiplier
+        04 - Recoil Multiplier
          */
 
         BufferedReader ammoScanner = new BufferedReader(new FileReader(inventory[2]+"\\"+ammoName+"\\" + specifiedSubtype));
@@ -6810,18 +6843,20 @@ public class DaVG {
                     System.out.println("//PLEASE CHOOSE WEAPON TO ATTACK WITH");
                     ShortDelay();
                     if (player.getPrimaryWeapon().equals("PWFM")){
-                        System.out.println("> 0_ LEFT FIST");
+                        System.out.println("> 0_ LEFT FIST" + " [PRMR]");
                     } else {
-                        System.out.println("> 0_ " + player.getPrimaryWeapon());
+                        System.out.println("> 0_ " + player.getPrimaryWeapon() + " [PRMR]");
                     }
                     NoDelay();
                     if (player.getSecondaryWeapon().equals("SWFM")){
-                        System.out.println("> 1_ RIGHT FIST");
+                        System.out.println("> 1_ RIGHT FIST" + " [SKDR]");
                     } else {
-                        System.out.println("> 1_ " + player.getSecondaryWeapon());
+                        System.out.println("> 1_ " + player.getSecondaryWeapon() + " [SKDR]");
                     }
                     NoDelay();
                     System.out.println("> 2_ BOTH");
+                    NoDelay();
+                    System.out.println(" ._ EXIT [AUSF]");
 
                     String[] outgoingPrimaryDamageData = new String[2];
                     String[] outgoingSecondaryDamageData = new String[2];
@@ -6851,6 +6886,10 @@ public class DaVG {
                             case ".":
                                 weaponNotSelectedForAttack = false;
                                 attackCancelled = true;
+                                break;
+                            case "HERUNTERFAHREN": case "herunterfahren": case "SHUTDOWN": case "shutdown": case "HNTF": case "hntf": case "H": case "h":
+                                optionNotChosen = false;
+                                shutdown( player );
                                 break;
                             default:
                                 if (player.getUserLanguage().equals("VOLKSHAVENISH")) {
@@ -6937,6 +6976,14 @@ public class DaVG {
                                     System.out.println("//ERROR: CURRENTLY EQUIPPED WEAPONS DO NOT REQUIRE AMMUNITION");
                                     ShortDelay();
                                     System.out.println("//RELOAD SUBMENU EXITED");
+                                    ShortDelay();
+                                    System.out.println("> 0_ RELOAD [NCLD]");
+                                    NoDelay();
+                                    System.out.println("> 1_ CHAMBER [KMMR]");
+                                    NoDelay();
+                                    System.out.println("> 2_ FIREMODE [FWMD]");
+                                    NoDelay();
+                                    System.out.println("> ._ EXIT [AUSF]");
                                     invalidAction = false;
                                     break;
                                 } else {
@@ -6980,6 +7027,9 @@ public class DaVG {
                                             weaponReloadCancelled = true;
                                             weaponReloadNotChosen = false;
                                             break;
+                                        case "HERUNTERFAHREN": case "herunterfahren": case "SHUTDOWN": case "shutdown": case "HNTF": case "hntf": case "H": case "h":
+                                            shutdown( player );
+                                            break;
                                         default:
                                             if (player.getUserLanguage().equals("VOLKSHAVENISH")) {
                                                 System.out.println("//FEHLER: UNGÜLTIGE EINGABE"); //ERROR: INVALID INPUT
@@ -6992,6 +7042,14 @@ public class DaVG {
 
                                 if (weaponReloadCancelled){
                                     System.out.println("//RELOAD SUBMENU EXITED");
+                                    ShortDelay();
+                                    System.out.println("> 0_ RELOAD [NCLD]");
+                                    NoDelay();
+                                    System.out.println("> 1_ CHAMBER [KMMR]");
+                                    NoDelay();
+                                    System.out.println("> 2_ FIREMODE [FWMD]");
+                                    NoDelay();
+                                    System.out.println("> ._ EXIT [AUSF]");
                                     break;
                                 }
 
@@ -7110,6 +7168,9 @@ public class DaVG {
                                                 reloadSubsystemCancel = true;
                                                 weaponSubsystemNotChosen = false;
                                                 break;
+                                            case "HERUNTERFAHREN": case "herunterfahren": case "SHUTDOWN": case "shutdown": case "HNTF": case "hntf": case "H": case "h":
+                                                shutdown( player );
+                                                break;
                                             default:
                                                 if (player.getUserLanguage().equals("VOLKSHAVENISH")) {
                                                     System.out.println("//FEHLER: UNGÜLTIGE EINGABE"); //ERROR: INVALID INPUT
@@ -7206,6 +7267,9 @@ public class DaVG {
                                         case ".":
                                             subtypeToLoad = inputSubtype;
                                             subtypeNotChosen = false;
+                                            break;
+                                        case "HERUNTERFAHREN": case "herunterfahren": case "SHUTDOWN": case "shutdown": case "HNTF": case "hntf": case "H": case "h":
+                                            shutdown( player );
                                             break;
                                         default:
                                             try {
@@ -7325,11 +7389,15 @@ public class DaVG {
                                 ShortDelay();
                                 System.out.println("//WEAPON RELOADED");
                                 ShortDelay();
-                                System.out.println("//USER RETURNED TO COMBAT MAIN MENU");
-                                ShortDelay();
                                 System.out.println("//INPUT \"A\" TO REFRESH");
-                                invalidAction = false;
-
+                                ShortDelay();
+                                System.out.println("> 0_ RELOAD [NCLD]");
+                                NoDelay();
+                                System.out.println("> 1_ CHAMBER [KMMR]");
+                                NoDelay();
+                                System.out.println("> 2_ FIREMODE [FWMD]");
+                                NoDelay();
+                                System.out.println("> ._ EXIT [AUSF]");
                                 break;
                             case "KAMMER": case "kammer": case "KMMR": case "kmmr": case "CHAMBER": case "chamber": case "1":
                                 if ( ( currentPrimaryWeaponData[10].equals("MELEE") || currentPrimaryWeaponData[10].equals("N/A") ) && ( currentPrimaryWeaponData[17].equals("MELEE") || currentPrimaryWeaponData[17].equals("N/A") ) && ( currentSecondaryWeaponData[10].equals("MELEE") || currentSecondaryWeaponData[10].equals("N/A") ) && ( currentSecondaryWeaponData[17].equals("MELEE") || currentSecondaryWeaponData[17].equals("N/A") ) ){
@@ -7380,6 +7448,9 @@ public class DaVG {
                                             weaponChamberCancelled = true;
                                             weaponChamberNotChosen = false;
                                             break;
+                                        case "HERUNTERFAHREN": case "herunterfahren": case "SHUTDOWN": case "shutdown": case "HNTF": case "hntf": case "H": case "h":
+                                            shutdown( player );
+                                            break;
                                         default:
                                             if (player.getUserLanguage().equals("VOLKSHAVENISH")) {
                                                 System.out.println("//FEHLER: UNGÜLTIGE EINGABE"); //ERROR: INVALID INPUT
@@ -7392,6 +7463,14 @@ public class DaVG {
 
                                 if (weaponChamberCancelled){
                                     System.out.println("//CHAMBER SUBMENU EXITED");
+                                    ShortDelay();
+                                    System.out.println("> 0_ RELOAD [NCLD]");
+                                    NoDelay();
+                                    System.out.println("> 1_ CHAMBER [KMMR]");
+                                    NoDelay();
+                                    System.out.println("> 2_ FIREMODE [FWMD]");
+                                    NoDelay();
+                                    System.out.println("> ._ EXIT [AUSF]");
                                     break;
                                 }
 
@@ -7479,6 +7558,9 @@ public class DaVG {
                                                 chamberSubsystemCancel = true;
                                                 weaponSubsystemNotChosen = false;
                                                 break;
+                                            case "HERUNTERFAHREN": case "herunterfahren": case "SHUTDOWN": case "shutdown": case "HNTF": case "hntf": case "H": case "h":
+                                                shutdown( player );
+                                                break;
                                             default:
                                                 if (player.getUserLanguage().equals("VOLKSHAVENISH")) {
                                                     System.out.println("//FEHLER: UNGÜLTIGE EINGABE"); //ERROR: INVALID INPUT
@@ -7559,10 +7641,15 @@ public class DaVG {
                                 ShortDelay();
                                 System.out.println("//WEAPON CHAMBERED");
                                 ShortDelay();
-                                System.out.println("//USER RETURNED TO COMBAT MAIN MENU");
-                                ShortDelay();
                                 System.out.println("//INPUT \"A\" TO REFRESH");
-                                invalidAction = false;
+                                ShortDelay();
+                                System.out.println("> 0_ RELOAD [NCLD]");
+                                NoDelay();
+                                System.out.println("> 1_ CHAMBER [KMMR]");
+                                NoDelay();
+                                System.out.println("> 2_ FIREMODE [FWMD]");
+                                NoDelay();
+                                System.out.println("> ._ EXIT [AUSF]");
                                 break;
 
                             case "FEUERMODUS:": case "feuermodus": case "FIREMODE": case "firemode": case "FWMD": case "fwmd": case "2":
@@ -7612,6 +7699,9 @@ public class DaVG {
                                         case ".":
                                             weaponFiremodeCancelled = true;
                                             weaponFiremodeNotChosen = false;
+                                            break;
+                                        case "HERUNTERFAHREN": case "herunterfahren": case "SHUTDOWN": case "shutdown": case "HNTF": case "hntf": case "H": case "h":
+                                            shutdown( player );
                                             break;
                                         default:
                                             if (player.getUserLanguage().equals("VOLKSHAVENISH")) {
@@ -7744,6 +7834,9 @@ public class DaVG {
                                                 firemodeSubsystemCancel = true;
                                                 weaponSubsystemNotChosen = false;
                                                 break;
+                                            case "HERUNTERFAHREN": case "herunterfahren": case "SHUTDOWN": case "shutdown": case "HNTF": case "hntf": case "H": case "h":
+                                                shutdown( player );
+                                                break;
                                             default:
                                                 if (player.getUserLanguage().equals("VOLKSHAVENISH")) {
                                                     System.out.println("//FEHLER: UNGÜLTIGE EINGABE"); //ERROR: INVALID INPUT
@@ -7792,6 +7885,9 @@ public class DaVG {
                                         case ".":
                                             firemodeToSwitch = inputFiremode;
                                             firemodeNotChosen = false;
+                                            break;
+                                        case "HERUNTERFAHREN": case "herunterfahren": case "SHUTDOWN": case "shutdown": case "HNTF": case "hntf": case "H": case "h":
+                                            shutdown( player );
                                             break;
                                         default:
                                             try {
@@ -7847,13 +7943,39 @@ public class DaVG {
 
                                 System.out.println("//CURRENT FIREMODE UPDATED");
                                 ShortDelay();
-                                System.out.println("//USER RETURNED TO COMBAT MAIN MENU");
-                                ShortDelay();
                                 System.out.println("//INPUT \"A\" TO REFRESH");
-                                invalidAction = false;
+                                ShortDelay();
+                                System.out.println("> 0_ RELOAD [NCLD]");
+                                NoDelay();
+                                System.out.println("> 1_ CHAMBER [KMMR]");
+                                NoDelay();
+                                System.out.println("> 2_ FIREMODE [FWMD]");
+                                NoDelay();
+                                System.out.println("> ._ EXIT [AUSF]");
+                                break;
+                            case "HERUNTERFAHREN": case "herunterfahren": case "SHUTDOWN": case "shutdown": case "HNTF": case "hntf": case "H": case "h":
+                                shutdown( player );
                                 break;
                             case ".":
                                 System.out.println("//ACTION SUBMENU EXITED");
+                                ShortDelay();
+                                System.out.println("> 0_ ATTACK [ANGF]");
+                                NoDelay();
+                                System.out.println("> 1_ ACTION [AKTN]");
+                                NoDelay();
+                                System.out.println("> 2_ WEAPONS [WFFN]");
+                                NoDelay();
+                                System.out.println("> 3_ ITEMS [ATKL]");
+                                NoDelay();
+                                System.out.println("> 4_ EDIT [BRBT]");
+                                NoDelay();
+                                System.out.println("> 5_ NEXT CYCLE [NZYK]");
+                                NoDelay();
+                                System.out.println("> 6_ RESET CYCLES [ZZYK]");
+                                NoDelay();
+                                System.out.println("> A_ REFRESH [AKTL]");
+                                NoDelay();
+                                System.out.println("> ._ EXIT [AUSF]");
                                 invalidAction = false;
                                 break;
                         }
@@ -7900,12 +8022,17 @@ public class DaVG {
                                         System.out.println("//ERROR: INVALID INPUT FORMAT");
                                     }
                                 }
+                                if (Double.parseDouble(player.getUserCurrentHealth()) <= 0){
+                                    player.setUserStatus("CRITICALLY INJURED");
+                                }
+                                player.writePlayerData();
                                 invalidStatus = false;
                                 break;
                             case "STATUS": case "status": case "STAT": case "stat": case "1":
                                 System.out.println("//PLEASE ENTER NEW STATUS");
                                 player.setUserStatus(input.nextLine());
                                 System.out.println("//CURRENT STATUS UPDATED");
+                                player.writePlayerData();
                                 invalidStatus = false;
                                 break;
                             case "AMMUNITION": case "ammunition": case "AMMO": case "ammo": case "2":
@@ -7913,7 +8040,7 @@ public class DaVG {
                                     System.out.println("//ERROR: CURRENTLY EQUIPPED WEAPONS DO NOT REQUIRE AMMUNITION");
                                     ShortDelay();
                                     System.out.println("//RELOAD SUBMENU EXITED");
-                                    invalidAction = false;
+                                    invalidStatus = false;
                                     break;
                                 } else {
                                     System.out.println("//PLEASE SELECT A WEAPON TO EDIT AMMO");
@@ -8645,6 +8772,7 @@ public class DaVG {
                     break;
                 case "12.5mm Katzer Langpatrone":
                     caliberRecoil = 3;
+                    break;
                 case "12-Gauge":
                     caliberRecoil = 4;
                     break;
@@ -8653,8 +8781,11 @@ public class DaVG {
                     break;
             }
 
-            recoilTotal = caliberRecoil * spentShots;
+            String[] ammoData = ammoRead(player, chosenAmmunitionCaliber, chosenAmmunitionSubtype+".TAG");
 
+            double recoilMult = Double.parseDouble(ammoData[3]);
+
+            recoilTotal = caliberRecoil * spentShots * recoilMult;
 
             if (modCalc(userStrength) == 0){
                 accuracyPenalty = userStrength - recoilTotal;
@@ -8670,7 +8801,18 @@ public class DaVG {
                 }
             }
 
-            totalOutgoingDamage = (baseDamage * (hitRoll/accuracyThreshold)) * spentShots;
+            double hitPercent = hitRoll/accuracyThreshold;
+
+            if (hitPercent > 1){
+                hitPercent = 1;
+            }
+
+
+            double ammoDamageMult = Double.parseDouble(ammoData[3]);
+
+            baseDamage *= ammoDamageMult;
+
+            totalOutgoingDamage = (baseDamage * (hitPercent)) * spentShots;
 
             if (chosenWeaponSubsystem.equals("PRIMARY")){
                 weaponData[27] = Double.toString(magazineLoad);
@@ -8681,8 +8823,7 @@ public class DaVG {
                 weaponData[45] = chosenChamberStatus;
                 weaponData[46] = Double.toString(chamberLoad);
             }
-            String[] ammoData = ammoRead(player, chosenAmmunitionCaliber, chosenAmmunitionSubtype+".TAG");
-            damageData[1] = ammoData[2];
+            damageData[1] = ammoData[4];
         } else {
             totalOutgoingDamage = baseDamage * (hitRoll/accuracyThreshold);
             damageData[1] = "KINETIC";
@@ -8700,6 +8841,12 @@ public class DaVG {
         }
         if (chosenSpecialProperties.contains("[LASER]")){
             damageData[1] = "LASER";
+        }
+        if (chosenSpecialProperties.contains("[PRIMER (ELECTRICITY)]")){
+            damageData[1] = "PRIMER (ELECTRICITY)";
+        }
+        if (chosenSpecialProperties.contains("[CATALYST (ELECTRICITY)]")){
+            damageData[1] = "CATALYST (ELECTRICITY)";
         }
         damageData[0] = Double.toString(totalOutgoingDamage);
 
