@@ -3675,7 +3675,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primaryReceiverData[1].contains(frameData[1]) || primaryReceiverData[1].equals("UNI") || primaryReceiverData[1].equals("UNI(RNG)") || primaryReceiverData[1].equals("HSTL: " + frameData[4])){
+                    if (primaryReceiverData[1].contains(frameData[1]) || primaryReceiverData[1].equals("UNIV") || primaryReceiverData[1].equals("UNIV (RNG)") || primaryReceiverData[1].equals("HSTL: " + frameData[4]) || primaryReceiverData[1].equals("KLAS: " + frameData[7])){
                         primaryReceiverIndex = i;
                     }
                 }
@@ -3700,7 +3700,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondaryReceiverData[1].contains(frameData[1]) || secondaryReceiverData[1].equals("UNI") || secondaryReceiverData[1].equals("UNI(RNG)") || secondaryReceiverData[1].equals("HSTL: " + frameData[4])){
+                    if (secondaryReceiverData[1].contains(frameData[1]) || secondaryReceiverData[1].equals("UNIV") || secondaryReceiverData[1].equals("UNIV (RNG)") || secondaryReceiverData[1].equals("HSTL: " + frameData[4]) || secondaryReceiverData[1].equals("KLAS: " + frameData[7])){
                         secondaryReceiverIndex = i;
                     }
                 }
@@ -3759,7 +3759,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primaryBarrelData[1].contains(frameData[1]) || primaryBarrelData[1].equals("UNI") || primaryBarrelData[1].equals("UNI(RNG)") || primaryBarrelData[1].equals("HSTL: " + frameData[4])){
+                    if (primaryBarrelData[1].contains(frameData[1]) || primaryBarrelData[1].equals("UNIV") || primaryBarrelData[1].equals("UNIV (RNG)") || primaryBarrelData[1].equals("HSTL: " + frameData[4]) || primaryBarrelData[1].equals("KLAS: " + frameData[7])){
                         primaryBarrelIndex = i;
                     }
                 }
@@ -3784,7 +3784,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondaryBarrelData[1].contains(frameData[1])  || secondaryBarrelData[1].equals("UNI") || secondaryBarrelData[1].equals("UNI(RNG)") || secondaryBarrelData[1].equals("HSTL: " + frameData[4])){
+                    if (secondaryBarrelData[1].contains(frameData[1])  || secondaryBarrelData[1].equals("UNIV") || secondaryBarrelData[1].equals("UNIV (RNG)") || secondaryBarrelData[1].equals("HSTL: " + frameData[4]) || secondaryBarrelData[1].equals("KLAS: " + frameData[7])){
                         secondaryBarrelIndex = i;
                     }
                 }
@@ -3840,7 +3840,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primaryMagazineData[1].contains(frameData[1])  || primaryMagazineData[1].equals("UNI") || primaryMagazineData[1].equals("UNI(RNG)") || primaryMagazineData[1].equals("HSTL: " + frameData[4])){
+                    if (primaryMagazineData[1].contains(frameData[1])  || primaryMagazineData[1].equals("UNIV") || primaryMagazineData[1].equals("UNIV (RNG)") || primaryMagazineData[1].equals("HSTL: " + frameData[4]) || primaryMagazineData[1].equals("KLAS: " + frameData[7])){
                         primaryMagazineIndex = i;
                     }
                 }
@@ -3865,7 +3865,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondaryMagazineData[1].contains(frameData[1]) || secondaryMagazineData.equals("UNI") || secondaryMagazineData[1].equals("UNI(RNG)") || secondaryMagazineData[1].equals("HSTL: " + frameData[4])){
+                    if (secondaryMagazineData[1].contains(frameData[1]) || secondaryMagazineData.equals("UNIV") || secondaryMagazineData[1].equals("UNIV (RNG)") || secondaryMagazineData[1].equals("HSTL: " + frameData[4]) || secondaryMagazineData[1].equals("KLAS: " + frameData[7])){
                         secondaryMagazineIndex = i;
                     }
                 }
@@ -3914,7 +3914,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primaryFireControlSystemData[1].contains(frameData[1]) || primaryFireControlSystemData[1].equals("UNI") || primaryFireControlSystemData[1].equals("UNI(RNG)") || primaryFireControlSystemData[1].equals("HSTL: " + frameData[4])){
+                    if (primaryFireControlSystemData[1].contains(frameData[1]) || primaryFireControlSystemData[1].equals("UNIV") || primaryFireControlSystemData[1].equals("UNIV (RNG)") || primaryFireControlSystemData[1].equals("HSTL: " + frameData[4]) || primaryFireControlSystemData[1].equals("KLAS: " + frameData[7])){
                         primaryFireControlSystemIndex = i;
                     }
                 }
@@ -3939,7 +3939,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondaryFireControlSystemData[1].contains(frameData[1]) || secondaryFireControlSystemData[1].equals("UNI") || secondaryFireControlSystemData[1].equals("UNI(RNG)") || secondaryFireControlSystemData[1].equals("HSTL: " + frameData[4])){
+                    if (secondaryFireControlSystemData[1].contains(frameData[1]) || secondaryFireControlSystemData[1].equals("UNIV") || secondaryFireControlSystemData[1].equals("UNIV (RNG)") || secondaryFireControlSystemData[1].equals("HSTL: " + frameData[4]) || secondaryFireControlSystemData[1].equals("KLAS: " + frameData[7])){
                         secondaryFireControlSystemIndex = i;
                     }
                 }
@@ -3991,7 +3991,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primaryBoltData[1].contains(frameData[1]) || primaryBoltData[1].equals("UNI") || primaryBoltData[1].equals("UNI(RNG)") || primaryBoltData[1].equals("HSTL: " + frameData[4])){
+                    if (primaryBoltData[1].contains(frameData[1]) || primaryBoltData[1].equals("UNIV") || primaryBoltData[1].equals("UNIV (RNG)") || primaryBoltData[1].equals("HSTL: " + frameData[4]) || primaryBoltData[1].equals("KLAS: " + frameData[7])){
                         primaryBoltIndex = i;
                     }
                 }
@@ -4016,7 +4016,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondaryBoltData[1].contains(frameData[1]) || secondaryBoltData[1].equals("UNI") || secondaryBoltData[1].equals("UNI(RNG)") || secondaryBoltData[1].equals("HSTL: " + frameData[4])){
+                    if (secondaryBoltData[1].contains(frameData[1]) || secondaryBoltData[1].equals("UNIV") || secondaryBoltData[1].equals("UNIV (RNG)") || secondaryBoltData[1].equals("HSTL: " + frameData[4]) || secondaryBoltData[1].equals("KLAS: " + frameData[7])){
                         secondaryBoltIndex = i;
                     }
                 }
@@ -4061,7 +4061,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primaryHeatDispersionSystemData[1].contains(frameData[1]) || primaryHeatDispersionSystemData[1].equals("UNI") || primaryHeatDispersionSystemData[1].equals("UNI(RNG)") || primaryHeatDispersionSystemData[1].equals("HSTL: " + frameData[4])){
+                    if (primaryHeatDispersionSystemData[1].contains(frameData[1]) || primaryHeatDispersionSystemData[1].equals("UNIV") || primaryHeatDispersionSystemData[1].equals("UNIV (RNG)") || primaryHeatDispersionSystemData[1].equals("HSTL: " + frameData[4]) || primaryHeatDispersionSystemData[1].equals("KLAS: " + frameData[7])){
                         primaryHeatDispersionSystemIndex = i;
                     }
                 }
@@ -4086,7 +4086,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondaryHeatDispersionSystemData[1].contains(frameData[1]) || secondaryHeatDispersionSystemData[1].equals("UNI") || secondaryHeatDispersionSystemData[1].equals("UNI(RNG)") || secondaryHeatDispersionSystemData[1].equals("HSTL: " + frameData[4])){
+                    if (secondaryHeatDispersionSystemData[1].contains(frameData[1]) || secondaryHeatDispersionSystemData[1].equals("UNIV") || secondaryHeatDispersionSystemData[1].equals("UNIV (RNG)") || secondaryHeatDispersionSystemData[1].equals("HSTL: " + frameData[4]) || secondaryHeatDispersionSystemData[1].equals("KLAS: " + frameData[7])){
                         secondaryHeatDispersionSystemIndex = i;
                     }
                 }
@@ -4132,7 +4132,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primaryGripData[1].contains(frameData[1]) || primaryGripData[1].equals("UNI") || primaryGripData[1].equals("UNI(RNG)") || primaryGripData[1].equals("HSTL: " + frameData[4])){
+                    if (primaryGripData[1].contains(frameData[1]) || primaryGripData[1].equals("UNIV") || primaryGripData[1].equals("UNIV (RNG)") || primaryGripData[1].equals("HSTL: " + frameData[4]) || primaryGripData[1].equals("KLAS: " + frameData[7])){
                         primaryGripIndex = i;
                     }
                 }
@@ -4157,7 +4157,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondaryGripData[1].contains(frameData[1]) || secondaryGripData[1].equals("UNI") || secondaryGripData[1].equals("UNI(RNG)") || secondaryGripData[1].equals("HSTL: " + frameData[4])){
+                    if (secondaryGripData[1].contains(frameData[1]) || secondaryGripData[1].equals("UNIV") || secondaryGripData[1].equals("UNIV (RNG)") || secondaryGripData[1].equals("HSTL: " + frameData[4]) || secondaryGripData[1].equals("KLAS: " + frameData[7])){
                         secondaryGripIndex = i;
                     }
                 }
@@ -4204,7 +4204,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (stockData[1].contains(frameData[1]) || stockData[1].equals("UNI") || stockData[1].equals("UNI(RNG)") || stockData[1].equals("HSTL: " + frameData[4])){
+                    if (stockData[1].contains(frameData[1]) || stockData[1].equals("UNIV") || stockData[1].equals("UNIV (RNG)") || stockData[1].equals("HSTL: " + frameData[4]) || stockData[1].equals("KLAS: " + frameData[7])){
                         stockIndex = i;
                     }
                 }
@@ -4266,7 +4266,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primarySightsData[1].contains(frameData[1]) || primarySightsData[1].equals("UNI") || primarySightsData[1].equals("UNI(RNG)") || primarySightsData[1].equals("HSTL: " + frameData[4])){
+                    if (primarySightsData[1].contains(frameData[1]) || primarySightsData[1].equals("UNIV") || primarySightsData[1].equals("UNIV (RNG)") || primarySightsData[1].equals("HSTL: " + frameData[4]) || primarySightsData[1].equals("KLAS: " + frameData[7])){
                         primarySightsIndex = i;
                     }
                 }
@@ -4291,7 +4291,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondarySightsData[1].contains(frameData[1]) || secondarySightsData[1].equals("UNI") || secondarySightsData[1].equals("UNI(RNG)") || secondarySightsData[1].equals("HSTL: " + frameData[4])){
+                    if (secondarySightsData[1].contains(frameData[1]) || secondarySightsData[1].equals("UNIV") || secondarySightsData[1].equals("UNIV (RNG)") || secondarySightsData[1].equals("HSTL: " + frameData[4]) || secondarySightsData[1].equals("KLAS: " + frameData[7])){
                         secondarySightsIndex = i;
                     }
                 }
@@ -4340,7 +4340,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primaryMuzzleData[1].contains(frameData[1]) || primaryMuzzleData[1].equals("UNI") || primaryMuzzleData[1].equals("UNI(RNG)") || primaryMuzzleData[1].equals("HSTL: " + frameData[4])){
+                    if (primaryMuzzleData[1].contains(frameData[1]) || primaryMuzzleData[1].equals("UNIV") || primaryMuzzleData[1].equals("UNIV (RNG)") || primaryMuzzleData[1].equals("HSTL: " + frameData[4]) || primaryMuzzleData[1].equals("KLAS: " + frameData[7])){
                         primaryMuzzleIndex = i;
                     }
                 }
@@ -4365,7 +4365,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondaryMuzzleData[1].contains(frameData[1]) || secondaryMuzzleData[1].equals("UNI") || secondaryMuzzleData[1].equals("UNI(RNG)") || secondaryMuzzleData[1].equals("HSTL: " + frameData[4])){
+                    if (secondaryMuzzleData[1].contains(frameData[1]) || secondaryMuzzleData[1].equals("UNIV") || secondaryMuzzleData[1].equals("UNIV (RNG)") || secondaryMuzzleData[1].equals("HSTL: " + frameData[4]) || secondaryMuzzleData[1].equals("KLAS: " + frameData[7])){
                         secondaryMuzzleIndex = i;
                     }
                 }
@@ -4417,7 +4417,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primaryLimbsData[1].contains(frameData[1]) || primaryLimbsData[1].equals("UNI") || primaryLimbsData[1].equals("UNI(RNG)") || primaryLimbsData[1].equals("HSTL: " + frameData[4])){
+                    if (primaryLimbsData[1].contains(frameData[1]) || primaryLimbsData[1].equals("UNIV") || primaryLimbsData[1].equals("UNIV (RNG)") || primaryLimbsData[1].equals("HSTL: " + frameData[4]) || primaryLimbsData[1].equals("KLAS: " + frameData[7])){
                         primaryLimbsIndex = i;
                     }
                 }
@@ -4442,7 +4442,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondaryLimbsData[1].contains(frameData[1]) || secondaryLimbsData[1].equals("UNI") || secondaryLimbsData[1].equals("UNI(RNG)") || secondaryLimbsData[1].equals("HSTL: " + frameData[4])){
+                    if (secondaryLimbsData[1].contains(frameData[1]) || secondaryLimbsData[1].equals("UNIV") || secondaryLimbsData[1].equals("UNIV (RNG)") || secondaryLimbsData[1].equals("HSTL: " + frameData[4]) || secondaryLimbsData[1].equals("KLAS: " + frameData[7])){
                         secondaryLimbsIndex = i;
                     }
                 }
@@ -4487,7 +4487,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (primaryBowstringData[1].contains(frameData[1]) || primaryBowstringData[1].equals("UNI") || primaryBowstringData[1].equals("UNI(RNG)") || primaryBowstringData[1].equals("HSTL: " + frameData[4])){
+                    if (primaryBowstringData[1].contains(frameData[1]) || primaryBowstringData[1].equals("UNIV") || primaryBowstringData[1].equals("UNIV (RNG)") || primaryBowstringData[1].equals("HSTL: " + frameData[4]) || primaryBowstringData[1].equals("KLAS: " + frameData[7])){
                         primaryBowstringIndex = i;
                     }
                 }
@@ -4512,7 +4512,7 @@ public class DaVG {
                     } catch ( IOException tagError ) {
                         tagError.printStackTrace();
                     }
-                    if (secondaryBowstringData[1].contains(frameData[1]) || secondaryBowstringData[1].equals("UNI") || secondaryBowstringData[1].equals("UNI(RNG)") || secondaryBowstringData[1].equals("HSTL: " + frameData[4])){
+                    if (secondaryBowstringData[1].contains(frameData[1]) || secondaryBowstringData[1].equals("UNIV") || secondaryBowstringData[1].equals("UNIV (RNG)") || secondaryBowstringData[1].equals("HSTL: " + frameData[4]) || secondaryBowstringData[1].equals("KLAS: " + frameData[7])){
                         secondaryBowstringIndex = i;
                     }
                 }
