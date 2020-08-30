@@ -27,7 +27,7 @@ public class DaVG {
 
 
     public static void main( String[] args ) throws InterruptedException, IOException {
-        VersionNo = "R082320"; //Version Number
+        VersionNo = "R083020"; //Version Number
         debugMode = false; //Debug Mode (true/false)
         cutscenesEnabled = true; //Cutscenes (enabled = true, disabled = false)
         LongDelay = 3; //length of LongDelay in seconds
